@@ -1,0 +1,209 @@
+import { useEffect } from 'react';
+import { TRIAL_NOTEBOOK } from '../data/parts';
+
+/**
+ * The participant-facing setup guide, transcribed from `explanation.md`
+ * (Luca, 2026-09-25) with its wording kept. The spawn values are those of
+ * Carlos's screenshot of the spawn page, 2026-09-25; the TOML path is on the
+ * page on purpose (Luca, 2026-09-26). Check the path before each course day:
+ * it sits in a course account's scratch, where unused files are deleted after
+ * 30 days.
+ */
+
+const HUB = 'https://jupyter-santis.cscs.ch/hub/spawn';
+const TOML = '/capstor/scratch/cscs/course_00776/jupyter/pytorch-cscs-jlab.toml';
+const IMAGE = '/capstor/store/cscs/cscs/jupyter/pytorch/pt-26.05-py3-jlab.sqsh';
+const SPAWN_SCREENSHOT = `${import.meta.env.BASE_URL}guides/img/jupyter-spawn.png`;
+
+const INSTALL_SNIPPET = `import importlib, subprocess, sys
+for module, package in (("torchvision", "torchvision"), ("sklearn", "scikit-learn")):
+    try:
+        importlib.import_module(module)
+    except ImportError:
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", package], check=False)`;
+
+export function SetupPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <article className="section">
+      <div className="container">
+        <header className="wdetail-head">
+          <div className="wdetail-head__eyebrow">
+            <span className="wdetail-head__num">Setup</span>
+          </div>
+          <h1>Running a notebook on Santis</h1>
+          <p className="wdetail-head__theme">
+            From your CSCS account to a notebook running on one GH200
+          </p>
+        </header>
+
+        <div className="guide">
+          <p className="guide__lead">
+            Every coding exercise of this course runs on Santis, the Alps cluster at CSCS, inside a
+            JupyterLab session with one GH200 GPU. This page takes you from your CSCS account to the
+            running notebook, and says what the session already contains, so you know what a
+            notebook can import and what it has to install. Do it once before the first day; the
+            same steps hold for every exercise afterwards.
+          </p>
+
+          <h2>
+            <span>1</span>Your CSCS account
+          </h2>
+          <p>
+            You need the course account CSCS emailed you: a username of the form <code>course_</code>{' '}
+            plus five digits, the password you set, and an authenticator app linked at your first
+            sign-in. Sort that out before the session; everything below assumes you can sign in.
+          </p>
+
+          <h2>
+            <span>2</span>Start a JupyterLab session
+          </h2>
+          <p>Open the hub and sign in:</p>
+          <pre>
+            <code>
+              <a href={HUB} target="_blank" rel="noopener noreferrer">
+                {HUB}
+              </a>
+            </code>
+          </pre>
+          <p>
+            Sign in with the <strong>course account</strong> (<code>course_</code> plus five digits),
+            not with any other CSCS account you may have: only the course account belongs to the
+            project that pays for the GPU, and the form below will not submit with another one.
+          </p>
+          <p>Fill in the form as in the screenshot below.</p>
+          <ul>
+            <li>
+              <strong>Environment:</strong> choose <em>Custom Container</em>.
+            </li>
+            <li>
+              <strong>Path to CE toml file:</strong> paste
+              <pre>
+                <code>{TOML}</code>
+              </pre>
+            </li>
+            <li>
+              <strong>GPUs:</strong> 1.
+            </li>
+            <li>
+              <strong>Runtime:</strong> 4h.
+            </li>
+            <li>
+              <strong>Advanced settings:</strong> leave closed.
+            </li>
+          </ul>
+          <p>
+            The launch summary on the right should read: environment <em>container</em>, GPUs 1,
+            runtime 4:00:00, partition <em>normal</em>, account <code>ai-tutorial-course2026-cscs</code>.
+            Press <strong>Launch session</strong>. The page waits while the cluster schedules your
+            job, usually under two minutes, then JupyterLab opens.
+          </p>
+          <p>
+            What you asked for: the container is a ready-made image with PyTorch, CUDA and
+            JupyterLab, and the TOML file tells the hub where to find it. One GPU is one GH200 chip.
+            The runtime is the wall-clock limit of the session: after four hours it is killed, and
+            your files stay on disk.
+          </p>
+          <figure className="guide__figure">
+            <img src={SPAWN_SCREENSHOT} alt="The JupyterHub spawn page for Santis, filled in" />
+            <figcaption>The spawn page, filled in.</figcaption>
+          </figure>
+
+          <h2>
+            <span>3</span>What the container gives you
+          </h2>
+          <p>The TOML file you pasted points the hub at an image CSCS keeps on shared storage:</p>
+          <pre>
+            <code>{IMAGE}</code>
+          </pre>
+          <p>
+            It is NVIDIA's PyTorch container, release 26.05, with JupyterLab added. Without
+            installing anything, a notebook can import PyTorch built for the GH200, torchvision,
+            NumPy and the rest of what that image ships. The full list is one cell away:
+          </p>
+          <pre>
+            <code>!pip list</code>
+          </pre>
+          <p>
+            Anything else is a pip install away. The image is writable, so a plain{' '}
+            <code>pip install</code> in a cell works and lands inside the container. The container
+            is rebuilt at every session, so that install is gone next time and takes a minute to
+            redo; add <code>--user</code> and the package lands in <code>~/.local</code> in your
+            home directory and stays. The course notebooks check before installing, so the same
+            cell is right on a laptop, on Colab and here:
+          </p>
+          <pre>
+            <code>{INSTALL_SNIPPET}</code>
+          </pre>
+          <p>
+            Inside the session you see your home directory, <code>/capstor</code> (scratch and
+            store) and <code>/iopsstor</code>, and Slurm is mounted, so <code>srun</code> and{' '}
+            <code>sbatch</code> work from a JupyterLab terminal. The container sets{' '}
+            <code>HF_HOME</code> to <code>/capstor/scratch/cscs/$USER/hf_cache</code>, so anything
+            Hugging Face downloads lands on scratch, not in your 50 GB home. Put your own datasets
+            and checkpoints on <code>$SCRATCH</code> too; files unused for 30 days are deleted there.
+          </p>
+          <p>
+            Some exercises ship a helper file next to the notebook, <code>&lt;name&gt;_setup.py</code>,
+            holding the plumbing: imports and installs, data loading, grading, display helpers. The
+            notebook then imports it in one line and shows only the code that teaches something.
+            When you receive such a pair, the two files must sit in the same folder.
+          </p>
+
+          <h2>
+            <span>4</span>Put the files in JupyterLab
+          </h2>
+          <p>
+            Download the notebook from this site, and any helper file shipped with it, to your
+            laptop. Drag them into the file browser on the left of JupyterLab, into the same folder:
+            the notebook imports the helper from its own folder.
+          </p>
+
+          <h2>
+            <span>5</span>Run the notebook
+          </h2>
+          <p>
+            Double-click the notebook. Run the cells top to bottom with Shift+Enter, or use Run →
+            Run All Cells. Collapsed cells are plumbing: run them like any other, and click their
+            ··· bar if you want to read the code. If a setup cell asks you to restart the kernel
+            after installing packages, do so (Kernel → Restart Kernel…) and run the cell again.
+          </p>
+
+          <div className="notice">
+            <h3 className="notice__title">Try it now: a CNN on one GH200</h3>
+            <p>
+              A small notebook that follows the pattern of every course notebook: it probes what the
+              container already has, installs the little that is missing, puts a dataset on scratch
+              and trains a convolutional network on the GPU. Two epochs on FashionMNIST take well
+              under a minute. If it runs top to bottom, your session is ready for the course.
+            </p>
+            <p>
+              Download it, drag it into JupyterLab as in step 4, and run it as in step 5.
+            </p>
+            <a className="btn" href={TRIAL_NOTEBOOK} download="">
+              Trial notebook (Notebook ↓)
+            </a>
+          </div>
+
+          <h2>
+            <span>6</span>When you are done
+          </h2>
+          <p>
+            File → Hub Control Panel → <strong>Stop My Server</strong> frees the GPU for someone
+            else. The session ends by itself after four hours anyway.
+          </p>
+          <p>
+            Stuck? Ask a teaching assistant. CSCS's own documentation is at{' '}
+            <a href="https://docs.cscs.ch" target="_blank" rel="noopener noreferrer">
+              docs.cscs.ch
+            </a>
+            .
+          </p>
+        </div>
+      </div>
+    </article>
+  );
+}
