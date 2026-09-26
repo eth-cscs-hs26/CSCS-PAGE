@@ -51,7 +51,7 @@ TOML path, account name) are on the Setup page by Luca's decision of 2026-09-26.
 ## Deployment
 
 Push to `main` deploys. The one-time setting **Settings → Pages → Source: GitHub Actions** was
-still to be clicked by Luca when this file was written (2026-09-26). Build locally with
+set by Luca on 2026-09-26, and the first deploy succeeded the same day. Build locally with
 `npm run build` before pushing; it is the only correctness gate.
 
 ## CLAUDE.md maintenance protocol
