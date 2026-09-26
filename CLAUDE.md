@@ -1,4 +1,4 @@
-# `CSCS-PAGE` — the course website of the CSCS AI Tutorials 2026
+# `CSCS-PAGE` — the course website of the CSCS Workshop 2026
 
 Public repository `github.com/eth-cscs-hs26/CSCS-PAGE`, published by GitHub Pages at
 https://eth-cscs-hs26.github.io/CSCS-PAGE/. Created by Luca on 2026-09-26 at Carlos's

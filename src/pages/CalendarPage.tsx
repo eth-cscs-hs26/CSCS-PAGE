@@ -144,7 +144,7 @@ export function CalendarPage() {
                 </div>
                 <div className="agenda__what">
                   <Link to={`/part/${p.id}`}>
-                    CSCS AI Tutorials, {partLabel(p)}: {p.title}
+                    CSCS Workshop, {partLabel(p)}: {p.title}
                   </Link>
                 </div>
                 <span />

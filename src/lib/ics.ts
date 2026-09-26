@@ -21,10 +21,10 @@ export function buildICS(events: CourseEvent[]): string {
   const lines: string[] = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//CSCS AI Tutorials 2026//ETH Zurich and CSCS//EN',
+    'PRODID:-//CSCS Workshop 2026//ETH Zurich and CSCS//EN',
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
-    'X-WR-CALNAME:CSCS AI Tutorials 2026',
+    'X-WR-CALNAME:CSCS Workshop 2026',
     'X-WR-TIMEZONE:Europe/Zurich',
   ];
 
@@ -47,7 +47,7 @@ export function buildICS(events: CourseEvent[]): string {
 }
 
 /** Trigger a download of the events as an .ics file. */
-export function downloadICS(events: CourseEvent[], filename = 'cscs-ai-tutorials-2026.ics'): void {
+export function downloadICS(events: CourseEvent[], filename = 'cscs-workshop-2026.ics'): void {
   const blob = new Blob([buildICS(events)], { type: 'text/calendar;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
