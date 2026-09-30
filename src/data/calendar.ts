@@ -22,7 +22,7 @@ export const partEvents: CourseEvent[] = parts.flatMap((p) => {
   return [
     {
       uid: `cscs-${p.id}`,
-      title: `CSCS Workshop, ${partLabel(p)}: ${p.title}`,
+      title: `CSCS AI Tutorials, ${partLabel(p)}: ${p.title}`,
       start: a.dateISO,
       end: b.dateISO,
       partId: p.id,

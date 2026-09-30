@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "CSCS Workshop 2026 course website (ETH Zürich and CSCS)",
+  "description": "AI Tutorials: Machine Learning and LLM Development, course website (ETH Zürich and CSCS)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

@@ -1,4 +1,4 @@
-# `CSCS-PAGE` — the course website of the CSCS Workshop 2026
+# `CSCS-PAGE` — the course website of AI Tutorials: Machine Learning and LLM Development
 
 Public repository `github.com/eth-cscs-hs26/CSCS-PAGE`, published by GitHub Pages at
 https://eth-cscs-hs26.github.io/CSCS-PAGE/. Created by Luca on 2026-09-26 at Carlos's
@@ -30,6 +30,14 @@ TOML path, account name) are on the Setup page by Luca's decision of 2026-09-26.
 
 ## Content state
 
+- **Title corrected 2026-09-30.** The site had shown "CSCS Workshop 2026" everywhere since
+  its creation; that was never the course's name. The official title, SETTLED in
+  `cscs-hs26/form-draft.md` for CSCS's own webpage and intranet publication, is "AI
+  Tutorials: Machine Learning and LLM Development"; it now appears verbatim in the page
+  title, meta description, header, hero, footer, README and this file. The short form
+  already used in Carlos's own slide decks, "CSCS AI Tutorials", is kept for the
+  per-event calendar titles and the `.ics` export (`PRODID`, `X-WR-CALNAME`, download
+  filename), where the full title would be unwieldy.
 - **Schedule.** Transcribed on 2026-09-26 from the syllabus grid Carlos sent as an image
   (`CSCS/Script.png` in Luca's workspace): three parts of two consecutive days, first day
   10:00 to 17:30, second 09:00 to 16:30. Part I is 6 and 7 October 2026, Part II 20 and 21

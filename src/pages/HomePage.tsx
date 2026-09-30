@@ -10,7 +10,7 @@ export function HomePage() {
         <div className="container">
           <div className="hero__inner">
             <p className="eyebrow">ETH Zürich · CSCS · Autumn 2026</p>
-            <h1>CSCS Workshop</h1>
+            <h1>AI Tutorials: Machine Learning and LLM Development</h1>
             <div className="hero__rule" />
             <p className="hero__lead">
               Machine learning and AI for scientists and engineers who compute on Alps: three parts

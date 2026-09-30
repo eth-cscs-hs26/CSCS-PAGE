@@ -1,6 +1,7 @@
-# CSCS Workshop 2026 · course website
+# AI Tutorials: Machine Learning and LLM Development · course website
 
-Course website for the **CSCS Workshop 2026** (ETH Zürich and CSCS, autumn 2026), live at
+Course website for **AI Tutorials: Machine Learning and LLM Development** (ETH Zürich and
+CSCS, autumn 2026), live at
 https://eth-cscs-hs26.github.io/CSCS-PAGE/.
 
 A static, Moodle-style site: the three parts of the course, each with the agenda of its two

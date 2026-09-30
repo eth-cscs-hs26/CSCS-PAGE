@@ -8,7 +8,7 @@ export function Header() {
         <Link to="/" className="brand">
           <EthLogo className="brand__eth" />
           <span className="brand__divider" />
-          <span className="brand__course">CSCS Workshop 2026</span>
+          <span className="brand__course">AI Tutorials: Machine Learning and LLM Development</span>
         </Link>
         <nav className="site-nav">
           <NavLink to="/" end className="site-nav__link">

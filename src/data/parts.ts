@@ -1,7 +1,7 @@
 import type { Part, Session } from '../types';
 
 /**
- * Single source of truth for the CSCS Workshop 2026 content.
+ * Single source of truth for the CSCS AI Tutorials 2026 content.
  *
  * SCHEDULE FACTS AND WHERE THEY COME FROM. Transcribed on 2026-09-26 from the
  * syllabus grid Carlos sent as an image (Script.png): three parts, each two
