@@ -15,7 +15,7 @@ TOML path, account name) are on the Setup page by Luca's decision of 2026-09-26.
 
 | File | Role |
 |---|---|
-| `src/data/parts.ts` | **Source of truth for all content.** Three `Part` objects, each two `Day`s of sessions, plus a `resources` list. Link helpers `deck`, `exercise`, `guide`, placeholder `SOON`. Every schedule fact and its source is in its header comment. |
+| `src/data/parts.ts` | **Source of truth for all content.** Three `Part` objects, each two `Day`s of sessions, plus a `resources` list. Link helpers `deck`, `exercise`, `guide`, `viz`, placeholder `SOON`. Every schedule fact and its source is in its header comment. |
 | `src/types.ts` | The `Part`, `Day`, `Session`, `Resource` shapes. |
 | `src/pages/SetupPage.tsx` | The participant guide to the CSCS JupyterHub for Santis, transcribed on 2026-09-26 from Luca's `explanation.md` (2026-09-25) with its wording kept. Spawn values in constants at the top. Ends with the trial notebook. |
 | `src/pages/HomePage.tsx`, `PartPage.tsx`, `CalendarPage.tsx` | Overview with the three part cards, one part's agenda and materials, the month grid with `.ics` and Google export. |
@@ -25,7 +25,8 @@ TOML path, account name) are on the Setup page by Luca's decision of 2026-09-26.
 | `src/index.css` | All styling, plain CSS, the ETH flat style of the BMAI site plus the `.srow--topic` and `.guide` blocks. |
 | `public/exercises/setup/santis-trial.ipynb` | The trial notebook: copy of Luca's `example.ipynb` (2026-09-25), a CNN on FashionMNIST that probes the container, installs what is missing, stores data on scratch and trains on the GPU. Its intro cell points at the Setup page. |
 | `public/guides/img/jupyter-spawn.png` | Carlos's screenshot of the spawn page, 2026-09-25, shown on the Setup page. |
-| `public/slides/part<n>/`, `public/exercises/part<n>/` | Where slides and exercise files go once they exist. Empty so far: every material link is `SOON`. |
+| `public/viz/part1/wuggish/` | **DRAFT.** The Wuggish attention game of the Day 2 lecture "Attention and transformers": `index.html`, `css/`, `js/` and `data/`, copied on 2026-10-01 from `cscs-hs26/wuggish-game/` (imported from CAS BMAI weekend 2), whose `CLAUDE.md` holds the provenance and the copy command. A browser-only page: it makes no network request, stores only the light or dark theme, and declares `noindex`. Linked as `viz(1, 'wuggish')` plus `?dev=0`, which hides the fast-forward button that skips to the reveal. |
+| `public/slides/part<n>/`, `public/exercises/part<n>/` | Where slides and exercise files go once they exist. Empty so far: every slide and exercise link is `SOON`. |
 | `.github/workflows/deploy.yml` | Builds on every push to `main` and publishes `dist/` to GitHub Pages. |
 
 ## Content state
@@ -54,7 +55,11 @@ TOML path, account name) are on the Setup page by Luca's decision of 2026-09-26.
 - **DRAFT:** the Setup page, awaiting Carlos's review and a walk-through on the live hub. The
   TOML it names sits in one course account's `$SCRATCH`, where files unused for 30 days are
   deleted, and course accounts close on 22 October 2026. Check it before each course day.
-- No material is uploaded yet. The Setup page and the trial notebook are the only real links.
+- No slides or exercises are uploaded yet. The real links are the Setup page, the trial notebook
+  and, since 2026-10-01, the Wuggish game (**DRAFT**, Carlos asked for it that day): a chip on the
+  Part I, Day 2, 10:15 row "Attention and transformers" and a "Visualizations" entry in Part I's
+  Materials list. The 10:15 deck points to it with a QR frame. Whether the room plays it in class
+  is **OPEN** (details in `cscs-hs26/wuggish-game/CLAUDE.md`).
 
 ## Deployment
 

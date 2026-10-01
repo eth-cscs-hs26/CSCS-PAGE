@@ -51,11 +51,38 @@ export const exercise = (folder: string, file: string): string =>
  */
 export const guide = (file: string): string => `${import.meta.env.BASE_URL}guides/${file}`;
 
+/**
+ * An interactive VISUALIZATION hosted by THIS site, from
+ * `public/viz/part<n>/<name>/`: a folder rather than one file, so this points
+ * at its index.html, or at `page` for a folder with several pages.
+ *
+ * Same reasoning as deck(): the course repository is private, and serving the
+ * page from here needs no new repository and no visibility change. Each
+ * visualization is browser only, loads no library and makes no network
+ * request, so it works from this subpath exactly as it does from a file:// URL
+ * on a laptop. The sibling BMAI site does the same under `viz/we<n>/`.
+ */
+export const viz = (n: number, name: string, page = 'index.html'): string =>
+  `${import.meta.env.BASE_URL}viz/part${n}/${name}/${page}`;
+
 /** The Setup page of this site, for a resources list. */
 export const SETUP_PAGE = '#/setup';
 
 /** The trial notebook the Setup page ends with. */
 export const TRIAL_NOTEBOOK = exercise('setup', 'santis-trial.ipynb');
+
+/**
+ * The Wuggish attention game of the Day 2 lecture "Attention and transformers",
+ * from `public/viz/part1/wuggish/`. Its source is `cscs-hs26/wuggish-game/`,
+ * imported on 2026-10-01 from CAS BMAI weekend 2; only index.html, css, js and
+ * data are copied here, the three folders the page loads.
+ *
+ * `?dev=0` hides the game's fast-forward button, which jumps straight to the
+ * reveal with the game counted as solved. It is on by default so the lecturer
+ * can rehearse the reveal, and a participant who finds it skips the point of
+ * the game, so every link a participant gets carries `?dev=0`.
+ */
+const WUGGISH_GAME = `${viz(1, 'wuggish')}?dev=0`;
 
 export const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 
@@ -123,7 +150,12 @@ export const parts: Part[] = [
             topic: 'End-to-End LLM Development Workflow',
           },
           coffee('10:00'),
-          { time: '10:15', title: 'Attention and transformers', type: 'lecture' },
+          {
+            time: '10:15',
+            title: 'Attention and transformers',
+            type: 'lecture',
+            links: [{ label: 'Wuggish attention game', url: WUGGISH_GAME }],
+          },
           { time: '11:15', title: 'Coding exercise', type: 'exercise' },
           lunch('12:00'),
           {
@@ -149,6 +181,11 @@ export const parts: Part[] = [
       { label: 'Attention and transformers', url: SOON, group: 'Lecture slides' },
       { label: 'SFT and LoRA', url: SOON, group: 'Lecture slides' },
       { label: 'Inference methods', url: SOON, group: 'Lecture slides' },
+      {
+        label: 'The Wuggish attention game: bind the words yourself (Day 2, attention and transformers)',
+        url: WUGGISH_GAME,
+        group: 'Visualizations',
+      },
       { label: 'Day 1 morning exercise', url: SOON, group: 'Coding exercises' },
       { label: 'Day 1 afternoon exercise', url: SOON, group: 'Coding exercises' },
       { label: 'Day 2 morning exercise', url: SOON, group: 'Coding exercises' },
