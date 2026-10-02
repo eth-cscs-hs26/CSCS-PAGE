@@ -49,9 +49,11 @@ Everything participants download is served by this site, because the course repo
 private. Drop the file into `public/` and link it:
 
 - slides go to `public/slides/part<n>/`, linked with `deck(n, file)`;
-- notebooks and their helper `.py` files go to `public/exercises/part<n>/`, linked with
-  `exercise('part<n>', file)`. A notebook link downloads the file; the participant drags it
-  into JupyterLab on Santis as the Setup page describes;
+- exercises go to `public/exercises/part<n>/<exercise>.zip`, one zip per exercise holding its
+  folder (notebook plus helper), named like the folder on the cluster and linked with
+  `exercise('part<n>', '<exercise>.zip')`, so a participant downloads once. The zip is
+  dragged into JupyterLab on Santis and unpacked there, or the same folder is copied from
+  the cluster, as the Setup page describes;
 - interactive pages that run in the browser (a folder with its own `index.html`, its scripts and
   data, and no network request) go to `public/viz/part<n>/<name>/`, linked with `viz(n, name)`.
   Put the link on the session's `links` list so it shows as a chip on the agenda, and again in

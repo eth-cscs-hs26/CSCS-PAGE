@@ -128,7 +128,7 @@ export function PartPage() {
           <h2>Materials</h2>
           <p className="resources__note">
             {hasRealResources
-              ? 'Slides and notebooks for this part. Every notebook runs in your JupyterLab session on Santis: download it and drag it into the file browser, as the Setup page describes.'
+              ? 'Slides and exercises for this part. Every exercise runs in your JupyterLab session on Santis: download its folder here as a zip and unpack it in the session, or copy the same folder from the cluster in a terminal, as the Setup page describes.'
               : 'Materials for this part will be linked here once they are uploaded.'}
           </p>
           {isGrouped ? (

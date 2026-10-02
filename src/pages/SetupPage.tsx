@@ -14,6 +14,10 @@ const HUB = 'https://jupyter-santis.cscs.ch/hub/spawn';
 const TOML = '/capstor/scratch/cscs/course_00776/jupyter/pytorch-cscs-jlab.toml';
 const IMAGE = '/capstor/store/cscs/cscs/jupyter/pytorch/pt-26.05-py3-jlab.sqsh';
 const SPAWN_SCREENSHOT = `${import.meta.env.BASE_URL}guides/img/jupyter-spawn.png`;
+/** The exercise folders staged on the course account's scratch, one per exercise. */
+const EXERCISES_DIR = '/capstor/scratch/cscs/course_00776/exercises';
+const COPY_LINE = `cp -r ${EXERCISES_DIR}/sft_lora ~/`;
+const UNZIP_LINE = 'unzip sft_lora.zip';
 
 const INSTALL_SNIPPET = `import importlib, subprocess, sys
 for module, package in (("torchvision", "torchvision"), ("sklearn", "scikit-learn")):
@@ -140,8 +144,7 @@ export function SetupPage() {
           </pre>
           <p>
             Inside the session you see your home directory, <code>/capstor</code> (scratch and
-            store) and <code>/iopsstor</code>, and Slurm is mounted, so <code>srun</code> and{' '}
-            <code>sbatch</code> work from a JupyterLab terminal. The container sets{' '}
+            store) and <code>/iopsstor</code>. The container sets{' '}
             <code>HF_HOME</code> to <code>/capstor/scratch/cscs/$USER/hf_cache</code>, so anything
             Hugging Face downloads lands on scratch, not in your 50 GB home. Put your own datasets
             and checkpoints on <code>$SCRATCH</code> too; files unused for 30 days are deleted there.
@@ -154,12 +157,37 @@ export function SetupPage() {
           </p>
 
           <h2>
-            <span>4</span>Put the files in JupyterLab
+            <span>4</span>Get the exercise files
           </h2>
           <p>
-            Download the notebook from this site, and any helper file shipped with it, to your
-            laptop. Drag them into the file browser on the left of JupyterLab, into the same folder:
-            the notebook imports the helper from its own folder.
+            Every exercise is one folder: the notebook and a helper file it imports, which must
+            stay together. There are two ways to get that folder into your session.
+          </p>
+          <p>
+            <strong>From this site.</strong> Each exercise is one download, a zip of its folder, on
+            the Materials list of its part. Drag the zip into the file browser on the left of
+            JupyterLab, open a terminal there (File → New → Terminal) and unpack it:
+          </p>
+          <pre>
+            <code>{UNZIP_LINE}</code>
+          </pre>
+          <p>
+            The folder appears in the file browser; open the notebook from inside it. If you
+            prefer to unpack on your laptop, select both files inside the unpacked folder and drag
+            them in together, into one folder of their own: the file browser does not accept a
+            dropped folder, only files.
+          </p>
+          <p>
+            <strong>From the cluster, with no download.</strong> In the same terminal, copy the
+            exercise folder into your home directory:
+          </p>
+          <pre>
+            <code>{COPY_LINE}</code>
+          </pre>
+          <p>
+            Replace <code>sft_lora</code> (Day 2 afternoon) with <code>llm_from_scratch</code> for
+            the Day 2 morning exercise. Either way, copying or unpacking a second time overwrites
+            your edits, so rename the old folder first if you want a clean restart.
           </p>
 
           <h2>

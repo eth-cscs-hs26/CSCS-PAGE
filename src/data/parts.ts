@@ -7,8 +7,10 @@ import type { Part, Session } from '../types';
  * syllabus grid Carlos sent as an image (Script.png): three parts, each two
  * consecutive days, the first day 10:00 to 17:30 and the second 09:00 to 16:30.
  * Part I is 6 and 7 October 2026, Part II is 20 and 21 October 2026, Part III
- * has no dates yet. Coding-exercise rows carry the grid's plain "Coding
- * exercise"; the ScheduleTable prefixes "CX". No rooms are known yet.
+ * has no dates yet. Part I's exercise rows carry the names Luca gave on
+ * 2026-10-02 (Pytorch with SLURM, Claude Code and GEPA, LLM from scratch, SFT
+ * and LoRA); the other parts' rows carry the grid's plain "Coding exercise".
+ * The ScheduleTable prefixes "CX" to every exercise row. No rooms are known yet.
  *
  * To update content, edit the objects below. Each part has two days plus a
  * `resources` list.
@@ -84,6 +86,19 @@ export const TRIAL_NOTEBOOK = exercise('setup', 'santis-trial.ipynb');
  */
 const WUGGISH_GAME = `${viz(1, 'wuggish')}?dev=0`;
 
+/**
+ * The Part I coding exercises, one zip each in `public/exercises/part1/`, named
+ * like the exercise's folder on the cluster
+ * (`/capstor/scratch/cscs/course_00776/exercises/<exercise>/`, the copy line on
+ * the Setup page). Unpacking a zip gives that folder: the notebook plus the
+ * helper it imports, which must stay together. One link per exercise, so a
+ * participant downloads once (Luca, 2026-10-02). Sources: `cscs-hs26` branch
+ * `cx-sft` (SFT and LoRA) and `cscs-hs26/cx-llms/` on main. The two Day 1
+ * exercises are not on the site yet. DRAFT.
+ */
+const CX_LLM_ZIP = exercise('part1', 'llm_from_scratch.zip');
+const CX_SFT_ZIP = exercise('part1', 'sft_lora.zip');
+
 export const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 
 /** "Part I", "Part II", … */
@@ -124,7 +139,7 @@ export const parts: Part[] = [
           },
           coffee('11:00'),
           { time: '11:15', title: 'PyTorch with slurm and clusters', type: 'lecture' },
-          { time: '12:15', title: 'Coding exercise', type: 'exercise' },
+          { time: '12:15', title: 'Pytorch with SLURM', type: 'exercise' },
           lunch('13:00'),
           {
             time: '14:00',
@@ -134,7 +149,7 @@ export const parts: Part[] = [
           },
           coffee('15:00'),
           { time: '15:15', title: 'Claude Code II / Prompt optimization / GEPA', type: 'lecture' },
-          { time: '16:15', title: 'Coding exercise', type: 'exercise' },
+          { time: '16:15', title: 'Claude Code and GEPA', type: 'exercise' },
           endOfDay('17:30'),
         ],
       },
@@ -156,7 +171,12 @@ export const parts: Part[] = [
             type: 'lecture',
             links: [{ label: 'Wuggish attention game', url: WUGGISH_GAME }],
           },
-          { time: '11:15', title: 'Coding exercise', type: 'exercise' },
+          {
+            time: '11:15',
+            title: 'LLM from scratch',
+            type: 'exercise',
+            links: [{ label: 'Exercise folder', url: CX_LLM_ZIP }],
+          },
           lunch('12:00'),
           {
             time: '13:00',
@@ -166,7 +186,12 @@ export const parts: Part[] = [
           },
           coffee('14:00'),
           { time: '14:15', title: 'Inference methods', type: 'lecture' },
-          { time: '15:15', title: 'Coding exercise', type: 'exercise' },
+          {
+            time: '15:15',
+            title: 'SFT and LoRA',
+            type: 'exercise',
+            links: [{ label: 'Exercise folder', url: CX_SFT_ZIP }],
+          },
           endOfDay('16:30'),
         ],
       },
@@ -186,10 +211,10 @@ export const parts: Part[] = [
         url: WUGGISH_GAME,
         group: 'Visualizations',
       },
-      { label: 'Day 1 morning exercise', url: SOON, group: 'Coding exercises' },
-      { label: 'Day 1 afternoon exercise', url: SOON, group: 'Coding exercises' },
-      { label: 'Day 2 morning exercise', url: SOON, group: 'Coding exercises' },
-      { label: 'Day 2 afternoon exercise', url: SOON, group: 'Coding exercises' },
+      { label: 'CX Pytorch with SLURM (Day 1 morning)', url: SOON, group: 'Coding exercises' },
+      { label: 'CX Claude Code and GEPA (Day 1 afternoon)', url: SOON, group: 'Coding exercises' },
+      { label: 'CX LLM from scratch (Day 2 morning)', url: CX_LLM_ZIP, group: 'Coding exercises' },
+      { label: 'CX SFT and LoRA (Day 2 afternoon)', url: CX_SFT_ZIP, group: 'Coding exercises' },
     ],
   },
   {
