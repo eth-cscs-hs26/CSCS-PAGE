@@ -87,6 +87,17 @@ export const TRIAL_NOTEBOOK = exercise('setup', 'santis-trial.ipynb');
 const WUGGISH_GAME = `${viz(1, 'wuggish')}?dev=0`;
 
 /**
+ * The Square One quiz show of the Day 1 lecture "Intro to SLT and PyTorch", from
+ * `public/viz/part1/square-root-show/`. Its source is `cscs-hs26/square-root-show/`,
+ * imported on 2026-10-05 from Carlos's Foundations of AI repository, where it opened
+ * that day; only index.html, css, js and vendor are copied here, the folders the page
+ * loads, byte for byte as FAI's public site serves them. The 10:00 deck prints this
+ * address, and a QR code made from it, on its frame "Try it: Square One", so the two
+ * must change together.
+ */
+const SQUARE_ONE = viz(1, 'square-root-show');
+
+/**
  * The Part I coding exercises, one zip each in `public/exercises/part1/`, named
  * like the exercise's folder on the cluster
  * (`/capstor/scratch/cscs/course_00776/exercises/<exercise>/`, the copy line on
@@ -104,7 +115,8 @@ const CX_SFT_ZIP = exercise('part1', 'sft_lora.zip');
  * copies of the decks as they are projected in the room, so every click is a
  * page of its own and the page numbers run ahead of the slide number in the
  * footer. Copied on 2026-10-05, at Carlos's request, from the built PDFs of
- * `cscs-hs26` at its commit 208ec44 (CLAUDE.md lists each file's source). One
+ * `cscs-hs26` at its commit 208ec44, except the first deck, copied again the same
+ * day at dc20dbf with its two FAI frames (CLAUDE.md lists each file's source). One
  * constant per deck, so a session's "Slides" chip and its Materials entry carry
  * the same URL and cannot drift apart. The 15:15 session of Day 1 holds two
  * decks, OPRO and GEPA, so it has two chips and two entries. The decks of Parts
@@ -159,7 +171,10 @@ export const parts: Part[] = [
             title: 'Intro to SLT and PyTorch',
             type: 'lecture',
             topic: 'Introduction to Machine Learning on HPC',
-            links: [{ label: 'Slides', url: SLIDES.introSlt }],
+            links: [
+              { label: 'Slides', url: SLIDES.introSlt },
+              { label: 'Square One game', url: SQUARE_ONE },
+            ],
           },
           coffee('11:00'),
           {
@@ -255,6 +270,11 @@ export const parts: Part[] = [
       { label: 'Attention and transformers', url: SLIDES.transformers, group: 'Lecture slides' },
       { label: 'SFT and LoRA', url: SLIDES.sftLora, group: 'Lecture slides' },
       { label: 'Inference methods', url: SLIDES.inference, group: 'Lecture slides' },
+      {
+        label: 'Square One: guess the side of a square (Day 1, intro to SLT and PyTorch)',
+        url: SQUARE_ONE,
+        group: 'Visualizations',
+      },
       {
         label: 'The Wuggish attention game: bind the words yourself (Day 2, attention and transformers)',
         url: WUGGISH_GAME,
