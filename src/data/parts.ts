@@ -104,10 +104,11 @@ const SQUARE_ONE = viz(1, 'square-root-show');
  * the Setup page). Unpacking a zip gives that folder: the notebook plus the
  * helper it imports, which must stay together. One link per exercise, so a
  * participant downloads once (Luca, 2026-10-02). Sources: `cscs-hs26` branch
- * `cx-sft` (SFT and LoRA) and `cscs-hs26/cx-llms/` on main.
- * Day 1 PyTorch with SLURM is now linked. The Day 1 afternoon exercise is still pending.
+ * `cx-sft` (SFT and LoRA), `cx2-claude-code-gepa` (Claude Code and GEPA:
+ * the student notebook and `cx2_setup.py` only) and `cscs-hs26/cx-llms/` on main.
  */
 const CX_PYTORCH_SLURM_ZIP = exercise('part1', '01_pytorch_slurm.zip');
+const CX_CLAUDE_GEPA_ZIP = exercise('part1', 'cx2_claude_code_gepa.zip');
 const CX_LLM_ZIP = exercise('part1', 'llm_from_scratch.zip');
 const CX_SFT_ZIP = exercise('part1', 'sft_lora.zip');
 
@@ -208,7 +209,12 @@ export const parts: Part[] = [
               { label: 'GEPA slides', url: SLIDES.gepa },
             ],
           },
-          { time: '16:15', title: 'Claude Code and GEPA', type: 'exercise' },
+          {
+            time: '16:15',
+            title: 'Claude Code and GEPA',
+            type: 'exercise',
+            links: [{ label: 'Exercise folder', url: CX_CLAUDE_GEPA_ZIP }],
+          },
           endOfDay('17:30'),
         ],
       },
@@ -287,7 +293,7 @@ export const parts: Part[] = [
         group: 'Visualizations',
       },
       { label: 'CX Pytorch with SLURM (Day 1 morning)', url: CX_PYTORCH_SLURM_ZIP, group: 'Coding exercises' },
-      { label: 'CX Claude Code and GEPA (Day 1 afternoon)', url: SOON, group: 'Coding exercises' },
+      { label: 'CX Claude Code and GEPA (Day 1 afternoon)', url: CX_CLAUDE_GEPA_ZIP, group: 'Coding exercises' },
       { label: 'CX LLM from scratch (Day 2 morning)', url: CX_LLM_ZIP, group: 'Coding exercises' },
       { label: 'CX SFT and LoRA (Day 2 afternoon)', url: CX_SFT_ZIP, group: 'Coding exercises' },
     ],
