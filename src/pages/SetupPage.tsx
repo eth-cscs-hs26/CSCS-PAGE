@@ -159,35 +159,36 @@ export function SetupPage() {
             <span>4</span>Get the exercise files
           </h2>
           <p>
-            Every exercise is one folder: keep its notebook and supporting files together. There
-            are two ways to get that folder into your session.
+            Every exercise is one folder: the notebook and the helper file it imports, which must
+            stay together. For the two Day 2 exercises, <code>llm_from_scratch</code> (morning)
+            and <code>sft_lora</code> (afternoon), there are two ways to get that folder into
+            your session. Both give the same files, so pick either.
           </p>
           <p>
-            <strong>From this site.</strong> Each exercise is one download, a zip of its folder, on
-            the Materials list of its part. Drag the zip into the file browser on the left of
-            JupyterLab, open a terminal there (File → New → Terminal) and unpack it:
-          </p>
-          <pre>
-            <code>{UNZIP_LINE}</code>
-          </pre>
-          <p>
-            The folder appears in the file browser; open the notebook from inside it. If you
-            prefer to unpack on your laptop, drag the files into one folder in JupyterLab: its
-            file browser does not accept a dropped folder. Keep all supporting files together.
-          </p>
-          <p>
-            <strong>From the cluster, with no download.</strong> In the same terminal, copy the
-            exercise folder into your home directory:
+            <strong>Way 1: copy it on the cluster, no download.</strong> Open a terminal in
+            JupyterLab (File → New → Terminal) and copy the folder into your home directory:
           </p>
           <pre>
             <code>{COPY_LINE}</code>
           </pre>
           <p>
-            Replace <code>sft_lora</code> (Day 2 afternoon) with <code>llm_from_scratch</code> for
-            the Day 2 morning exercise. For Day 1 PyTorch with SLURM, use the zip on this site
-            unless the organisers have also staged that folder on the cluster. Copying or
-            unpacking a second time overwrites your edits, so rename the old folder first if
-            you want a clean restart.
+            Replace <code>sft_lora</code> with <code>llm_from_scratch</code> for the morning
+            exercise. The folder appears in the file browser on the left.
+          </p>
+          <p>
+            <strong>Way 2: download the zip from this site.</strong> Each exercise is one
+            download, &ldquo;Exercise folder&rdquo;, on the Part I page. Unzip it on your laptop,
+            then select the files inside the unpacked folder and drag them together into the
+            JupyterLab file browser, into one folder of their own: the file browser accepts
+            dropped files, not a dropped folder. Or drag the zip itself in and unpack it in the
+            terminal:
+          </p>
+          <pre>
+            <code>{UNZIP_LINE}</code>
+          </pre>
+          <p>
+            Either way, copying or unpacking a second time overwrites your edits, so rename the
+            old folder first if you want a clean restart.
           </p>
 
           <div className="notice">
