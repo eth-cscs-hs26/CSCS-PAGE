@@ -99,6 +99,29 @@ const WUGGISH_GAME = `${viz(1, 'wuggish')}?dev=0`;
 const CX_LLM_ZIP = exercise('part1', 'llm_from_scratch.zip');
 const CX_SFT_ZIP = exercise('part1', 'sft_lora.zip');
 
+/**
+ * The Part I lecture decks, nine PDFs in `public/slides/part1/`: unchanged
+ * copies of the decks as they are projected in the room, so every click is a
+ * page of its own and the page numbers run ahead of the slide number in the
+ * footer. Copied on 2026-10-05, at Carlos's request, from the built PDFs of
+ * `cscs-hs26` at its commit 208ec44 (CLAUDE.md lists each file's source). One
+ * constant per deck, so a session's "Slides" chip and its Materials entry carry
+ * the same URL and cannot drift apart. The 15:15 session of Day 1 holds two
+ * decks, OPRO and GEPA, so it has two chips and two entries. The decks of Parts
+ * II and III are not on the site yet.
+ */
+const SLIDES = {
+  introSlt: deck(1, 'intro-slt-pytorch.pdf'),
+  pytorchSlurm: deck(1, 'pytorch-slurm-clusters.pdf'),
+  claudeCode: deck(1, 'claude-code-1.pdf'),
+  opro: deck(1, 'prompt-optimization-opro.pdf'),
+  gepa: deck(1, 'prompt-optimization-gepa.pdf'),
+  tokenisation: deck(1, 'datasets-tokenisation.pdf'),
+  transformers: deck(1, 'attention-transformers.pdf'),
+  sftLora: deck(1, 'sft-lora.pdf'),
+  inference: deck(1, 'inference-methods.pdf'),
+};
+
 export const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 
 /** "Part I", "Part II", … */
@@ -136,9 +159,15 @@ export const parts: Part[] = [
             title: 'Intro to SLT and PyTorch',
             type: 'lecture',
             topic: 'Introduction to Machine Learning on HPC',
+            links: [{ label: 'Slides', url: SLIDES.introSlt }],
           },
           coffee('11:00'),
-          { time: '11:15', title: 'PyTorch with slurm and clusters', type: 'lecture' },
+          {
+            time: '11:15',
+            title: 'PyTorch with slurm and clusters',
+            type: 'lecture',
+            links: [{ label: 'Slides', url: SLIDES.pytorchSlurm }],
+          },
           { time: '12:15', title: 'Pytorch with SLURM', type: 'exercise' },
           lunch('13:00'),
           {
@@ -146,9 +175,18 @@ export const parts: Part[] = [
             title: 'Claude Code I',
             type: 'lecture',
             topic: 'AI-Enhanced Programming for Modern Developers',
+            links: [{ label: 'Slides', url: SLIDES.claudeCode }],
           },
           coffee('15:00'),
-          { time: '15:15', title: 'Claude Code II / Prompt optimization / GEPA', type: 'lecture' },
+          {
+            time: '15:15',
+            title: 'Claude Code II / Prompt optimization / GEPA',
+            type: 'lecture',
+            links: [
+              { label: 'OPRO slides', url: SLIDES.opro },
+              { label: 'GEPA slides', url: SLIDES.gepa },
+            ],
+          },
           { time: '16:15', title: 'Claude Code and GEPA', type: 'exercise' },
           endOfDay('17:30'),
         ],
@@ -163,13 +201,17 @@ export const parts: Part[] = [
             title: 'Datasets & tokenisation',
             type: 'lecture',
             topic: 'End-to-End LLM Development Workflow',
+            links: [{ label: 'Slides', url: SLIDES.tokenisation }],
           },
           coffee('10:00'),
           {
             time: '10:15',
             title: 'Attention and transformers',
             type: 'lecture',
-            links: [{ label: 'Wuggish attention game', url: WUGGISH_GAME }],
+            links: [
+              { label: 'Slides', url: SLIDES.transformers },
+              { label: 'Wuggish attention game', url: WUGGISH_GAME },
+            ],
           },
           {
             time: '11:15',
@@ -183,9 +225,15 @@ export const parts: Part[] = [
             title: 'SFT and LoRA',
             type: 'lecture',
             topic: 'End-to-End LLM Development Workflow (continued)',
+            links: [{ label: 'Slides', url: SLIDES.sftLora }],
           },
           coffee('14:00'),
-          { time: '14:15', title: 'Inference methods', type: 'lecture' },
+          {
+            time: '14:15',
+            title: 'Inference methods',
+            type: 'lecture',
+            links: [{ label: 'Slides', url: SLIDES.inference }],
+          },
           {
             time: '15:15',
             title: 'SFT and LoRA',
@@ -198,14 +246,15 @@ export const parts: Part[] = [
     ],
     resources: [
       ...beforeYouStart,
-      { label: 'Intro to SLT and PyTorch', url: SOON, group: 'Lecture slides' },
-      { label: 'PyTorch with slurm and clusters', url: SOON, group: 'Lecture slides' },
-      { label: 'Claude Code I', url: SOON, group: 'Lecture slides' },
-      { label: 'Claude Code II / Prompt optimization / GEPA', url: SOON, group: 'Lecture slides' },
-      { label: 'Datasets & tokenisation', url: SOON, group: 'Lecture slides' },
-      { label: 'Attention and transformers', url: SOON, group: 'Lecture slides' },
-      { label: 'SFT and LoRA', url: SOON, group: 'Lecture slides' },
-      { label: 'Inference methods', url: SOON, group: 'Lecture slides' },
+      { label: 'Intro to SLT and PyTorch', url: SLIDES.introSlt, group: 'Lecture slides' },
+      { label: 'PyTorch with slurm and clusters', url: SLIDES.pytorchSlurm, group: 'Lecture slides' },
+      { label: 'Claude Code I', url: SLIDES.claudeCode, group: 'Lecture slides' },
+      { label: 'Claude Code II / Prompt optimization: OPRO', url: SLIDES.opro, group: 'Lecture slides' },
+      { label: 'Claude Code II / Prompt optimization: GEPA', url: SLIDES.gepa, group: 'Lecture slides' },
+      { label: 'Datasets & tokenisation', url: SLIDES.tokenisation, group: 'Lecture slides' },
+      { label: 'Attention and transformers', url: SLIDES.transformers, group: 'Lecture slides' },
+      { label: 'SFT and LoRA', url: SLIDES.sftLora, group: 'Lecture slides' },
+      { label: 'Inference methods', url: SLIDES.inference, group: 'Lecture slides' },
       {
         label: 'The Wuggish attention game: bind the words yourself (Day 2, attention and transformers)',
         url: WUGGISH_GAME,

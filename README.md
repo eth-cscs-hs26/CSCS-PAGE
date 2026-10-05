@@ -48,7 +48,9 @@ SOON                                         // not uploaded yet, renders greyed
 Everything participants download is served by this site, because the course repository is
 private. Drop the file into `public/` and link it:
 
-- slides go to `public/slides/part<n>/`, linked with `deck(n, file)`;
+- slides go to `public/slides/part<n>/`, linked with `deck(n, file)`. Put the link on the lecture
+  session's `links` list as a "Slides" chip, and again in the part's `resources` under "Lecture
+  slides", from one shared constant so the two cannot drift apart;
 - exercises go to `public/exercises/part<n>/<exercise>.zip`, one zip per exercise holding its
   folder (notebook plus helper), named like the folder on the cluster and linked with
   `exercise('part<n>', '<exercise>.zip')`, so a participant downloads once. The zip is
