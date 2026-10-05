@@ -11,6 +11,12 @@ import { TRIAL_NOTEBOOK } from '../data/parts';
  */
 
 const HUB = 'https://jupyter-santis.cscs.ch/hub/spawn';
+/**
+ * CSCS's reservation for Part I (Hussein, 2026-10-05): 10 nodes, one GPU per
+ * participant, until Wednesday 7 October 21:00. It is for these notebook
+ * sessions; batch jobs leave it out (Carlos, 2026-10-05). Part II has none yet.
+ */
+const RESERVATION = 'ai-training';
 const TOML = '/capstor/scratch/cscs/course_00776/jupyter/pytorch-cscs-jlab.toml';
 const IMAGE = '/capstor/store/cscs/cscs/jupyter/pytorch/pt-26.05-py3-jlab.sqsh';
 const SPAWN_SCREENSHOT = `${import.meta.env.BASE_URL}guides/img/jupyter-spawn.png`;
@@ -56,9 +62,9 @@ export function SetupPage() {
             <span>1</span>Your CSCS account
           </h2>
           <p>
-            You need the course account CSCS emailed you: a username of the form <code>course_</code>{' '}
-            plus five digits, the password you set, and an authenticator app linked at your first
-            sign-in. Sort that out before the session; everything below assumes you can sign in.
+            You need the course account CSCS emailed you: a username that starts with{' '}
+            <code>course_</code>, the password you set, and an authenticator app linked at your
+            first sign-in. Sort that out before the session; everything below assumes you can sign in.
           </p>
 
           <h2>
@@ -73,7 +79,7 @@ export function SetupPage() {
             </code>
           </pre>
           <p>
-            Sign in with the <strong>course account</strong> (<code>course_</code> plus five digits),
+            Sign in with the <strong>course account</strong> (the username that starts with <code>course_</code>),
             not with any other CSCS account you may have: only the course account belongs to the
             project that pays for the GPU, and the form below will not submit with another one.
           </p>
@@ -95,12 +101,15 @@ export function SetupPage() {
               <strong>Runtime:</strong> 4h.
             </li>
             <li>
-              <strong>Advanced settings:</strong> leave closed.
+              <strong>Advanced settings:</strong> on 6 and 7 October, open this section and set the
+              reservation to <code>{RESERVATION}</code>, the GPUs CSCS keeps for this course, one per
+              participant. On the other days, leave it closed.
             </li>
           </ul>
           <p>
             The launch summary on the right should read: environment <em>container</em>, GPUs 1,
-            runtime 4:00:00, partition <em>normal</em>, account <code>ai-tutorial-course2026-cscs</code>.
+            runtime 4:00:00, partition <em>normal</em>, account <code>ai-tutorial-course2026-cscs</code>,
+            and, on 6 and 7 October, reservation <code>{RESERVATION}</code>.
             Press <strong>Launch session</strong>. The page waits while the cluster schedules your
             job, usually under two minutes, then JupyterLab opens.
           </p>
@@ -112,7 +121,9 @@ export function SetupPage() {
           </p>
           <figure className="guide__figure">
             <img src={SPAWN_SCREENSHOT} alt="The JupyterHub spawn page for Santis, filled in" />
-            <figcaption>The spawn page, filled in.</figcaption>
+            <figcaption>
+              The spawn page, filled in. On 6 and 7 October its summary also shows the reservation.
+            </figcaption>
           </figure>
 
           <h2>
