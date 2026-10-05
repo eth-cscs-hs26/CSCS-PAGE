@@ -104,9 +104,10 @@ const SQUARE_ONE = viz(1, 'square-root-show');
  * the Setup page). Unpacking a zip gives that folder: the notebook plus the
  * helper it imports, which must stay together. One link per exercise, so a
  * participant downloads once (Luca, 2026-10-02). Sources: `cscs-hs26` branch
- * `cx-sft` (SFT and LoRA) and `cscs-hs26/cx-llms/` on main. The two Day 1
- * exercises are not on the site yet. DRAFT.
+ * `cx-sft` (SFT and LoRA) and `cscs-hs26/cx-llms/` on main.
+ * Day 1 PyTorch with SLURM is now linked. The Day 1 afternoon exercise is still pending.
  */
+const CX_PYTORCH_SLURM_ZIP = exercise('part1', '01_pytorch_slurm.zip');
 const CX_LLM_ZIP = exercise('part1', 'llm_from_scratch.zip');
 const CX_SFT_ZIP = exercise('part1', 'sft_lora.zip');
 
@@ -183,7 +184,12 @@ export const parts: Part[] = [
             type: 'lecture',
             links: [{ label: 'Slides', url: SLIDES.pytorchSlurm }],
           },
-          { time: '12:15', title: 'Pytorch with SLURM', type: 'exercise' },
+          {
+            time: '12:15',
+            title: 'Pytorch with SLURM',
+            type: 'exercise',
+            links: [{ label: 'Exercise folder', url: CX_PYTORCH_SLURM_ZIP }],
+          },
           lunch('13:00'),
           {
             time: '14:00',
@@ -280,7 +286,7 @@ export const parts: Part[] = [
         url: WUGGISH_GAME,
         group: 'Visualizations',
       },
-      { label: 'CX Pytorch with SLURM (Day 1 morning)', url: SOON, group: 'Coding exercises' },
+      { label: 'CX Pytorch with SLURM (Day 1 morning)', url: CX_PYTORCH_SLURM_ZIP, group: 'Coding exercises' },
       { label: 'CX Claude Code and GEPA (Day 1 afternoon)', url: SOON, group: 'Coding exercises' },
       { label: 'CX LLM from scratch (Day 2 morning)', url: CX_LLM_ZIP, group: 'Coding exercises' },
       { label: 'CX SFT and LoRA (Day 2 afternoon)', url: CX_SFT_ZIP, group: 'Coding exercises' },

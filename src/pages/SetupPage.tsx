@@ -46,11 +46,10 @@ export function SetupPage() {
 
         <div className="guide">
           <p className="guide__lead">
-            Every coding exercise of this course runs on Santis, the Alps cluster at CSCS, inside a
-            JupyterLab session with one GH200 GPU. This page takes you from your CSCS account to the
-            running notebook, and says what the session already contains, so you know what a
-            notebook can import and what it has to install. Do it once before the first day; the
-            same steps hold for every exercise afterwards.
+            Course notebooks run on Santis, the Alps cluster at CSCS, inside a JupyterLab session
+            with one GH200 GPU. This page takes you from your CSCS account to a running notebook
+            and explains what the session provides. The PyTorch with SLURM exercise also submits
+            separate batch jobs from a cluster login terminal.
           </p>
 
           <h2>
@@ -160,8 +159,8 @@ export function SetupPage() {
             <span>4</span>Get the exercise files
           </h2>
           <p>
-            Every exercise is one folder: the notebook and a helper file it imports, which must
-            stay together. There are two ways to get that folder into your session.
+            Every exercise is one folder: keep its notebook and supporting files together. There
+            are two ways to get that folder into your session.
           </p>
           <p>
             <strong>From this site.</strong> Each exercise is one download, a zip of its folder, on
@@ -173,9 +172,8 @@ export function SetupPage() {
           </pre>
           <p>
             The folder appears in the file browser; open the notebook from inside it. If you
-            prefer to unpack on your laptop, select both files inside the unpacked folder and drag
-            them in together, into one folder of their own: the file browser does not accept a
-            dropped folder, only files.
+            prefer to unpack on your laptop, drag the files into one folder in JupyterLab: its
+            file browser does not accept a dropped folder. Keep all supporting files together.
           </p>
           <p>
             <strong>From the cluster, with no download.</strong> In the same terminal, copy the
@@ -186,18 +184,34 @@ export function SetupPage() {
           </pre>
           <p>
             Replace <code>sft_lora</code> (Day 2 afternoon) with <code>llm_from_scratch</code> for
-            the Day 2 morning exercise. Either way, copying or unpacking a second time overwrites
-            your edits, so rename the old folder first if you want a clean restart.
+            the Day 2 morning exercise. For Day 1 PyTorch with SLURM, use the zip on this site
+            unless the organisers have also staged that folder on the cluster. Copying or
+            unpacking a second time overwrites your edits, so rename the old folder first if
+            you want a clean restart.
           </p>
+
+          <div className="notice">
+            <h3 className="notice__title">PyTorch with SLURM: use a cluster login terminal</h3>
+            <p>
+              Unpack its folder where both JupyterLab and the cluster login shell can see it.
+              Open the notebook in JupyterLab for the checks and plots. Run <code>sbatch</code>,{' '}
+              <code>squeue</code> and <code>sacct</code> from the course&apos;s cluster login
+              terminal, in that same folder. The terminal inside this JupyterLab container
+              cannot currently submit SLURM jobs. Ask an instructor for the course login
+              route if you do not have it.
+            </p>
+          </div>
 
           <h2>
             <span>5</span>Run the notebook
           </h2>
           <p>
-            Double-click the notebook. Run the cells top to bottom with Shift+Enter, or use Run →
-            Run All Cells. Collapsed cells are plumbing: run them like any other, and click their
-            ··· bar if you want to read the code. If a setup cell asks you to restart the kernel
-            after installing packages, do so (Kernel → Restart Kernel…) and run the cell again.
+            Double-click the notebook and follow its instructions. Most notebooks can be run top to
+            bottom with Shift+Enter or Run → Run All Cells. PyTorch with SLURM pauses for two
+            batch jobs and their job IDs, so run it section by section. Collapsed cells are
+            plumbing: run them like any other, and click their ··· bar to read the code. If a
+            setup cell asks you to restart the kernel after installing packages, do so
+            (Kernel → Restart Kernel…) and run the cell again.
           </p>
 
           <div className="notice">

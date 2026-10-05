@@ -128,7 +128,7 @@ export function PartPage() {
           <h2>Materials</h2>
           <p className="resources__note">
             {hasRealResources
-              ? 'Slides and exercises for this part. Every exercise runs in your JupyterLab session on Santis: download its folder here as a zip and unpack it in the session, or copy the same folder from the cluster in a terminal, as the Setup page describes.'
+              ? 'Slides and exercises for this part. Open each exercise folder in JupyterLab on Santis: download its zip here and unpack it, or copy the folder from the cluster when available. PyTorch with SLURM also uses a separate cluster login terminal for batch jobs; see Setup.'
               : 'Materials for this part will be linked here once they are uploaded.'}
           </p>
           {isGrouped ? (
