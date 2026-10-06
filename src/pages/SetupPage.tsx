@@ -55,7 +55,7 @@ export function SetupPage() {
             Course notebooks run on Santis, the Alps cluster at CSCS, inside a JupyterLab session
             with one GH200 GPU. This page takes you from your CSCS account to a running notebook
             and explains what the session provides. The PyTorch with SLURM exercise also submits
-            separate batch jobs from a cluster login terminal.
+            separate batch jobs from a JupyterLab terminal.
           </p>
 
           <h2>
@@ -203,14 +203,12 @@ export function SetupPage() {
           </p>
 
           <div className="notice">
-            <h3 className="notice__title">PyTorch with SLURM: use a cluster login terminal</h3>
+            <h3 className="notice__title">PyTorch with SLURM: one line before sbatch</h3>
             <p>
-              Unpack its folder where both JupyterLab and the cluster login shell can see it.
-              Open the notebook in JupyterLab for the checks and plots. Run <code>sbatch</code>,{' '}
-              <code>squeue</code> and <code>sacct</code> from the course&apos;s cluster login
-              terminal, in that same folder. The terminal inside this JupyterLab container
-              cannot currently submit SLURM jobs. Ask an instructor for the course login
-              route if you do not have it.
+              Its folder holds <code>cluster-env.sh</code>. In a JupyterLab terminal, move into the
+              folder and run <code>source cluster-env.sh</code> once, before the first{' '}
+              <code>sbatch</code>; without it, <code>sbatch</code>, <code>squeue</code> and{' '}
+              <code>sacct</code> fail inside this container. Run it again in every new terminal.
             </p>
           </div>
 
