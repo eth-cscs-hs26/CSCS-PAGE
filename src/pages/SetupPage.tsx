@@ -20,10 +20,19 @@ const RESERVATION = 'ai-training';
 const TOML = '/capstor/scratch/cscs/course_00776/jupyter/pytorch-cscs-jlab.toml';
 const IMAGE = '/capstor/store/cscs/cscs/jupyter/pytorch/pt-26.05-py3-jlab.sqsh';
 const SPAWN_SCREENSHOT = `${import.meta.env.BASE_URL}guides/img/jupyter-spawn.png`;
-/** The exercise folders staged on the course account's scratch, one per exercise. */
-const EXERCISES_DIR = '/capstor/scratch/cscs/course_00776/exercises';
-const COPY_LINE = `cp -r ${EXERCISES_DIR}/sft_lora ~/`;
-const UNZIP_LINE = 'unzip sft_lora.zip';
+/**
+ * The exercise zips of this site, in course order. The download line needs the
+ * site's absolute address: the build's base is relative ('./').
+ */
+const SITE = 'https://eth-cscs-hs26.github.io/CSCS-PAGE';
+const EXERCISES = [
+  { when: 'Tuesday 6 October, first exercise (12:15)', title: 'CX Pytorch with SLURM', zip: '01_pytorch_slurm.zip' },
+  { when: 'Tuesday 6 October, second exercise (16:15)', title: 'CX Claude Code and GEPA', zip: 'cx2_claude_code_gepa.zip' },
+  { when: 'Wednesday 7 October, first exercise (11:15)', title: 'CX LLM from scratch', zip: 'llm_from_scratch.zip' },
+  { when: 'Wednesday 7 October, second exercise (15:15)', title: 'CX SFT and LoRA', zip: 'sft_lora.zip' },
+];
+const downloadLine = (zip: string) =>
+  `cd ~ && curl -LO ${SITE}/exercises/part1/${zip} && unzip ${zip}`;
 
 const INSTALL_SNIPPET = `import importlib, subprocess, sys
 for module, package in (("torchvision", "torchvision"), ("sklearn", "scikit-learn")):
@@ -170,36 +179,33 @@ export function SetupPage() {
             <span>4</span>Get the exercise files
           </h2>
           <p>
-            Every exercise is one folder: the notebook and the helper file it imports, which must
-            stay together. For the two Day 2 exercises, <code>llm_from_scratch</code> (morning)
-            and <code>sft_lora</code> (afternoon), there are two ways to get that folder into
-            your session. Both give the same files, so pick either.
+            Every exercise is one folder: the notebook and the files it uses, which must stay
+            together. The quickest way to get it: open a terminal in JupyterLab (File → New →
+            Terminal) and paste the line of your exercise. It downloads the folder from this site
+            and unpacks it in your home directory; the folder appears in the file browser on the
+            left (click its refresh button if not).
+          </p>
+          {EXERCISES.map((ex) => (
+            <div key={ex.zip}>
+              <p>
+                <strong>{ex.when}:</strong> {ex.title}
+              </p>
+              <pre>
+                <code>{downloadLine(ex.zip)}</code>
+              </pre>
+            </div>
+          ))}
+          <p>
+            <strong>Or download the zip from this site.</strong> Each exercise is one download,
+            &ldquo;Exercise folder&rdquo;, on the Part I page. Unzip it on your laptop, then select
+            the files inside the unpacked folder and drag them together into the JupyterLab file
+            browser, into one folder of their own: the file browser accepts dropped files, not a
+            dropped folder. Or drag the zip itself in and unpack it in the terminal with{' '}
+            <code>unzip &lt;name&gt;.zip</code>.
           </p>
           <p>
-            <strong>Way 1: copy it on the cluster, no download.</strong> Open a terminal in
-            JupyterLab (File → New → Terminal) and copy the folder into your home directory:
-          </p>
-          <pre>
-            <code>{COPY_LINE}</code>
-          </pre>
-          <p>
-            Replace <code>sft_lora</code> with <code>llm_from_scratch</code> for the morning
-            exercise. The folder appears in the file browser on the left.
-          </p>
-          <p>
-            <strong>Way 2: download the zip from this site.</strong> Each exercise is one
-            download, &ldquo;Exercise folder&rdquo;, on the Part I page. Unzip it on your laptop,
-            then select the files inside the unpacked folder and drag them together into the
-            JupyterLab file browser, into one folder of their own: the file browser accepts
-            dropped files, not a dropped folder. Or drag the zip itself in and unpack it in the
-            terminal:
-          </p>
-          <pre>
-            <code>{UNZIP_LINE}</code>
-          </pre>
-          <p>
-            Either way, copying or unpacking a second time overwrites your edits, so rename the
-            old folder first if you want a clean restart.
+            Unpacking a second time asks before overwriting your edits; rename the old folder first
+            if you want a clean restart.
           </p>
 
           <div className="notice">
