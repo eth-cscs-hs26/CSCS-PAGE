@@ -113,7 +113,7 @@ const CX_LLM_ZIP = exercise('part1', 'llm_from_scratch.zip');
 const CX_SFT_ZIP = exercise('part1', 'sft_lora.zip');
 
 /**
- * The Part I lecture decks, nine PDFs in `public/slides/part1/`: unchanged
+ * The Part I lecture decks, ten PDFs in `public/slides/part1/`: unchanged
  * copies of the decks as they are projected in the room, so every click is a
  * page of its own and the page numbers run ahead of the slide number in the
  * footer. Copied on 2026-10-05, at Carlos's request, from the built PDFs of
@@ -121,8 +121,11 @@ const CX_SFT_ZIP = exercise('part1', 'sft_lora.zip');
  * day at dc20dbf with its two FAI frames (CLAUDE.md lists each file's source). One
  * constant per deck, so a session's "Slides" chip and its Materials entry carry
  * the same URL and cannot drift apart. The 15:15 session of Day 1 holds two
- * decks, OPRO and GEPA, so it has two chips and two entries. The decks of Parts
- * II and III are not on the site yet.
+ * decks, OPRO and GEPA, so it has two chips and two entries; so does the 14:15
+ * session of Day 2, whose second deck, "The KV cache and PagedAttention" (19
+ * frames, 70 pages), was added on 2026-10-07 at Carlos's request, copied from the
+ * built `kvcache-slides.pdf` of `cscs-hs26` (CLAUDE.md has its source). The decks
+ * of Parts II and III are not on the site yet.
  */
 const SLIDES = {
   introSlt: deck(1, 'intro-slt-pytorch.pdf'),
@@ -134,6 +137,7 @@ const SLIDES = {
   transformers: deck(1, 'attention-transformers.pdf'),
   sftLora: deck(1, 'sft-lora.pdf'),
   inference: deck(1, 'inference-methods.pdf'),
+  kvcache: deck(1, 'kv-cache-paged-attention.pdf'),
 };
 
 export const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
@@ -259,7 +263,10 @@ export const parts: Part[] = [
             time: '14:15',
             title: 'Inference methods',
             type: 'lecture',
-            links: [{ label: 'Slides', url: SLIDES.inference }],
+            links: [
+              { label: 'Slides', url: SLIDES.inference },
+              { label: 'KV cache slides', url: SLIDES.kvcache },
+            ],
           },
           {
             time: '15:15',
@@ -282,6 +289,7 @@ export const parts: Part[] = [
       { label: 'Attention and transformers', url: SLIDES.transformers, group: 'Lecture slides' },
       { label: 'SFT and LoRA', url: SLIDES.sftLora, group: 'Lecture slides' },
       { label: 'Inference methods', url: SLIDES.inference, group: 'Lecture slides' },
+      { label: 'Inference methods: the KV cache and PagedAttention', url: SLIDES.kvcache, group: 'Lecture slides' },
       {
         label: 'Square One: guess the side of a square (Day 1, intro to SLT and PyTorch)',
         url: SQUARE_ONE,
