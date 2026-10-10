@@ -26,7 +26,7 @@
   <section class="intro">
     <img class="mara" src="img/mara.svg" alt="" width="48" height="64" onerror="this.style.display='none'">
     <h1>Send a courier down the mountain.</h1>
-    <p class="lede">Mara carries a satchel of letters from Eagle Pass down to the sea. The walk takes one day. At every crossing she takes the southwest road or the southeast road, and every place she reaches pays her a few coins or costs her some.</p>
+    <p class="lede">Mara carries a satchel of letters from Eagle Pass down to the sea. The walk takes one day. At every crossing she takes the southwest road or the southeast road, and every place she reaches pays her a few coins.</p>
     <p>She does not plan. She follows habits, a table of knobs, and you set them. Turn the knobs until a day on the road pays as well as it can.</p>
     <p class="how">Look at the map, turn the knobs, and send Mara down a few times to see what her habits earn.</p>
     <noscript><p class="warn">This page needs JavaScript.</p></noscript>
@@ -34,7 +34,7 @@
 
   <section class="card" id="cardMap" aria-labelledby="h-map">
     <h2 id="h-map"><span class="num">1</span>The map.</h2>
-    <p class="cap">Fifteen places in a tree. Mara starts at the top, takes one road at each place and ends the day at the bottom. The coin on a place is what she gains (gold) or pays (orange) when she arrives. A road is as thick as the chance that she takes it, and the figure on it is the chance of taking that road from the place above.</p>
+    <p class="cap">Fifteen places in a tree. Mara starts at the top, takes one road at each place and ends the day at the bottom. The coin on a place is what she earns when she arrives. A road is as thick as the chance that she takes it, and the figure on it is the chance of taking that road from the place above.</p>
     <div class="mapwrap"><svg id="map" viewBox="0 0 340 384" role="group" aria-label="Map of the fifteen places"></svg></div>
     <div class="place" id="place" aria-live="polite"></div>
   </section>
@@ -75,7 +75,7 @@
     <h2 id="h-win"><span class="num">4</span>Coins per day.</h2>
     <div class="bigrow"><span class="big" id="winBig">0</span><span class="unit">coins a day</span><span class="delta" id="winDelta"></span></div>
     <div class="bar" aria-hidden="true"><i id="winBar"></i></div>
-    <p class="cap">Untouched knobs: <b id="winStart">0</b> coins. Best possible: <b id="winBest">0</b>. The number is exact: it adds up the eight days Mara can have, each weighted by its probability.</p>
+    <p class="cap">Untouched knobs: <b id="winStart">0</b> coins. Worst possible: <b id="winWorst">0</b>. Best possible: <b id="winBest">0</b>. The bar runs from the worst day to the best. The number is exact: it adds up the eight days Mara can have, each weighted by its probability.</p>
     <figure class="climb">
       <svg id="spark" viewBox="0 0 320 112" role="img" aria-label="Coins a day after each knob change"></svg>
       <figcaption class="cap">Your climb: the coins a day after each knob change.</figcaption>
@@ -103,7 +103,7 @@
     <p class="hint">Tap a step to select its knob. The small blue and orange numbers on the knobs in step 2 count the better and the worse roads taken in these days.</p>
     <details>
       <summary>What does the number under a place mean?</summary>
-      <p>At each fork Mara has an average road: her two roads weighted by her chances. The number says how many coins more (blue) or fewer (orange) the road she took is worth than that average, counting the coins at the place and everything she can expect afterwards. Raising the knob of a blue road raises the coins a day, and so does lowering the knob of an orange one.</p>
+      <p>Every place pays, so every day earns something, and the coins of one day say little about which road to favour. At each fork Mara has an average road: her two roads weighted by her chances. The number says how many coins more (blue) or fewer (orange) the road she took is worth than that average, counting the coins at the place and everything she can expect afterwards. Raising the knob of a blue road raises the coins a day, and so does lowering the knob of an orange one.</p>
     </details>
   </section>
 

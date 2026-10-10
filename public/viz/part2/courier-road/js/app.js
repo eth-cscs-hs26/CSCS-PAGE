@@ -33,6 +33,7 @@
   const rng = seedParam ? Road.mulberry32(parseInt(seedParam, 10) || 1) : Math.random;
 
   const BEST = Road.best(R);
+  const WORST = Road.worst(R);
   const START_J = Road.expectedReturn(Road.zeroKnobs(), R);
 
   const state = {
@@ -366,9 +367,10 @@
 
   function refreshWinCard() {
     $('winBig').textContent = fmtCoins(an.J);
-    $('winBar').style.width = Math.max(0, Math.min(100, (100 * an.J) / BEST.J)).toFixed(2) + '%';
+    $('winBar').style.width = Math.max(0, Math.min(100, (100 * (an.J - WORST)) / (BEST.J - WORST))).toFixed(2) + '%';
     $('winStart').textContent = fmtCoins(START_J);
-    $('winBest').textContent = fmtCoins(BEST.J);
+    $('winWorst').textContent = Number.isInteger(WORST) ? String(WORST) : fmtCoins(WORST);
+    $('winBest').textContent = Number.isInteger(BEST.J) ? String(BEST.J) : fmtCoins(BEST.J);
     const d = $('winDelta');
     d.textContent = state.lastDelta === null ? '' : 'last change ' + fmtDelta(state.lastDelta);
     d.className = 'delta ' + deltaClass(state.lastDelta);
@@ -384,13 +386,15 @@
     const Rm = 10;
     const T = 10;
     const B = 24;
-    const top = Math.ceil(BEST.J);
+    const lo = WORST;
+    const hi = BEST.J;
     const x = (k) => (n > 1 ? L + (k * (W - L - Rm)) / (n - 1) : L);
-    const y = (v) => T + ((top - v) * (H - T - B)) / top;
+    const y = (v) => T + ((hi - v) * (H - T - B)) / (hi - lo);
+    const axis = (v) => (Number.isInteger(v) ? String(v) : v.toFixed(1));
     let svg = '';
-    [0, top / 2, top].forEach((g) => {
+    [lo, (lo + hi) / 2, hi].forEach((g) => {
       svg += '<line class="sp-grid" x1="' + L + '" x2="' + (W - Rm) + '" y1="' + y(g) + '" y2="' + y(g) + '"/>' +
-        '<text class="sp-lab" x="' + (L - 6) + '" y="' + (y(g) + 3.5) + '" text-anchor="end">' + g + '</text>';
+        '<text class="sp-lab" x="' + (L - 6) + '" y="' + (y(g) + 3.5) + '" text-anchor="end">' + axis(g) + '</text>';
     });
     if (n > 1) {
       svg += '<polyline class="sp-line" points="' + h.map((v, k) => x(k).toFixed(1) + ',' + y(v).toFixed(1)).join(' ') + '"/>';
@@ -398,7 +402,7 @@
       svg += '<circle class="sp-dot" cx="' + x(n - 1).toFixed(1) + '" cy="' + y(h[n - 1]).toFixed(1) + '" r="3.8"/>';
     } else {
       svg += '<circle class="sp-dot" cx="' + L + '" cy="' + y(h[0]).toFixed(1) + '" r="3.8"/>';
-      svg += '<text class="sp-empty" x="' + (L + 14) + '" y="' + (y(top * 0.75) + 4) + '">Turn a knob and the line starts.</text>';
+      svg += '<text class="sp-empty" x="' + (L + 14) + '" y="' + (y(lo + 0.75 * (hi - lo)) + 4) + '">Turn a knob and the line starts.</text>';
     }
     svg += '<text class="sp-lab" x="' + L + '" y="' + (H - 6) + '">0</text>' +
       '<text class="sp-lab" x="' + ((L + W - Rm) / 2) + '" y="' + (H - 6) + '" text-anchor="middle">knob changes</text>' +

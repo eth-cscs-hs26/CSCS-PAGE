@@ -3,13 +3,21 @@
  *
  * The places are numbered breadth first, so the children of place i are 2i+1 (the
  * southwest road) and 2i+2 (the southeast road). Places 0 to 6 have two roads; places
- * 7 to 14 are where the day ends. A place pays its reward in coins when Mara arrives
- * (a negative reward is a cost); the start pays nothing.
+ * 7 to 14 are where the day ends. A place pays its reward in coins when Mara arrives;
+ * every reward is positive, and the start pays nothing.
  *
- * The rewards are built so that the road that pays most at the first fork leads to a
- * poor day (Windmill Market, 6 coins, then at most 9 in all) and the road that pays
- * least leads to the best one (Mirror Lake, Vine Terraces, Olive Grove Estate: 1 + 2 +
- * 15 = 18). The same happens one level down, at Mirror Lake.
+ * The rewards are built so that no single place gives the best day away (Carlos,
+ * 2026-10-10: "the last place clearly dominates ... make the optimal path less
+ * obvious. Make all rewards positive"). The eight days pay 19, 18, 21, 18, 14, 19, 15
+ * and 14 coins:
+ *   - the best day is Mirror Lake, Vine Terraces, Olive Grove Estate, 7 + 7 + 7 = 21, a
+ *     day on which no place stands out;
+ *   - the biggest reward of the tree (Windmill Market, 9) is on a day of 14 to 19;
+ *   - two leaves share the top leaf reward (Olive Grove Estate and Hot Springs, 7), and
+ *     two other days come within 2 coins of the best (19 each);
+ *   - the road that pays more at each fork, the greedy road, ends the day with 15,
+ *     and it is wrong at the first fork (9 against 7) and at the second (8 against 7).
+ * The dry east is poor except for its market; the green west is richer.
  */
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) {
@@ -26,24 +34,24 @@
       story: 'Dawn at Eagle Pass. The hospice lamp is still lit and the satchel is packed. Two roads leave the pass, one to the southwest and one to the southeast.',
     },
     {
-      id: 'lake', name: 'Mirror Lake', tag: 'Lake', light: 'morning', reward: 1,
-      story: 'Mirror Lake holds the mountains upside down. The ferryman pays one coin for a letter to his sister.',
+      id: 'lake', name: 'Mirror Lake', tag: 'Lake', light: 'morning', reward: 7,
+      story: 'Mirror Lake holds the mountains upside down. The ferry owner pays seven coins to hear the news from the pass first.',
     },
     {
-      id: 'market', name: 'Windmill Market', tag: 'Market', light: 'morning', reward: 6,
-      story: 'Windmill Market is loud with wool traders. They pay six coins for the first news from the pass.',
+      id: 'market', name: 'Windmill Market', tag: 'Market', light: 'morning', reward: 9,
+      story: 'Windmill Market is loud with wool traders. They pay nine coins for the first news from the pass.',
     },
     {
-      id: 'mill', name: 'Millbrook', tag: 'Mill', light: 'afternoon', reward: 3,
-      story: 'The miller at Millbrook serves lunch and pays three coins for the news.',
+      id: 'mill', name: 'Millbrook', tag: 'Mill', light: 'afternoon', reward: 8,
+      story: 'The miller at Millbrook serves lunch and pays eight coins for the news.',
     },
     {
-      id: 'vines', name: 'Vine Terraces', tag: 'Vines', light: 'afternoon', reward: 2,
-      story: 'The pickers on the Vine Terraces pay two coins to hear what the mountain has been up to.',
+      id: 'vines', name: 'Vine Terraces', tag: 'Vines', light: 'afternoon', reward: 7,
+      story: 'The pickers on the Vine Terraces pay seven coins to hear what the mountain has been up to.',
     },
     {
-      id: 'canyon', name: 'Red Canyon', tag: 'Canyon', light: 'afternoon', reward: 2,
-      story: 'At Red Canyon the toll keeper tips two coins for help with a frayed rope bridge.',
+      id: 'canyon', name: 'Red Canyon', tag: 'Canyon', light: 'afternoon', reward: 3,
+      story: 'At Red Canyon the toll keeper tips three coins for help with a frayed rope bridge.',
     },
     {
       id: 'inn', name: 'Dune Inn', tag: 'Inn', light: 'afternoon', reward: 4,
@@ -54,32 +62,32 @@
       story: 'Sunset at Fishing Harbour. The harbour master pays four coins for the evening mail.',
     },
     {
-      id: 'lighthouse', name: 'Reef Lighthouse', tag: 'Light', light: 'sunset', reward: -2,
-      story: 'The keeper of Reef Lighthouse charges two coins for a bed and lamp oil, and the stairs have 300 steps.',
+      id: 'lighthouse', name: 'Reef Lighthouse', tag: 'Light', light: 'sunset', reward: 3,
+      story: 'The keeper of Reef Lighthouse pays three coins and shares his soup, and the stairs up to his lamp have 300 steps.',
     },
     {
-      id: 'olives', name: 'Olive Grove Estate', tag: 'Olives', light: 'sunset', reward: 15,
-      story: 'Harvest night at the Olive Grove Estate. The owner has waited all year for this letter and pays fifteen coins.',
+      id: 'olives', name: 'Olive Grove Estate', tag: 'Olives', light: 'sunset', reward: 7,
+      story: 'Harvest night at the Olive Grove Estate. The owner has waited all year for this letter and pays seven coins.',
     },
     {
-      id: 'citrus', name: 'Citrus Market', tag: 'Citrus', light: 'sunset', reward: 5,
-      story: 'The lemon sellers at Citrus Market pay five coins for a letter and a story.',
+      id: 'citrus', name: 'Citrus Market', tag: 'Citrus', light: 'sunset', reward: 4,
+      story: 'The lemon sellers at Citrus Market pay four coins for a letter and a story.',
     },
     {
-      id: 'monastery', name: 'Cliff Monastery', tag: 'Cliff', light: 'sunset', reward: 1,
-      story: 'The monks of Cliff Monastery offer a bed, a blessing and one coin.',
+      id: 'monastery', name: 'Cliff Monastery', tag: 'Cliff', light: 'sunset', reward: 2,
+      story: 'The monks of Cliff Monastery offer a bed, a blessing and two coins.',
     },
     {
-      id: 'springs', name: 'Hot Springs', tag: 'Springs', light: 'sunset', reward: -5,
-      story: 'The Hot Springs are lovely and expensive. A soak costs five coins.',
+      id: 'springs', name: 'Hot Springs', tag: 'Springs', light: 'sunset', reward: 7,
+      story: 'The Hot Springs are full of guests hungry for news from the pass, and the bath owner pays seven coins for it.',
     },
     {
-      id: 'oasis', name: 'Salt Oasis', tag: 'Oasis', light: 'dusk', reward: -1,
-      story: 'At Salt Oasis water costs one coin a cup, and Mara is thirsty.',
+      id: 'oasis', name: 'Salt Oasis', tag: 'Oasis', light: 'dusk', reward: 2,
+      story: 'At Salt Oasis the water seller pays two coins for the news and throws in a cup of water.',
     },
     {
-      id: 'cove', name: "Smugglers' Cove", tag: 'Cove', light: 'dusk', reward: -6,
-      story: "Nobody asks questions at Smugglers' Cove, and a pickpocket lifts six coins from the satchel.",
+      id: 'cove', name: "Smugglers' Cove", tag: 'Cove', light: 'dusk', reward: 1,
+      story: "Nobody asks questions at Smugglers' Cove. A smuggler pays one coin for a quiet delivery and says nothing more.",
     },
   ];
 

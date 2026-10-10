@@ -105,6 +105,11 @@
     return { J: Vs[0], path: path, V: Vs };
   }
 
+  // The worst day: the smallest return of the eight days.
+  function worst(rewards) {
+    return Math.min(...allDays(rewards).map((d) => d.total));
+  }
+
   // The greedy day: at every fork, the road whose own place pays more.
   function greedy(rewards) {
     const path = [0];
@@ -198,6 +203,7 @@
     analyse: analyse,
     expectedReturn: expectedReturn,
     best: best,
+    worst: worst,
     greedy: greedy,
     allDays: allDays,
     mulberry32: mulberry32,
