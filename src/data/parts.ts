@@ -98,6 +98,17 @@ const WUGGISH_GAME = `${viz(1, 'wuggish')}?dev=0`;
 const SQUARE_ONE = viz(1, 'square-root-show');
 
 /**
+ * The Nim knobs game of the Day 3 lecture "Policy gradient methods" (10:00), from
+ * `public/viz/part2/nim-knobs/`. Its source is `cscs-hs26/nim-knobs-game/`, written on
+ * 2026-10-10 at Carlos's request: a table of knobs that the participant turns, its
+ * column-wise softmax, the exact chance of beating a perfect Nim player, and sample
+ * games whose good and bad states guide the next turn. Only index.html, css and js
+ * are copied here, the folders the page loads. It makes no network request and keeps
+ * only its theme and the knob table in `localStorage`.
+ */
+const NIM_KNOBS = viz(2, 'nim-knobs');
+
+/**
  * The Part I coding exercises, one zip each in `public/exercises/part1/`, named
  * like the exercise's folder on the cluster
  * (`/capstor/scratch/cscs/course_00776/exercises/<exercise>/`, the copy line on
@@ -323,6 +334,7 @@ export const parts: Part[] = [
             title: 'Policy gradient methods',
             type: 'lecture',
             topic: 'Reinforcement Learning for LLMs',
+            links: [{ label: 'Nim knobs game', url: NIM_KNOBS }],
           },
           coffee('11:00'),
           { time: '11:15', title: 'Policy gradient methods', type: 'lecture' },
@@ -377,6 +389,11 @@ export const parts: Part[] = [
       { label: 'Multimodal AI', url: SOON, group: 'Lecture slides' },
       { label: 'AI for science', url: SOON, group: 'Lecture slides' },
       { label: 'Agentic workflows & what is next', url: SOON, group: 'Lecture slides' },
+      {
+        label: 'Nim knobs: turn the knobs of a Nim player (Day 3, policy gradient methods)',
+        url: NIM_KNOBS,
+        group: 'Visualizations',
+      },
       { label: 'Day 3 morning exercise', url: SOON, group: 'Coding exercises' },
       { label: 'Day 3 afternoon exercise', url: SOON, group: 'Coding exercises' },
       { label: 'Day 4 morning exercise', url: SOON, group: 'Coding exercises' },

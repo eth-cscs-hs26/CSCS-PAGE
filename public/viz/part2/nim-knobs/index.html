@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Nim knobs</title>
+<!-- Offline by design: every file below is in this folder. No CDN, no fetch,
+     no server. Open this file from disk and it runs. -->
+<link rel="stylesheet" href="css/style.css">
+<script src="js/theme.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <span class="brand">Nim knobs</span>
+    <span class="spacer"></span>
+    <a class="toplink" href="../../../#/part/part2">Course page</a>
+    <button type="button" class="ghost" id="themeBtn" aria-label="Switch between light and dark" title="Light or dark (t)">theme</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="intro">
+    <svg class="matches" id="matches" viewBox="0 0 150 46" role="img" aria-label="Ten matches"></svg>
+    <h1>Teach a machine to play Nim.</h1>
+    <p class="lede">A pile holds 10 matches. Two players take turns, and each turn takes 1, 2 or 3 matches. Whoever takes the last match wins.</p>
+    <p>The machine moves first against a perfect opponent. It knows no strategy. It looks its move up in a table of numbers, the knobs, and you turn them.</p>
+    <p class="how">Play a few games, see which states are good, and turn the knobs until the machine wins.</p>
+    <noscript><p class="warn">This page needs JavaScript.</p></noscript>
+  </section>
+
+  <section class="card" id="cardKnobs" aria-labelledby="h-knobs">
+    <h2 id="h-knobs"><span class="num">1</span>The knobs.</h2>
+    <p class="cap">One knob for every choice: how many matches to take (rows) when the pile holds so many (columns). A higher knob makes that move likelier. Every knob starts at 0.</p>
+    <div class="tablewrap">
+      <table class="grid knobs" id="knobTable">
+        <colgroup><col class="c0"><col span="10"></colgroup>
+        <thead>
+          <tr><th class="corner" rowspan="2" scope="col"><span class="rl">take</span></th><th class="axis" colspan="10" scope="colgroup">matches in the pile</th></tr>
+          <tr id="knobHead"></tr>
+        </thead>
+        <tbody id="knobBody"></tbody>
+      </table>
+    </div>
+    <p class="hint">Tap a cell to select it, then press + or &minus; in the bar below, or type a number there.</p>
+  </section>
+
+  <section class="card" id="cardProbs" aria-labelledby="h-probs">
+    <h2 id="h-probs"><span class="num">2</span>The probabilities.</h2>
+    <p class="cap">Each column turns its knobs into probabilities: the machine takes e to the power of each knob and divides by the column&rsquo;s total. A knob raised by 1 makes its move about 2.7 times as likely, compared with the others in its column.</p>
+    <div class="tablewrap">
+      <table class="grid probs" id="probTable">
+        <colgroup><col class="c0"><col span="10"></colgroup>
+        <thead>
+          <tr><th class="corner" rowspan="2" scope="col"><span class="rl">take</span></th><th class="axis" colspan="10" scope="colgroup">matches in the pile, chance in %</th></tr>
+          <tr id="probHead"></tr>
+        </thead>
+        <tbody id="probBody"></tbody>
+      </table>
+    </div>
+    <div class="detail" id="detail"></div>
+  </section>
+
+  <section class="card" id="cardWin" aria-labelledby="h-win">
+    <h2 id="h-win"><span class="num">3</span>Chance of winning.</h2>
+    <div class="bigrow"><span class="big" id="winBig">0%</span><span class="delta" id="winDelta"></span></div>
+    <div class="bar" aria-hidden="true"><i id="winBar"></i></div>
+    <p class="cap">Untouched table: <b id="winStart">0%</b>. Perfect play: 100%. The number is exact: it adds up every way the game can go, each weighted by its probability.</p>
+    <figure class="climb">
+      <svg id="spark" viewBox="0 0 320 112" role="img" aria-label="The win chance after each knob change"></svg>
+      <figcaption class="cap">Your climb: the win chance after each knob change.</figcaption>
+    </figure>
+    <details>
+      <summary>How is the chance computed?</summary>
+      <p>The machine draws its move from the probabilities of the table. The opponent takes the amount that leaves a multiple of 4 whenever it can, and from 4 or 8, where every move loses, it takes 1, 2 or 3 at random. The page adds up the probability of every game that ends with the machine taking the last match. Nothing is simulated, so the number never jiggles.</p>
+    </details>
+  </section>
+
+  <section class="card" id="cardPlay" aria-labelledby="h-play">
+    <h2 id="h-play"><span class="num">4</span>Watch it play.</h2>
+    <p class="cap">Six games of the machine against the perfect opponent. Each row follows the pile down to 0: the dark tags are the machine&rsquo;s moves, the grey ones the opponent&rsquo;s, and each circle shows how many matches are left.</p>
+    <div class="playrow">
+      <button type="button" class="primary" id="playBtn">Play 6 games</button>
+      <span class="score" id="score"></span>
+    </div>
+    <p class="stale" id="stale" hidden>You turned a knob after these games were played.</p>
+    <div id="games"></div>
+    <div class="key" aria-label="Key">
+      <span class="kitem"><span class="st good">8<span class="mk">&#9733;</span></span>good state</span>
+      <span class="kitem"><span class="st bad">9<span class="mk">&#10007;</span></span>bad state</span>
+      <span class="kitem"><span class="st stuck">6</span>already lost</span>
+    </div>
+    <p class="hint">Tap a dark tag to select the knob that made that move. The small blue and orange numbers on the knobs in step 1 count the good and the bad moves of these games.</p>
+    <details>
+      <summary>Why are some states good?</summary>
+      <p>After every move the pile holds some number of matches: that is the state. Leave 4, 8 or 0 matches and the machine wins whatever the opponent does: if the opponent takes 1, 2 or 3, the machine takes 3, 2 or 1, and the pile is back at a multiple of 4. Leave anything else and the perfect opponent does exactly that to the machine. A state is already lost when the machine has to move from 4 or 8.</p>
+    </details>
+  </section>
+
+  <footer class="foot">
+    <button type="button" class="ghost" id="resetBtn">Reset all knobs</button>
+    <p class="cap">In the lecture the knobs are the weights <i>w</i> and the table of probabilities is the policy.</p>
+  </footer>
+
+</main>
+
+<div class="hud" id="hud">
+  <div class="toast" id="toast" role="status" hidden>
+    <span id="toastText"></span>
+    <button type="button" id="toastUndo">Undo</button>
+  </div>
+  <div class="hud-in">
+    <div class="hud-win">
+      <span class="hud-label">Win chance</span>
+      <span class="hud-num" id="hudWin">0%</span>
+      <span class="hud-delta" id="hudDelta" aria-live="polite"></span>
+    </div>
+    <div class="hud-sel">
+      <span class="hud-name" id="hudName">Pile 10, take 1</span>
+      <span class="hud-prob" id="hudProb"></span>
+    </div>
+    <div class="stepper">
+      <button type="button" class="stp" id="decBtn" aria-label="Lower the selected knob by 1">&minus;</button>
+      <input type="number" id="valInput" step="1" min="-10" max="10" aria-label="Value of the selected knob">
+      <button type="button" class="stp" id="incBtn" aria-label="Raise the selected knob by 1">+</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/nim.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
