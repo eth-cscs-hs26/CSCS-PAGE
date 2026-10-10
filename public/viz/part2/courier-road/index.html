@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>The courier's road</title>
+<!-- Offline by design: every file below is in this folder. No CDN, no fetch,
+     no server. Open this file from disk and it runs. -->
+<link rel="stylesheet" href="css/style.css">
+<script src="js/theme.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <span class="brand">The courier&rsquo;s road</span>
+    <span class="spacer"></span>
+    <a class="toplink" href="../../../#/part/part2">Course page</a>
+    <button type="button" class="ghost" id="themeBtn" aria-label="Switch between light and dark" title="Light or dark (t)">theme</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="intro">
+    <img class="mara" src="img/mara.svg" alt="" width="48" height="64" onerror="this.style.display='none'">
+    <h1>Send a courier down the mountain.</h1>
+    <p class="lede">Mara carries a satchel of letters from Eagle Pass down to the sea. The walk takes one day. At every crossing she takes the southwest road or the southeast road, and every place she reaches pays her a few coins or costs her some.</p>
+    <p>She does not plan. She follows habits, a table of knobs, and you set them. Turn the knobs until a day on the road pays as well as it can.</p>
+    <p class="how">Look at the map, turn the knobs, and send Mara down a few times to see what her habits earn.</p>
+    <noscript><p class="warn">This page needs JavaScript.</p></noscript>
+  </section>
+
+  <section class="card" id="cardMap" aria-labelledby="h-map">
+    <h2 id="h-map"><span class="num">1</span>The map.</h2>
+    <p class="cap">Fifteen places in a tree. Mara starts at the top, takes one road at each place and ends the day at the bottom. The coin on a place is what she gains (gold) or pays (orange) when she arrives. A road is as thick as the chance that she takes it, and the figure on it is the chance of taking that road from the place above.</p>
+    <div class="mapwrap"><svg id="map" viewBox="0 0 340 384" role="group" aria-label="Map of the fifteen places"></svg></div>
+    <div class="place" id="place" aria-live="polite"></div>
+  </section>
+
+  <section class="card" id="cardKnobs" aria-labelledby="h-knobs">
+    <h2 id="h-knobs"><span class="num">2</span>The knobs.</h2>
+    <p class="cap">One knob for each of the two roads out of the seven places that have a choice. A higher knob makes that road likelier. Every knob starts at 0, and only the difference between the two knobs of a place matters.</p>
+    <div class="tablewrap">
+      <table class="grid knobs" id="knobTable">
+        <colgroup><col class="c0"><col span="7"></colgroup>
+        <thead>
+          <tr><th class="corner" rowspan="2" scope="col"><span class="rl">road</span></th><th class="axis" colspan="7" scope="colgroup">the place Mara stands in</th></tr>
+          <tr id="knobHead"></tr>
+        </thead>
+        <tbody id="knobBody"></tbody>
+      </table>
+    </div>
+    <p class="hint">Tap a cell, a place on the map or a figure on a road to select it, then press + or &minus; in the bar below, or type a number there.</p>
+  </section>
+
+  <section class="card" id="cardProbs" aria-labelledby="h-probs">
+    <h2 id="h-probs"><span class="num">3</span>The probabilities.</h2>
+    <p class="cap">Each column turns its two knobs into two chances that add up to 100%: Mara takes e to the power of each knob and divides by the column&rsquo;s total. A knob raised by 1 makes its road about 2.7 times as likely, compared with the other road of the place.</p>
+    <div class="tablewrap">
+      <table class="grid probs" id="probTable">
+        <colgroup><col class="c0"><col span="7"></colgroup>
+        <thead>
+          <tr><th class="corner" rowspan="2" scope="col"><span class="rl">road</span></th><th class="axis" colspan="7" scope="colgroup">chance in %</th></tr>
+          <tr id="probHead"></tr>
+        </thead>
+        <tbody id="probBody"></tbody>
+      </table>
+    </div>
+    <div class="detail" id="detail"></div>
+  </section>
+
+  <section class="card" id="cardWin" aria-labelledby="h-win">
+    <h2 id="h-win"><span class="num">4</span>Coins per day.</h2>
+    <div class="bigrow"><span class="big" id="winBig">0</span><span class="unit">coins a day</span><span class="delta" id="winDelta"></span></div>
+    <div class="bar" aria-hidden="true"><i id="winBar"></i></div>
+    <p class="cap">Untouched knobs: <b id="winStart">0</b> coins. Best possible: <b id="winBest">0</b>. The number is exact: it adds up the eight days Mara can have, each weighted by its probability.</p>
+    <figure class="climb">
+      <svg id="spark" viewBox="0 0 320 112" role="img" aria-label="Coins a day after each knob change"></svg>
+      <figcaption class="cap">Your climb: the coins a day after each knob change.</figcaption>
+    </figure>
+    <details>
+      <summary>How is the average computed?</summary>
+      <p>Every day ends at one of the eight places at the bottom. For each of them the page multiplies the chances of the three roads Mara takes to get there, multiplies by the coins she collects on the way, and adds the eight results. Nothing is simulated, so the number never jiggles.</p>
+    </details>
+  </section>
+
+  <section class="card" id="cardPlay" aria-labelledby="h-play">
+    <h2 id="h-play"><span class="num">5</span>Send Mara down.</h2>
+    <p class="cap">Each row is one day. Mara leaves Eagle Pass and takes three roads. Each step shows the place she reached, the coins there and, underneath, how that road compares with her average road from the place before.</p>
+    <div class="playrow">
+      <button type="button" class="primary" id="playBtn">Send Mara 6 times</button>
+      <span class="score" id="score"></span>
+    </div>
+    <p class="stale" id="stale" hidden>You turned a knob after these days were played.</p>
+    <div id="days"></div>
+    <div class="key" aria-label="Key">
+      <span class="kitem"><span class="adv up">&#9650; 2.1</span>better than her average road</span>
+      <span class="kitem"><span class="adv down">&#9660; 3.4</span>worse than her average road</span>
+      <span class="kitem"><span class="adv even">even</span>about the same</span>
+    </div>
+    <p class="hint">Tap a step to select its knob. The small blue and orange numbers on the knobs in step 2 count the better and the worse roads taken in these days.</p>
+    <details>
+      <summary>What does the number under a place mean?</summary>
+      <p>At each fork Mara has an average road: her two roads weighted by her chances. The number says how many coins more (blue) or fewer (orange) the road she took is worth than that average, counting the coins at the place and everything she can expect afterwards. Raising the knob of a blue road raises the coins a day, and so does lowering the knob of an orange one.</p>
+    </details>
+  </section>
+
+  <footer class="foot">
+    <button type="button" class="ghost" id="resetBtn">Reset all knobs</button>
+    <p class="cap">In the lecture the places are the states, the two roads are the actions, the coins are the rewards and the coins of a day are the return. The knobs are the weights <i>w</i> and the table of probabilities is the policy.</p>
+  </footer>
+
+</main>
+
+<div class="hud" id="hud">
+  <div class="toast" id="toast" role="status" hidden>
+    <span id="toastText"></span>
+    <button type="button" id="toastUndo">Undo</button>
+  </div>
+  <div class="hud-in">
+    <div class="hud-win">
+      <span class="hud-label">Coins a day</span>
+      <span class="hud-num" id="hudWin">0</span>
+      <span class="hud-delta" id="hudDelta" aria-live="polite"></span>
+    </div>
+    <div class="hud-sel">
+      <span class="hud-name" id="hudName">Eagle Pass, southwest</span>
+      <span class="hud-prob" id="hudProb"></span>
+    </div>
+    <div class="stepper">
+      <button type="button" class="stp" id="decBtn" aria-label="Lower the selected knob by 1">&minus;</button>
+      <input type="number" id="valInput" step="1" min="-10" max="10" aria-label="Value of the selected knob">
+      <button type="button" class="stp" id="incBtn" aria-label="Raise the selected knob by 1">+</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/places.js"></script>
+<script src="js/road.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

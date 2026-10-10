@@ -109,6 +109,18 @@ const SQUARE_ONE = viz(1, 'square-root-show');
 const NIM_KNOBS = viz(2, 'nim-knobs');
 
 /**
+ * The courier's road game of the Day 3 lecture "Policy gradient methods" (10:00), from
+ * `public/viz/part2/courier-road/`. Its source is `cscs-hs26/courier-road-game/`, written
+ * on 2026-10-10 at Carlos's request as the second game after Nim, on the same principles:
+ * Mara walks one day down a tree of fifteen illustrated places, taking the southwest or the
+ * southeast road at each fork and collecting coins; the participant turns the knobs of her
+ * habits and watches the exact average of a day. Only index.html, css, js and img are
+ * copied here, the folders the page loads. It makes no network request and keeps only its
+ * theme and the knob table in `localStorage`.
+ */
+const COURIER_ROAD = viz(2, 'courier-road');
+
+/**
  * The Part I coding exercises, one zip each in `public/exercises/part1/`, named
  * like the exercise's folder on the cluster
  * (`/capstor/scratch/cscs/course_00776/exercises/<exercise>/`, the copy line on
@@ -334,7 +346,10 @@ export const parts: Part[] = [
             title: 'Policy gradient methods',
             type: 'lecture',
             topic: 'Reinforcement Learning for LLMs',
-            links: [{ label: 'Nim knobs game', url: NIM_KNOBS }],
+            links: [
+              { label: 'Nim knobs game', url: NIM_KNOBS },
+              { label: "Courier's road game", url: COURIER_ROAD },
+            ],
           },
           coffee('11:00'),
           { time: '11:15', title: 'Policy gradient methods', type: 'lecture' },
@@ -392,6 +407,11 @@ export const parts: Part[] = [
       {
         label: 'Nim knobs: turn the knobs of a Nim player (Day 3, policy gradient methods)',
         url: NIM_KNOBS,
+        group: 'Visualizations',
+      },
+      {
+        label: "The courier's road: turn the habits of a courier walking down a mountain (Day 3, policy gradient methods)",
+        url: COURIER_ROAD,
         group: 'Visualizations',
       },
       { label: 'Day 3 morning exercise', url: SOON, group: 'Coding exercises' },

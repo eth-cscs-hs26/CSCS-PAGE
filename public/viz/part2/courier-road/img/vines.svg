@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 240 180" width="240" height="180">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4FA9E3"/><stop offset="1" stop-color="#BFE3F5"/></linearGradient>
+    <linearGradient id="soil" gradientUnits="userSpaceOnUse" x1="0" y1="70" x2="0" y2="180"><stop offset="0" stop-color="#EDC87E"/><stop offset="1" stop-color="#D19549"/></linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFF3C0" stop-opacity="0.85"/><stop offset="1" stop-color="#FFF3C0" stop-opacity="0"/></radialGradient>
+    <linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8A5A24" stop-opacity="0"/><stop offset="1" stop-color="#8A5A24" stop-opacity="0.45"/></linearGradient>
+    <path id="c1" d="M-10 119.8C-1.7 118.5 25 115 40 112.3C55 109.7 66.7 106.9 80 104C93.3 101 106.7 96.8 120 94.7C133.3 92.5 145.8 91.1 160 90.9C174.2 90.8 190 91.4 205 93.7C220 96 242.5 103 250 104.9"/>
+    <path id="c2" d="M-10 137.5C-1.7 136.4 25 133.1 40 130.6C55 128.2 66.7 125.6 80 122.9C93.3 120.2 106.7 116.3 120 114.3C133.3 112.3 145.8 111 160 110.9C174.2 110.7 190 111.3 205 113.4C220 115.6 242.5 122 250 123.8"/>
+    <path id="c3" d="M-10 158.3C-1.7 157.2 25 154.2 40 152C55 149.7 66.7 147.4 80 144.8C93.3 142.3 106.7 138.8 120 136.9C133.3 135.1 145.8 133.9 160 133.8C174.2 133.7 190 134.2 205 136.2C220 138.1 242.5 144.1 250 145.6"/>
+    <path id="c4" d="M-10 183C-1.7 182.1 25 179.3 40 177.3C55 175.2 66.7 173.1 80 170.8C93.3 168.5 106.7 165.3 120 163.6C133.3 161.9 145.8 160.8 160 160.7C174.2 160.6 190 161.1 205 162.9C220 164.7 242.5 170.1 250 171.5"/>
+  </defs>
+
+  <!-- afternoon sky -->
+  <rect width="240" height="112" fill="url(#sky)"/>
+  <circle cx="214" cy="26" r="56" fill="url(#sun)"/>
+  <circle cx="214" cy="26" r="11" fill="#FFF7D6"/>
+  <g fill="#FFFFFF" opacity="0.88">
+    <ellipse cx="50" cy="40" rx="21" ry="4.6"/><ellipse cx="62" cy="35.5" rx="12" ry="5.2"/><ellipse cx="40" cy="43" rx="12" ry="3.4"/>
+    <ellipse cx="150" cy="24" rx="15" ry="3.2"/><ellipse cx="158" cy="21" rx="8" ry="3.4"/>
+  </g>
+  <g fill="none" stroke="#26456E" stroke-width="1.2" stroke-linecap="round" opacity="0.8">
+    <path d="M84 52 q4 -4.5 8 0 q4 -4.5 8 0"/><path d="M62 60 q3 -3.2 6 0 q3 -3.2 6 0"/>
+  </g>
+
+  <!-- far hills in haze -->
+  <path d="M-10 104 C 24 92 46 96 70 90 C 96 84 120 92 150 87 C 182 82 208 91 250 85 L250 140 L-10 140 Z" fill="#A9D1E2"/>
+  <path d="M-10 114 C 30 105 60 111 92 102 C 130 94 160 104 196 98 C 214 95 232 98 250 100 L250 140 L-10 140 Z" fill="#8FC2C2"/>
+  <g fill="#3F7C66">
+    <path d="M30 102 q1.6 -7 3.2 0 z"/><path d="M36 101.5 q1.4 -6 2.8 0 z"/><path d="M214 97.5 q1.6 -7 3.2 0 z"/><path d="M224 98 q1.4 -6 2.8 0 z"/>
+  </g>
+
+  <!-- the terraced hill -->
+  <path d="M-10 104C-1.7 102.7 25 98.8 40 96C55 93.2 66.7 90.2 80 87C93.3 83.8 106.7 79.3 120 77C133.3 74.7 145.8 73.2 160 73C174.2 72.8 190 73.5 205 76C220 78.5 242.5 86 250 88L250 190 L-10 190 Z" fill="url(#soil)"/>
+  <use xlink:href="#c1" y="-1.9" fill="none" stroke="#A9733F" stroke-width="3.8"/>
+  <use xlink:href="#c1" y="-3.7" fill="none" stroke="#F8E0A8" stroke-width="1.1"/>
+  <path d="M-10 119.8C-1.7 118.5 25 115 40 112.3C55 109.7 66.7 106.9 80 104C93.3 101 106.7 96.8 120 94.7C133.3 92.5 145.8 91.1 160 90.9C174.2 90.8 190 91.4 205 93.7C220 96 242.5 103 250 104.9L250 190 L-10 190 Z" fill="url(#soil)"/>
+  <use xlink:href="#c1" y="2.3" fill="none" stroke="#B27A38" stroke-width="4.6" opacity="0.5"/>
+  <use xlink:href="#c1" y="10.5" fill="none" stroke="#B07A38" stroke-width="4.3" opacity="0.5"/>
+  <use xlink:href="#c1" y="6.9" fill="none" stroke="#3F7C3B" stroke-width="5.4"/>
+  <use xlink:href="#c1" y="5.8" fill="none" stroke="#88C057" stroke-width="2.2" stroke-dasharray="3 3.8" stroke-linecap="round"/>
+  <use xlink:href="#c1" y="16.9" fill="none" stroke="#B07A38" stroke-width="4.3" opacity="0.5"/>
+  <use xlink:href="#c1" y="13.3" fill="none" stroke="#3F7C3B" stroke-width="5.4"/>
+  <use xlink:href="#c1" y="12.2" fill="none" stroke="#88C057" stroke-width="2.2" stroke-dasharray="3 3.8" stroke-linecap="round"/>
+  <use xlink:href="#c2" y="-1.9" fill="none" stroke="#A9733F" stroke-width="3.8"/>
+  <use xlink:href="#c2" y="-3.7" fill="none" stroke="#F8E0A8" stroke-width="1.1"/>
+  <path d="M-10 137.5C-1.7 136.4 25 133.1 40 130.6C55 128.2 66.7 125.6 80 122.9C93.3 120.2 106.7 116.3 120 114.3C133.3 112.3 145.8 111 160 110.9C174.2 110.7 190 111.3 205 113.4C220 115.6 242.5 122 250 123.8L250 190 L-10 190 Z" fill="url(#soil)"/>
+  <use xlink:href="#c2" y="2.3" fill="none" stroke="#B27A38" stroke-width="4.6" opacity="0.5"/>
+  <use xlink:href="#c2" y="11.7" fill="none" stroke="#B07A38" stroke-width="5.1" opacity="0.5"/>
+  <use xlink:href="#c2" y="7.6" fill="none" stroke="#3F7C3B" stroke-width="6.4"/>
+  <use xlink:href="#c2" y="6.3" fill="none" stroke="#88C057" stroke-width="2.6" stroke-dasharray="3.5 4.5" stroke-linecap="round"/>
+  <use xlink:href="#c2" y="19.1" fill="none" stroke="#B07A38" stroke-width="5.1" opacity="0.5"/>
+  <use xlink:href="#c2" y="15" fill="none" stroke="#3F7C3B" stroke-width="6.4"/>
+  <use xlink:href="#c2" y="13.7" fill="none" stroke="#88C057" stroke-width="2.6" stroke-dasharray="3.5 4.5" stroke-linecap="round"/>
+  <use xlink:href="#c3" y="-1.9" fill="none" stroke="#A9733F" stroke-width="3.8"/>
+  <use xlink:href="#c3" y="-3.7" fill="none" stroke="#F8E0A8" stroke-width="1.1"/>
+  <path d="M-10 158.3C-1.7 157.2 25 154.2 40 152C55 149.7 66.7 147.4 80 144.8C93.3 142.3 106.7 138.8 120 136.9C133.3 135.1 145.8 133.9 160 133.8C174.2 133.7 190 134.2 205 136.2C220 138.1 242.5 144.1 250 145.6L250 190 L-10 190 Z" fill="url(#soil)"/>
+  <use xlink:href="#c3" y="2.3" fill="none" stroke="#B27A38" stroke-width="4.6" opacity="0.5"/>
+  <use xlink:href="#c3" y="13.6" fill="none" stroke="#B07A38" stroke-width="6.1" opacity="0.5"/>
+  <use xlink:href="#c3" y="8.8" fill="none" stroke="#3F7C3B" stroke-width="7.6"/>
+  <use xlink:href="#c3" y="7.3" fill="none" stroke="#88C057" stroke-width="3" stroke-dasharray="4.2 5.3" stroke-linecap="round"/>
+  <use xlink:href="#c3" y="22.6" fill="none" stroke="#B07A38" stroke-width="6.1" opacity="0.5"/>
+  <use xlink:href="#c3" y="17.8" fill="none" stroke="#3F7C3B" stroke-width="7.6"/>
+  <use xlink:href="#c3" y="16.3" fill="none" stroke="#88C057" stroke-width="3" stroke-dasharray="4.2 5.3" stroke-linecap="round"/>
+  <use xlink:href="#c4" y="-1.9" fill="none" stroke="#A9733F" stroke-width="3.8"/>
+  <use xlink:href="#c4" y="-3.7" fill="none" stroke="#F8E0A8" stroke-width="1.1"/>
+  <path d="M-10 183C-1.7 182.1 25 179.3 40 177.3C55 175.2 66.7 173.1 80 170.8C93.3 168.5 106.7 165.3 120 163.6C133.3 161.9 145.8 160.8 160 160.7C174.2 160.6 190 161.1 205 162.9C220 164.7 242.5 170.1 250 171.5L250 190 L-10 190 Z" fill="url(#soil)"/>
+  <use xlink:href="#c4" y="2.3" fill="none" stroke="#B27A38" stroke-width="4.6" opacity="0.5"/>
+
+  <!-- the lane up to the farmhouse -->
+  <path d="M164.6 191.6C165.1 186.9 166.5 171.8 168 163.3C169.6 154.8 172 148.4 173.8 140.8C175.5 133.2 177.1 124.7 178.4 117.8C179.7 110.9 180.7 104.2 181.5 99.4C182.2 94.6 182.6 90.9 182.9 89.2L171.1 86.8C170.7 88.5 169.8 92.1 168.5 96.6C167.3 101.2 165.7 107.7 163.6 114.2C161.6 120.6 159.2 128.1 156.2 135.2C153.3 142.3 149.4 148.5 146 156.7C142.5 164.9 137.2 179.8 135.4 184.4Z" fill="#F6E0AA"/>
+  <path d="M164.6 191.6C165.1 186.9 166.5 171.8 168 163.3C169.6 154.8 172 148.4 173.8 140.8C175.5 133.2 177.1 124.7 178.4 117.8C179.7 110.9 180.7 104.2 181.5 99.4C182.2 94.6 182.6 90.9 182.9 89.2" fill="none" stroke="#D9AE68" stroke-width="1" opacity="0.7"/>
+
+  <!-- cypress with its short shadow -->
+  <path d="M108 81 L92 86.5 L110 86 Z" fill="#A8733A" opacity="0.55"/>
+  <ellipse cx="113" cy="81.5" rx="10" ry="4.4" fill="#2F6A46"/><ellipse cx="127" cy="82.5" rx="7" ry="3.6" fill="#3C7C52"/>
+  <path d="M117 10 C 126 26 130.5 54 129.5 83 L105 83 C 104 54 108 26 117 10 Z" fill="#24503F"/>
+  <path d="M117 10 C 126 26 130.5 54 129.5 83 L118 83 C 121.5 58 121 30 117 10 Z" fill="#3B7C5A"/>
+
+  <!-- the farmhouse -->
+  <g transform="translate(166 88) scale(1.3) translate(-166 -88)">
+  <ellipse cx="166" cy="87" rx="34" ry="3.8" fill="#A8733A" opacity="0.5"/>
+  <rect x="147" y="52" width="14" height="35" fill="#F5E4BE"/><rect x="147" y="52" width="3.6" height="35" fill="#DCC397"/>
+  <path d="M144 53.5 L154 40 L164 53.5 Z" fill="#C4673A"/><path d="M154 40 L164 53.5 L154 53.5 Z" fill="#DB7C4C"/>
+  <path d="M152 63 V59.5 a2.5 2.5 0 0 1 5 0 V63 Z" fill="#6A4630"/>
+  <rect x="161" y="66" width="35" height="21" fill="#F5E4BE"/><rect x="161" y="66" width="3.4" height="21" fill="#DCC397"/>
+  <path d="M157 68 L164 55.5 L193 55.5 L200 68 Z" fill="#C4673A"/>
+  <path d="M164 55.5 L193 55.5 L195.5 60.5 L161.5 60.5 Z" fill="#DB7C4C"/>
+  <path d="M158.8 65 H198.2" stroke="#A9532F" stroke-width="0.8" opacity="0.7"/>
+  <path d="M158 68 H199.5 L199.2 71 H158.5 Z" fill="#8A4A32" opacity="0.4"/>
+  <rect x="183" y="47" width="6" height="10" fill="#EBD5AA"/><rect x="181.6" y="45.4" width="8.8" height="2.8" fill="#B96A3F"/>
+  <rect x="165" y="72" width="6" height="8" fill="#27456E"/><path d="M168 72 V80 M165 76 H171" stroke="#A9C3DC" stroke-width="0.6"/>
+  <rect x="186.5" y="72" width="6" height="8" fill="#27456E"/><path d="M189.5 72 V80 M186.5 76 H192.5" stroke="#A9C3DC" stroke-width="0.6"/>
+  <rect x="163" y="72" width="2.2" height="8" fill="#3B7CA3"/><rect x="171" y="72" width="2.2" height="8" fill="#3B7CA3"/>
+  <rect x="184.5" y="72" width="2.2" height="8" fill="#3B7CA3"/><rect x="192.5" y="72" width="2.2" height="8" fill="#3B7CA3"/>
+  <path d="M173.5 87 V77.5 a3.5 3.5 0 0 1 7 0 V87 Z" fill="#6A4630"/>
+  <rect x="172" y="86" width="10" height="2" fill="#D8BF92"/>
+  </g>
+
+  <!-- baskets of grapes -->
+  <g transform="translate(4.4 -26.4) scale(1.15)">
+  <ellipse cx="64" cy="176.5" rx="17" ry="3" fill="#6B4414" opacity="0.4"/>
+  <circle cx="55" cy="157" r="4.4" fill="#5B2E7A"/>
+  <circle cx="62" cy="153.5" r="4.6" fill="#6C3C8E"/>
+  <circle cx="69" cy="154" r="4.5" fill="#5B2E7A"/>
+  <circle cx="75" cy="158" r="4.2" fill="#6C3C8E"/>
+  <circle cx="59" cy="148.5" r="4.4" fill="#7A47A0"/>
+  <circle cx="66" cy="147" r="4.6" fill="#5B2E7A"/>
+  <circle cx="72" cy="150" r="4.3" fill="#7A47A0"/>
+  <circle cx="63" cy="142.5" r="4.2" fill="#6C3C8E"/>
+  <circle cx="68.5" cy="143" r="3.8" fill="#7A47A0"/>
+  <g fill="#B995D6" opacity="0.85"><circle cx="53.8" cy="155.8" r="1.1"/><circle cx="60.6" cy="152.2" r="1.2"/><circle cx="57.6" cy="147.2" r="1.1"/><circle cx="64.6" cy="145.8" r="1.2"/><circle cx="61.8" cy="141.2" r="1"/></g>
+  <path d="M69 141 q8 -6 14 -2 q-6 6 -14 2 z" fill="#4B8A3E"/><path d="M69 141 q7 -2 13 -1.4" stroke="#2F6A32" stroke-width="0.7" fill="none"/>
+  <path d="M51 160 L77 160 L74 176 L54 176 Z" fill="#9A7740"/>
+  <path d="M51.8 164.2 H76.2 M52.6 168.6 H75.4 M53.2 172.6 H74.8" stroke="#6E5127" stroke-width="0.9"/>
+  <path d="M58 160 L59 176 M64 160 V176 M70 160 L69 176" stroke="#B89558" stroke-width="0.8" opacity="0.8"/>
+  <rect x="49.6" y="157.6" width="28.8" height="3.8" rx="1.9" fill="#B88F4C"/>
+  </g>
+  <g transform="translate(4.2 -18) scale(1.1)">
+  <ellipse cx="98" cy="178.5" rx="12" ry="2.4" fill="#6B4414" opacity="0.4"/>
+  <circle cx="91.5" cy="167" r="3.8" fill="#C9D463"/>
+  <circle cx="98" cy="164.5" r="4" fill="#DDE27A"/>
+  <circle cx="104" cy="167.5" r="3.8" fill="#C9D463"/>
+  <circle cx="94.5" cy="161.5" r="3.8" fill="#DDE27A"/>
+  <circle cx="101" cy="160.5" r="3.8" fill="#C9D463"/>
+  <circle cx="97.5" cy="156.5" r="3.4" fill="#DDE27A"/>
+  <g fill="#F7F5B8" opacity="0.8"><circle cx="90.6" cy="165.8" r="1"/><circle cx="97" cy="163.2" r="1.1"/><circle cx="93.6" cy="160.2" r="1"/><circle cx="96.6" cy="155.4" r="0.9"/></g>
+  <path d="M86 170 L110 170 L107.6 180 L88.4 180 Z" fill="#8F6C38"/>
+  <path d="M87 174.4 H109 M88 178 H108" stroke="#6E5127" stroke-width="0.9"/>
+  <rect x="84.6" y="167.8" width="26.8" height="3.6" rx="1.8" fill="#B88F4C"/>
+  </g>
+
+  <rect y="150" width="240" height="30" fill="url(#fg)"/>
+</svg>

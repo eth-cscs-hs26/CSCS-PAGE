@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="240" height="180">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#46569A"/>
+      <stop offset="0.48" stop-color="#E3A0A8"/>
+      <stop offset="1" stop-color="#FFDDA6"/>
+    </linearGradient>
+    <linearGradient id="snow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FCF5EC"/>
+      <stop offset="1" stop-color="#E6DEEE"/>
+    </linearGradient>
+  </defs>
+
+  <!-- dawn sky -->
+  <rect width="240" height="180" fill="url(#sky)"/>
+  <g fill="#FFFFFF" opacity="0.7">
+    <circle cx="30" cy="14" r="0.9"/><circle cx="84" cy="9" r="0.7"/><circle cx="150" cy="16" r="0.8"/>
+    <circle cx="206" cy="10" r="0.9"/><circle cx="224" cy="30" r="0.7"/><circle cx="14" cy="40" r="0.7"/>
+  </g>
+  <ellipse cx="46" cy="70" rx="30" ry="3" fill="#F6B9B3" opacity="0.7"/>
+  <ellipse cx="200" cy="64" rx="26" ry="2.6" fill="#F6B9B3" opacity="0.7"/>
+
+  <!-- sun between the peaks -->
+  <circle cx="120" cy="102" r="36" fill="#FFE8B4" opacity="0.30"/>
+  <circle cx="120" cy="102" r="21" fill="#FFF1C8"/>
+
+  <!-- far range -->
+  <path d="M0 124 L24 98 L42 112 L62 90 L86 116 L110 100 L132 118 L158 92 L182 114 L206 94 L226 110 L240 102 L240 160 L0 160 Z" fill="#8F86B8"/>
+
+  <!-- left peak: shadow body, sunlit face, snow cap -->
+  <path d="M-14 160 L68 44 L134 160 Z" fill="#6475AD"/>
+  <path d="M68 44 L134 160 L98 160 L84 112 L88 96 L76 84 Z" fill="#F4CFC0"/>
+  <path d="M68 44 L134 160 L112 160 L94 118 L98 100 L84 88 L90 72 Z" fill="#EFC0B5" opacity="0.55"/>
+  <path d="M68 44 L50 76 L60 70 L66 84 L76 70 L82 82 L90 76 L80 56 Z" fill="#FBF3EA"/>
+
+  <!-- right peak -->
+  <path d="M108 160 L178 34 L252 160 Z" fill="#6A7BB3"/>
+  <path d="M178 34 L108 160 L136 160 L148 118 L142 100 L156 88 L152 72 Z" fill="#F4CFC0"/>
+  <path d="M178 34 L156 70 L166 64 L172 80 L182 64 L190 76 L198 66 L190 50 Z" fill="#FBF3EA"/>
+
+  <!-- snowfields -->
+  <path d="M0 180 L0 136 C 38 126 80 140 122 134 C 162 128 204 138 240 128 L240 180 Z" fill="url(#snow)"/>
+  <path d="M0 180 L0 158 C 50 148 96 162 148 154 C 190 148 220 156 240 150 L240 180 Z" fill="#F6F0F3"/>
+  <path d="M20 150 C 50 146 70 152 96 150" stroke="#C9D2EC" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M150 164 C 176 160 200 164 224 160" stroke="#C9D2EC" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+
+  <!-- the path down -->
+  <path d="M153 144 C 138 148 122 146 110 152 C 98 158 86 156 72 166 L 64 180 L 84 180 C 90 172 104 168 120 164 C 138 160 152 158 162 147 Z" fill="#DDBFA0"/>
+
+  <!-- pines -->
+  <g>
+    <rect x="104" y="136" width="3" height="6" fill="#5B4636"/>
+    <path d="M105.5 114 L96 138 L115 138 Z" fill="#2F5D50"/>
+    <path d="M105.5 114 L100 127 L111 127 Z" fill="#F8F2EA" opacity="0.9"/>
+    <rect x="118" y="140" width="2.6" height="5" fill="#5B4636"/>
+    <path d="M119.3 122 L111 142 L127.6 142 Z" fill="#2A5448"/>
+    <path d="M119.3 122 L114.5 133 L124 133 Z" fill="#F8F2EA" opacity="0.9"/>
+    <rect x="203" y="131" width="2.6" height="5" fill="#5B4636"/>
+    <path d="M204.3 114 L197 133 L211.6 133 Z" fill="#2F5D50"/>
+    <path d="M204.3 114 L200 124 L208.6 124 Z" fill="#F8F2EA" opacity="0.9"/>
+  </g>
+
+  <!-- the hospice, a little larger, with warm light on the snow -->
+  <g transform="translate(156 146) scale(1.22) translate(-156 -146)">
+  <ellipse cx="152" cy="150" rx="15" ry="3" fill="#FFD27A" opacity="0.40"/>
+  <ellipse cx="156" cy="145" rx="30" ry="4" fill="#C9D2EC" opacity="0.8"/>
+  <rect x="136" y="122" width="42" height="24" fill="#B9A88D"/>
+  <rect x="136" y="122" width="42" height="24" fill="none" stroke="#9C8B70" stroke-width="0.8"/>
+  <path d="M131 124 L157 105 L183 124 Z" fill="#8B7A62"/>
+  <path d="M133 122 L157 104.5 L181 122 Z" fill="#ECE7F0"/>
+  <rect x="168" y="104" width="7" height="12" fill="#8B7A62"/>
+  <rect x="167" y="102" width="9" height="3" fill="#ECE7F0"/>
+  <g fill="#FFFFFF" opacity="0.8">
+    <circle cx="172" cy="96" r="3.2"/><circle cx="176" cy="89" r="4"/><circle cx="182" cy="82" r="5"/>
+  </g>
+  <rect x="152" y="132" width="9" height="14" rx="1" fill="#5E4535"/>
+  <circle cx="145" cy="130" r="9" fill="#FFC857" opacity="0.30"/>
+  <rect x="141" y="126" width="8" height="7" fill="#FFC857"/>
+  <path d="M145 126 V133 M141 129.5 H149" stroke="#9C7B3A" stroke-width="0.8"/>
+  <rect x="166" y="127" width="7" height="6" fill="#FFC857"/>
+  <circle cx="170" cy="130" r="8" fill="#FFC857" opacity="0.22"/>
+  </g>
+
+  <!-- a bright star -->
+  <path d="M34 20 L35.2 24.6 L40 26 L35.2 27.4 L34 32 L32.8 27.4 L28 26 L32.8 24.6 Z" fill="#FFFFFF" opacity="0.9"/>
+
+  <!-- an eagle -->
+  <path d="M56 40 q6 -7 13 0 q7 -7 13 0 q-6 1 -13 6 q-7 -5 -13 -6 z" fill="#2B2A28" opacity="0.85"/>
+</svg>

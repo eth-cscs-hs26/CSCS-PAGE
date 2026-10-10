@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="240" height="180">
+  <defs>
+    <linearGradient id="sky" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="102">
+      <stop offset="0" stop-color="#2E3A74"/>
+      <stop offset="0.36" stop-color="#6A4B95"/>
+      <stop offset="0.64" stop-color="#B25F90"/>
+      <stop offset="0.84" stop-color="#F08A5D"/>
+      <stop offset="1" stop-color="#FFD27A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFE9B0" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#FFB070" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFC857" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#FFC857" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F3B58E"/>
+      <stop offset="0.42" stop-color="#6FCBC6"/>
+      <stop offset="1" stop-color="#339AAC"/>
+    </linearGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#F8DCCB"/>
+      <stop offset="1" stop-color="#B58BAE"/>
+    </linearGradient>
+    <linearGradient id="mound" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#F0C4B8"/>
+      <stop offset="0.55" stop-color="#CC9EB6"/>
+      <stop offset="1" stop-color="#8A68A4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- dusk sky -->
+  <rect width="240" height="180" fill="url(#sky)"/>
+  <g fill="#FFFFFF">
+    <circle cx="44" cy="15" r="1.3" opacity="0.95"/>
+    <circle cx="96" cy="8" r="0.8" opacity="0.6"/>
+    <circle cx="184" cy="13" r="0.9" opacity="0.65"/>
+    <circle cx="218" cy="30" r="0.7" opacity="0.5"/>
+    <circle cx="14" cy="38" r="0.7" opacity="0.5"/>
+  </g>
+  <ellipse cx="200" cy="52" rx="28" ry="2.4" fill="#F6B9B3" opacity="0.5"/>
+  <ellipse cx="38" cy="56" rx="22" ry="2.2" fill="#F6B9B3" opacity="0.5"/>
+  <circle cx="64" cy="84" r="58" fill="url(#glow)"/>
+  <circle cx="64" cy="82" r="14" fill="#FFEBB8"/>
+
+  <!-- far and near mountain ranges -->
+  <path d="M0 100 L18 84 L34 92 L52 76 L66 89 L84 80 L104 96 L124 70 L146 92 L166 66 L190 88 L212 70 L240 90 L240 130 L0 130 Z" fill="#A06BA2"/>
+  <path d="M124 70 L104 96 L116 98 L124 86 L128 92 Z" fill="#D590A6" opacity="0.5"/>
+  <path d="M166 66 L146 92 L158 94 L166 80 L170 86 Z" fill="#D590A6" opacity="0.5"/>
+  <path d="M0 114 L22 94 L44 106 L72 86 L96 108 L120 96 L146 114 L172 88 L198 108 L222 92 L240 104 L240 140 L0 140 Z" fill="#5A4A92"/>
+  <path d="M72 86 L44 106 L58 110 L69 98 L74 106 Z" fill="#B96A98" opacity="0.55"/>
+  <path d="M172 88 L146 114 L160 116 L170 100 L176 110 Z" fill="#B96A98" opacity="0.45"/>
+  <path d="M222 92 L198 108 L212 112 L220 102 L226 108 Z" fill="#B96A98" opacity="0.45"/>
+  <path d="M22 94 L0 114 L14 116 L22 104 L28 110 Z" fill="#B96A98" opacity="0.45"/>
+
+  <!-- the pale rock mound -->
+  <path d="M-10 180 L-10 126 C 14 118 32 110 54 103 C 82 95 110 89 136 87 C 152 86 176 87 198 89 C 216 91 232 96 250 102 L250 180 Z" fill="url(#mound)"/>
+
+  <!-- boardwalk down from the bathhouse -->
+  <path d="M184 90 L206 90 L252 166 L252 184 L216 184 Z" fill="#B97B4E"/>
+  <path d="M184 90 L196 90 L234 184 L216 184 Z" fill="#D3925A" opacity="0.55"/>
+  <g stroke="#8A5A3C" stroke-width="0.9" opacity="0.7">
+    <path d="M188 98 L210 98"/><path d="M193 108 L216 108"/><path d="M199 119 L224 119"/>
+    <path d="M205 131 L233 131"/><path d="M212 144 L243 144"/><path d="M220 158 L252 158"/>
+  </g>
+
+  <!-- bathhouse -->
+  <ellipse cx="164" cy="90" rx="38" ry="3.4" fill="#6F4F8E" opacity="0.5"/>
+  <rect x="132" y="88" width="64" height="3.6" fill="#6A4332"/>
+  <rect x="138" y="64" width="52" height="24" fill="#D8965E"/>
+  <rect x="164" y="64" width="26" height="24" fill="#B97A50" opacity="0.7"/>
+  <path d="M127 66 L164 40 L201 66 Z" fill="#7A3A4E"/>
+  <path d="M127 66 L164 40 L164 66 Z" fill="#B65F40"/>
+  <rect x="127" y="64.2" width="74" height="3" fill="#4F2B3A"/>
+  <rect x="157" y="72" width="14" height="16" rx="1.2" fill="#FFC857"/>
+  <rect x="159" y="74" width="10" height="14" rx="1" fill="#FFE29A"/>
+  <rect x="143" y="71" width="9" height="8.5" fill="#FFC857"/>
+  <rect x="176" y="71" width="9" height="8.5" fill="#FFC857"/>
+  <path d="M147.5 71 V79.5 M143 75.2 H152 M180.5 71 V79.5 M176 75.2 H185" stroke="#9C6A3A" stroke-width="0.7"/>
+  <circle cx="147.5" cy="75" r="10" fill="url(#halo)"/>
+  <circle cx="180.5" cy="75" r="10" fill="url(#halo)"/>
+  <path d="M131 67 V70 M197 67 V70" stroke="#4F2B3A" stroke-width="0.8"/>
+  <circle cx="131" cy="75" r="9" fill="url(#halo)"/>
+  <circle cx="197" cy="75" r="9" fill="url(#halo)"/>
+  <ellipse cx="131" cy="73" rx="2.6" ry="3.4" fill="#FF9A4D"/>
+  <ellipse cx="197" cy="73" rx="2.6" ry="3.4" fill="#FF9A4D"/>
+
+  <!-- steam -->
+  <g fill="#FFF8F2" opacity="0.7">
+    <circle cx="126" cy="94" r="6.5"/>
+    <circle cx="121" cy="83" r="8"/>
+    <circle cx="115" cy="71" r="9"/>
+    <circle cx="94" cy="116" r="5.5"/>
+    <circle cx="89" cy="107" r="6.5"/>
+    <circle cx="84" cy="96" r="7"/>
+  </g>
+  <g fill="#FFF8F2" opacity="0.4">
+    <circle cx="109" cy="58" r="9"/>
+    <circle cx="104" cy="45" r="8"/>
+    <circle cx="100" cy="33" r="6"/>
+    <circle cx="79" cy="86" r="6"/>
+    <circle cx="75" cy="76" r="5"/>
+  </g>
+
+  <!-- pool A, top -->
+  <path d="M110 102 A36 9 0 0 0 182 102 L182 111 A36 9 0 0 1 110 111 Z" fill="url(#wall)"/>
+  <ellipse cx="146" cy="102" rx="36" ry="9" fill="#FDEBDD"/>
+  <ellipse cx="146" cy="102.8" rx="31" ry="6.4" fill="url(#water)"/>
+  <!-- pool B -->
+  <path d="M76 124 A48 12 0 0 0 172 124 L172 135 A48 12 0 0 1 76 135 Z" fill="url(#wall)"/>
+  <ellipse cx="124" cy="124" rx="48" ry="12" fill="#FDEBDD"/>
+  <ellipse cx="124" cy="124.9" rx="42.5" ry="8.8" fill="url(#water)"/>
+  <!-- pool C, front -->
+  <path d="M44 151 A62 15.5 0 0 0 168 151 L168 164 A62 15.5 0 0 1 44 164 Z" fill="url(#wall)"/>
+  <ellipse cx="106" cy="151" rx="62" ry="15.5" fill="#FDEBDD"/>
+  <ellipse cx="106" cy="152" rx="56" ry="11.5" fill="url(#water)"/>
+
+  <!-- pines at the edges -->
+  <g fill="#28405C">
+    <rect x="19" y="136" width="3" height="8"/>
+    <path d="M20.5 98 L10 124 L31 124 Z"/>
+    <path d="M20.5 110 L6 138 L35 138 Z"/>
+    <rect x="226" y="120" width="3" height="8"/>
+    <path d="M227.5 92 L217 116 L238 116 Z"/>
+    <path d="M227.5 104 L214 130 L241 130 Z"/>
+  </g>
+
+  <!-- reed tufts by the pools -->
+  <g stroke="#3F5D5A" stroke-width="1.3" stroke-linecap="round" fill="none">
+    <path d="M178 130 q-1 -6 -4 -8 M178 130 q0 -7 1 -9 M178 130 q2 -5 5 -7"/>
+    <path d="M176 156 q-1 -6 -4 -8 M176 156 q0 -7 1 -9 M176 156 q2 -5 5 -7"/>
+  </g>
+
+  <!-- lantern posts and a bird -->
+  <circle cx="198" cy="118" r="10" fill="url(#halo)"/>
+  <rect x="197.2" y="120" width="1.6" height="12" fill="#4A2F3A"/>
+  <ellipse cx="198" cy="118.5" rx="2.6" ry="3.4" fill="#FFB35A"/>
+  <circle cx="222" cy="152" r="10" fill="url(#halo)"/>
+  <rect x="221.2" y="154" width="1.6" height="12" fill="#4A2F3A"/>
+  <ellipse cx="222" cy="152.5" rx="2.6" ry="3.4" fill="#FFB35A"/>
+  <path d="M200 30 q4 -5 8 0 q4 -5 8 0 q-4 1 -8 4 q-4 -3 -8 -4 z" fill="#2B2A28" opacity="0.7"/>
+</svg>
