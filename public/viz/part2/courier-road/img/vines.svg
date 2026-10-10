@@ -1,13 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 240 180" width="240" height="180">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="240" height="180">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4FA9E3"/><stop offset="1" stop-color="#BFE3F5"/></linearGradient>
     <linearGradient id="soil" gradientUnits="userSpaceOnUse" x1="0" y1="70" x2="0" y2="180"><stop offset="0" stop-color="#EDC87E"/><stop offset="1" stop-color="#D19549"/></linearGradient>
     <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFF3C0" stop-opacity="0.85"/><stop offset="1" stop-color="#FFF3C0" stop-opacity="0"/></radialGradient>
     <linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8A5A24" stop-opacity="0"/><stop offset="1" stop-color="#8A5A24" stop-opacity="0.45"/></linearGradient>
-    <path id="c1" d="M-10 119.8C-1.7 118.5 25 115 40 112.3C55 109.7 66.7 106.9 80 104C93.3 101 106.7 96.8 120 94.7C133.3 92.5 145.8 91.1 160 90.9C174.2 90.8 190 91.4 205 93.7C220 96 242.5 103 250 104.9"/>
-    <path id="c2" d="M-10 137.5C-1.7 136.4 25 133.1 40 130.6C55 128.2 66.7 125.6 80 122.9C93.3 120.2 106.7 116.3 120 114.3C133.3 112.3 145.8 111 160 110.9C174.2 110.7 190 111.3 205 113.4C220 115.6 242.5 122 250 123.8"/>
-    <path id="c3" d="M-10 158.3C-1.7 157.2 25 154.2 40 152C55 149.7 66.7 147.4 80 144.8C93.3 142.3 106.7 138.8 120 136.9C133.3 135.1 145.8 133.9 160 133.8C174.2 133.7 190 134.2 205 136.2C220 138.1 242.5 144.1 250 145.6"/>
-    <path id="c4" d="M-10 183C-1.7 182.1 25 179.3 40 177.3C55 175.2 66.7 173.1 80 170.8C93.3 168.5 106.7 165.3 120 163.6C133.3 161.9 145.8 160.8 160 160.7C174.2 160.6 190 161.1 205 162.9C220 164.7 242.5 170.1 250 171.5"/>
   </defs>
 
   <!-- afternoon sky -->
@@ -30,41 +26,41 @@
   </g>
 
   <!-- the terraced hill -->
-  <path d="M-10 104C-1.7 102.7 25 98.8 40 96C55 93.2 66.7 90.2 80 87C93.3 83.8 106.7 79.3 120 77C133.3 74.7 145.8 73.2 160 73C174.2 72.8 190 73.5 205 76C220 78.5 242.5 86 250 88L250 190 L-10 190 Z" fill="url(#soil)"/>
-  <use xlink:href="#c1" y="-1.9" fill="none" stroke="#A9733F" stroke-width="3.8"/>
-  <use xlink:href="#c1" y="-3.7" fill="none" stroke="#F8E0A8" stroke-width="1.1"/>
-  <path d="M-10 119.8C-1.7 118.5 25 115 40 112.3C55 109.7 66.7 106.9 80 104C93.3 101 106.7 96.8 120 94.7C133.3 92.5 145.8 91.1 160 90.9C174.2 90.8 190 91.4 205 93.7C220 96 242.5 103 250 104.9L250 190 L-10 190 Z" fill="url(#soil)"/>
-  <use xlink:href="#c1" y="2.3" fill="none" stroke="#B27A38" stroke-width="4.6" opacity="0.5"/>
-  <use xlink:href="#c1" y="10.5" fill="none" stroke="#B07A38" stroke-width="4.3" opacity="0.5"/>
-  <use xlink:href="#c1" y="6.9" fill="none" stroke="#3F7C3B" stroke-width="5.4"/>
-  <use xlink:href="#c1" y="5.8" fill="none" stroke="#88C057" stroke-width="2.2" stroke-dasharray="3 3.8" stroke-linecap="round"/>
-  <use xlink:href="#c1" y="16.9" fill="none" stroke="#B07A38" stroke-width="4.3" opacity="0.5"/>
-  <use xlink:href="#c1" y="13.3" fill="none" stroke="#3F7C3B" stroke-width="5.4"/>
-  <use xlink:href="#c1" y="12.2" fill="none" stroke="#88C057" stroke-width="2.2" stroke-dasharray="3 3.8" stroke-linecap="round"/>
-  <use xlink:href="#c2" y="-1.9" fill="none" stroke="#A9733F" stroke-width="3.8"/>
-  <use xlink:href="#c2" y="-3.7" fill="none" stroke="#F8E0A8" stroke-width="1.1"/>
-  <path d="M-10 137.5C-1.7 136.4 25 133.1 40 130.6C55 128.2 66.7 125.6 80 122.9C93.3 120.2 106.7 116.3 120 114.3C133.3 112.3 145.8 111 160 110.9C174.2 110.7 190 111.3 205 113.4C220 115.6 242.5 122 250 123.8L250 190 L-10 190 Z" fill="url(#soil)"/>
-  <use xlink:href="#c2" y="2.3" fill="none" stroke="#B27A38" stroke-width="4.6" opacity="0.5"/>
-  <use xlink:href="#c2" y="11.7" fill="none" stroke="#B07A38" stroke-width="5.1" opacity="0.5"/>
-  <use xlink:href="#c2" y="7.6" fill="none" stroke="#3F7C3B" stroke-width="6.4"/>
-  <use xlink:href="#c2" y="6.3" fill="none" stroke="#88C057" stroke-width="2.6" stroke-dasharray="3.5 4.5" stroke-linecap="round"/>
-  <use xlink:href="#c2" y="19.1" fill="none" stroke="#B07A38" stroke-width="5.1" opacity="0.5"/>
-  <use xlink:href="#c2" y="15" fill="none" stroke="#3F7C3B" stroke-width="6.4"/>
-  <use xlink:href="#c2" y="13.7" fill="none" stroke="#88C057" stroke-width="2.6" stroke-dasharray="3.5 4.5" stroke-linecap="round"/>
-  <use xlink:href="#c3" y="-1.9" fill="none" stroke="#A9733F" stroke-width="3.8"/>
-  <use xlink:href="#c3" y="-3.7" fill="none" stroke="#F8E0A8" stroke-width="1.1"/>
-  <path d="M-10 158.3C-1.7 157.2 25 154.2 40 152C55 149.7 66.7 147.4 80 144.8C93.3 142.3 106.7 138.8 120 136.9C133.3 135.1 145.8 133.9 160 133.8C174.2 133.7 190 134.2 205 136.2C220 138.1 242.5 144.1 250 145.6L250 190 L-10 190 Z" fill="url(#soil)"/>
-  <use xlink:href="#c3" y="2.3" fill="none" stroke="#B27A38" stroke-width="4.6" opacity="0.5"/>
-  <use xlink:href="#c3" y="13.6" fill="none" stroke="#B07A38" stroke-width="6.1" opacity="0.5"/>
-  <use xlink:href="#c3" y="8.8" fill="none" stroke="#3F7C3B" stroke-width="7.6"/>
-  <use xlink:href="#c3" y="7.3" fill="none" stroke="#88C057" stroke-width="3" stroke-dasharray="4.2 5.3" stroke-linecap="round"/>
-  <use xlink:href="#c3" y="22.6" fill="none" stroke="#B07A38" stroke-width="6.1" opacity="0.5"/>
-  <use xlink:href="#c3" y="17.8" fill="none" stroke="#3F7C3B" stroke-width="7.6"/>
-  <use xlink:href="#c3" y="16.3" fill="none" stroke="#88C057" stroke-width="3" stroke-dasharray="4.2 5.3" stroke-linecap="round"/>
-  <use xlink:href="#c4" y="-1.9" fill="none" stroke="#A9733F" stroke-width="3.8"/>
-  <use xlink:href="#c4" y="-3.7" fill="none" stroke="#F8E0A8" stroke-width="1.1"/>
-  <path d="M-10 183C-1.7 182.1 25 179.3 40 177.3C55 175.2 66.7 173.1 80 170.8C93.3 168.5 106.7 165.3 120 163.6C133.3 161.9 145.8 160.8 160 160.7C174.2 160.6 190 161.1 205 162.9C220 164.7 242.5 170.1 250 171.5L250 190 L-10 190 Z" fill="url(#soil)"/>
-  <use xlink:href="#c4" y="2.3" fill="none" stroke="#B27A38" stroke-width="4.6" opacity="0.5"/>
+  <path d="M-10 104C20 100 50 91 80 87S120 76 160 73S225 78 250 88L250 190L-10 190Z" fill="url(#soil)"/>
+  <path transform="translate(0 -1.9)" d="M-10 119.8C20 116 50 107.7 80 104S120 93.7 160 90.9S225 95.6 250 104.9" fill="none" stroke="#A9733F" stroke-width="3.8"/>
+  <path transform="translate(0 -3.7)" d="M-10 119.8C20 116 50 107.7 80 104S120 93.7 160 90.9S225 95.6 250 104.9" fill="none" stroke="#F8E0A8" stroke-width="1.1"/>
+  <path d="M-10 119.8C20 116 50 107.7 80 104S120 93.7 160 90.9S225 95.6 250 104.9L250 190L-10 190Z" fill="url(#soil)"/>
+  <path transform="translate(0 2.3)" d="M-10 119.8C20 116 50 107.7 80 104S120 93.7 160 90.9S225 95.6 250 104.9" fill="none" stroke="#B27A38" stroke-width="4.6" opacity="0.5"/>
+  <path transform="translate(0 10.5)" d="M-10 119.8C20 116 50 107.7 80 104S120 93.7 160 90.9S225 95.6 250 104.9" fill="none" stroke="#B07A38" stroke-width="4.3" opacity="0.5"/>
+  <path transform="translate(0 6.9)" d="M-10 119.8C20 116 50 107.7 80 104S120 93.7 160 90.9S225 95.6 250 104.9" fill="none" stroke="#3F7C3B" stroke-width="5.4"/>
+  <path transform="translate(0 5.8)" d="M-10 119.8C20 116 50 107.7 80 104S120 93.7 160 90.9S225 95.6 250 104.9" fill="none" stroke="#88C057" stroke-width="2.2" stroke-dasharray="3 3.8" stroke-linecap="round"/>
+  <path transform="translate(0 16.9)" d="M-10 119.8C20 116 50 107.7 80 104S120 93.7 160 90.9S225 95.6 250 104.9" fill="none" stroke="#B07A38" stroke-width="4.3" opacity="0.5"/>
+  <path transform="translate(0 13.3)" d="M-10 119.8C20 116 50 107.7 80 104S120 93.7 160 90.9S225 95.6 250 104.9" fill="none" stroke="#3F7C3B" stroke-width="5.4"/>
+  <path transform="translate(0 12.2)" d="M-10 119.8C20 116 50 107.7 80 104S120 93.7 160 90.9S225 95.6 250 104.9" fill="none" stroke="#88C057" stroke-width="2.2" stroke-dasharray="3 3.8" stroke-linecap="round"/>
+  <path transform="translate(0 -1.9)" d="M-10 137.5C20 134.1 50 126.3 80 122.9S120 113.4 160 110.9S225 115.2 250 123.8" fill="none" stroke="#A9733F" stroke-width="3.8"/>
+  <path transform="translate(0 -3.7)" d="M-10 137.5C20 134.1 50 126.3 80 122.9S120 113.4 160 110.9S225 115.2 250 123.8" fill="none" stroke="#F8E0A8" stroke-width="1.1"/>
+  <path d="M-10 137.5C20 134.1 50 126.3 80 122.9S120 113.4 160 110.9S225 115.2 250 123.8L250 190L-10 190Z" fill="url(#soil)"/>
+  <path transform="translate(0 2.3)" d="M-10 137.5C20 134.1 50 126.3 80 122.9S120 113.4 160 110.9S225 115.2 250 123.8" fill="none" stroke="#B27A38" stroke-width="4.6" opacity="0.5"/>
+  <path transform="translate(0 11.7)" d="M-10 137.5C20 134.1 50 126.3 80 122.9S120 113.4 160 110.9S225 115.2 250 123.8" fill="none" stroke="#B07A38" stroke-width="5.1" opacity="0.5"/>
+  <path transform="translate(0 7.6)" d="M-10 137.5C20 134.1 50 126.3 80 122.9S120 113.4 160 110.9S225 115.2 250 123.8" fill="none" stroke="#3F7C3B" stroke-width="6.4"/>
+  <path transform="translate(0 6.3)" d="M-10 137.5C20 134.1 50 126.3 80 122.9S120 113.4 160 110.9S225 115.2 250 123.8" fill="none" stroke="#88C057" stroke-width="2.6" stroke-dasharray="3.5 4.5" stroke-linecap="round"/>
+  <path transform="translate(0 19.1)" d="M-10 137.5C20 134.1 50 126.3 80 122.9S120 113.4 160 110.9S225 115.2 250 123.8" fill="none" stroke="#B07A38" stroke-width="5.1" opacity="0.5"/>
+  <path transform="translate(0 15)" d="M-10 137.5C20 134.1 50 126.3 80 122.9S120 113.4 160 110.9S225 115.2 250 123.8" fill="none" stroke="#3F7C3B" stroke-width="6.4"/>
+  <path transform="translate(0 13.7)" d="M-10 137.5C20 134.1 50 126.3 80 122.9S120 113.4 160 110.9S225 115.2 250 123.8" fill="none" stroke="#88C057" stroke-width="2.6" stroke-dasharray="3.5 4.5" stroke-linecap="round"/>
+  <path transform="translate(0 -1.9)" d="M-10 158.3C20 155.1 50 148 80 144.8S120 136.2 160 133.8S225 137.7 250 145.6" fill="none" stroke="#A9733F" stroke-width="3.8"/>
+  <path transform="translate(0 -3.7)" d="M-10 158.3C20 155.1 50 148 80 144.8S120 136.2 160 133.8S225 137.7 250 145.6" fill="none" stroke="#F8E0A8" stroke-width="1.1"/>
+  <path d="M-10 158.3C20 155.1 50 148 80 144.8S120 136.2 160 133.8S225 137.7 250 145.6L250 190L-10 190Z" fill="url(#soil)"/>
+  <path transform="translate(0 2.3)" d="M-10 158.3C20 155.1 50 148 80 144.8S120 136.2 160 133.8S225 137.7 250 145.6" fill="none" stroke="#B27A38" stroke-width="4.6" opacity="0.5"/>
+  <path transform="translate(0 13.6)" d="M-10 158.3C20 155.1 50 148 80 144.8S120 136.2 160 133.8S225 137.7 250 145.6" fill="none" stroke="#B07A38" stroke-width="6.1" opacity="0.5"/>
+  <path transform="translate(0 8.8)" d="M-10 158.3C20 155.1 50 148 80 144.8S120 136.2 160 133.8S225 137.7 250 145.6" fill="none" stroke="#3F7C3B" stroke-width="7.6"/>
+  <path transform="translate(0 7.3)" d="M-10 158.3C20 155.1 50 148 80 144.8S120 136.2 160 133.8S225 137.7 250 145.6" fill="none" stroke="#88C057" stroke-width="3" stroke-dasharray="4.2 5.3" stroke-linecap="round"/>
+  <path transform="translate(0 22.6)" d="M-10 158.3C20 155.1 50 148 80 144.8S120 136.2 160 133.8S225 137.7 250 145.6" fill="none" stroke="#B07A38" stroke-width="6.1" opacity="0.5"/>
+  <path transform="translate(0 17.8)" d="M-10 158.3C20 155.1 50 148 80 144.8S120 136.2 160 133.8S225 137.7 250 145.6" fill="none" stroke="#3F7C3B" stroke-width="7.6"/>
+  <path transform="translate(0 16.3)" d="M-10 158.3C20 155.1 50 148 80 144.8S120 136.2 160 133.8S225 137.7 250 145.6" fill="none" stroke="#88C057" stroke-width="3" stroke-dasharray="4.2 5.3" stroke-linecap="round"/>
+  <path transform="translate(0 -1.9)" d="M-10 183C20 180.2 50 173.7 80 170.8S120 162.9 160 160.7S225 164.3 250 171.5" fill="none" stroke="#A9733F" stroke-width="3.8"/>
+  <path transform="translate(0 -3.7)" d="M-10 183C20 180.2 50 173.7 80 170.8S120 162.9 160 160.7S225 164.3 250 171.5" fill="none" stroke="#F8E0A8" stroke-width="1.1"/>
+  <path d="M-10 183C20 180.2 50 173.7 80 170.8S120 162.9 160 160.7S225 164.3 250 171.5L250 190L-10 190Z" fill="url(#soil)"/>
+  <path transform="translate(0 2.3)" d="M-10 183C20 180.2 50 173.7 80 170.8S120 162.9 160 160.7S225 164.3 250 171.5" fill="none" stroke="#B27A38" stroke-width="4.6" opacity="0.5"/>
 
   <!-- the lane up to the farmhouse -->
   <path d="M164.6 191.6C165.1 186.9 166.5 171.8 168 163.3C169.6 154.8 172 148.4 173.8 140.8C175.5 133.2 177.1 124.7 178.4 117.8C179.7 110.9 180.7 104.2 181.5 99.4C182.2 94.6 182.6 90.9 182.9 89.2L171.1 86.8C170.7 88.5 169.8 92.1 168.5 96.6C167.3 101.2 165.7 107.7 163.6 114.2C161.6 120.6 159.2 128.1 156.2 135.2C153.3 142.3 149.4 148.5 146 156.7C142.5 164.9 137.2 179.8 135.4 184.4Z" fill="#F6E0AA"/>
