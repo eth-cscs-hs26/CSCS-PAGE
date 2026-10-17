@@ -316,6 +316,7 @@
   font: 800 10px/14px var(--sans);
   text-align: center;
 }
+.rp b.z { background: var(--panel); color: var(--muted); }
 .rtot { text-align: right; min-width: 34px; }
 .rtot b { display: block; font: 500 24px/1.1 var(--serif); font-variant-numeric: tabular-nums; }
 .rtot i { display: block; font: 700 9px/1.2 var(--sans); letter-spacing: 0.09em; text-transform: uppercase; color: var(--brand); font-style: normal; }
@@ -364,6 +365,7 @@
   .pg { font-size: 12px; gap: 5px; }
   .pg-dot { width: 20px; height: 20px; font-size: 11px; }
   .story-title { font-size: 23px; }
+  .story-text { font-size: 16px; }
   .chat { width: 96px; }
   .cn-label { font-size: 12.5px; }
   .fsign { font-size: 11px; letter-spacing: 0.03em; }

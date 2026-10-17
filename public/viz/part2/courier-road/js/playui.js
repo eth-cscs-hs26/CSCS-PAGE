@@ -9,13 +9,22 @@
  * (day, places, total, best, average) stays on the page and is kept in memory only.
  *
  * Every coin amount on this page comes from play.js. This file never reads one from the
- * places, which is why it does not mention the word that js/places.js uses for them.
+ * places, which is why it does not mention the word that js/places.js uses for them. A place
+ * pays its usual coins plus a little luck that changes from day to day, so the same road
+ * pays differently on different days; the page shows what the hat received, never the usual
+ * amount.
+ *
+ * The page's own random generator draws the luck. ?seed=7 in the address (or &seed=7 in the
+ * hash) seeds it, so a seeded run repeats exactly, luck included; without a seed it is
+ * Math.random. A participant link carries no seed.
  *
  * Dev affordances for checking the page without tapping, not part of the game (in the URL
  * hash, set by js/scenes.js):
  *   #scene=2&walk=1,4,9    start with the walk taken to those places
- *   #scene=2&demo=5        play five seeded days first (?seed=7 chooses the seed)
+ *   #scene=2&demo=5        play five days first, with the road dice of the same generator
  *   #scene=2&fast          no animations and no waiting
+ * The two flags that play days for you seed the generator with 7 when no seed is given, so
+ * that the days they play repeat.
  */
 (function () {
   'use strict';
@@ -45,7 +54,7 @@
   const stroll = () => (fast || reduced() ? 0 : 440);
   const later = (ms, fn) => { if (ms) setTimeout(fn, ms); else fn(); };
 
-  // a small seeded generator for the demo flag
+  // a small seeded generator for the luck, so that a seeded run repeats
   function mulberry32(seed) {
     let t = seed >>> 0;
     return function () {
@@ -56,9 +65,21 @@
     };
   }
 
+  // The seed of the page's generator: ?seed= in the address, else seed= in the hash, else 7
+  // when a flag plays days for you, else none (the luck then comes from Math.random).
+  function pageSeed() {
+    const flags = window.Scenes ? window.Scenes.parseHash(window.location.hash) : { seed: null, walk: null, demo: 0 };
+    const q = new URLSearchParams(window.location.search).get('seed');
+    if (q !== null && /^[0-9]+$/.test(q)) return parseInt(q, 10);
+    if (flags.seed !== null) return flags.seed;
+    return flags.walk || flags.demo ? 7 : null;
+  }
+
   window.scenes = window.scenes || {};
   window.scenes.scene2 = function () {
-    const game = Play.create();
+    const seed = pageSeed();
+    const rng = seed === null ? Math.random : mulberry32(seed);
+    const game = Play.create({ rng: rng });
     let busy = false;
     let undoTimer = null;
 
@@ -117,7 +138,7 @@
       $('s2EndSum').textContent = got.join(' + ') + ' = ' + v.total + ' ' + coinWord(v.total);
       $('s2EndPlaces').innerHTML = v.path.slice(1).map((p, k) =>
         '<li><img src="' + art(p) + '" alt="" width="240" height="180"><span class="ep-name">' + P[p].name +
-        '</span><b class="coin up">' + gain(got[k]) + '</b></li>').join('');
+        '</span><b class="coin ' + (got[k] > 0 ? 'up' : 'start') + '">' + gain(got[k]) + '</b></li>').join('');
     }
 
     function renderRecord() {
@@ -132,7 +153,8 @@
       $('s2Clear').disabled = rec.count === 0;
       const rows = rec.days.slice().reverse().slice(0, ROWS_SHOWN).map((d) => {
         const places = d.path.slice(1).map((p, k) =>
-          '<span class="rp" title="' + P[p].name + '"><img src="' + art(p) + '" alt="' + P[p].name + '" width="240" height="180"><b>' + gain(d.coins[k + 1]) + '</b></span>').join('');
+          '<span class="rp" title="' + P[p].name + '"><img src="' + art(p) + '" alt="' + P[p].name + '" width="240" height="180"><b' +
+          (d.coins[k + 1] > 0 ? '' : ' class="z"') + '>' + gain(d.coins[k + 1]) + '</b></span>').join('');
         const label = 'Day ' + d.n + ': ' + d.path.slice(1).map((p, k) => P[p].name + ' ' + d.coins[k + 1]).join(', ') + ', total ' + d.total;
         const isBest = d.total === rec.best && d.n === rec.bestDay;
         return '<li class="rrow' + (isBest ? ' best' : '') + '" aria-label="' + label + '"><span class="rday">Day ' + d.n + '</span>' +
@@ -264,14 +286,13 @@
     // the dev flags of the hash, applied once at load by js/scenes.js
     window.PlayUI = {
       game: game,
+      seed: seed,
       dev: function (flags) {
         if (flags.fast) {
           fast = true;
           document.documentElement.classList.add('fast');
         }
-        const seed = parseInt(flags.seed, 10);
         if (flags.demo) {
-          const rng = mulberry32(Number.isFinite(seed) ? seed : 7);
           for (let k = 0; k < flags.demo; k++) Play.playRandomDay(game, rng);
           if (game.view().done && !flags.walk) game.playAgain();
         }

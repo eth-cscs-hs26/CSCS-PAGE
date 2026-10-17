@@ -5,7 +5,7 @@
  * her hat. The lines are keyed by place id (the ids of js/places.js) and say where she is
  * and who is listening. They never name an amount of coins, since the page shows the coins
  * itself, and they never say that a place pays the same every day or that it varies, so
- * they stay true when a later version adds luck to the hat.
+ * they stay true whatever the luck of the hat (js/play.js).
  *
  * js/places.js keeps the older courier stories for the knobs page (knobs.html). The pages
  * of the busker (index.html) read only this file for the words of a place.

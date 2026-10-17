@@ -2,11 +2,11 @@
  * plain data that loads in Node too, so tests/test_play.js can read them. The part at the
  * bottom runs in a page only: it shows one card at a time with Back, Next and a way to skip.
  *
- * The words never give an amount of coins, and they never say that a place pays the same
- * every day or that it varies, so the story stays true when a later version adds luck. The
- * pictures are the three new drawings in img/ (the fiddler, Eagle Pass at dawn, the market
- * square) and four small compositions made of the place pictures, drawn as inline SVG with
- * the colour classes of css/scenes.css.
+ * The words never give an amount of coins. They say, on the fourth card, that a crowd may give
+ * a little more or less on another day, which is the luck of the hat (js/play.js), and they
+ * never say that a place always pays the same. The pictures are the three new drawings in
+ * img/ (the fiddler, Eagle Pass at dawn, the market square) and four small compositions made
+ * of the place pictures, drawn as inline SVG with the colour classes of css/scenes.css.
  */
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) {
@@ -118,7 +118,7 @@
     {
       id: 'crowd',
       title: 'What will the crowd give?',
-      text: 'She never knows what a crowd will give until she has played for it. Some places love a fiddle more than others.',
+      text: 'She never knows what a crowd will give until she has played for it. Some places love a fiddle more than others, and the same crowd may give a little more or less each day.',
       pic: unknownPicture,
     },
     {

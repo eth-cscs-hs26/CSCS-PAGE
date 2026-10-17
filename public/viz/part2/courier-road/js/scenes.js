@@ -13,10 +13,11 @@
  * a participant link never carries (set after the scene, joined with &):
  *   card=4        the story card to show, counted from 1
  *   walk=1,4,9    the play scene starts with Mara walked to those places
- *   demo=5        the play scene starts with five seeded days in the record
+ *   demo=5        the play scene starts with five days in the record
  *   fast          no animations and no waiting
- * and ?seed=7 in the query string chooses the seed of demo. The parser is plain data in,
- * data out, so tests/test_play.js can check it in Node.
+ *   seed=7        seeds the random generator of the page, the luck of the hat included
+ * and ?seed=7 in the query string does the same (js/playui.js reads it when the scene is
+ * built). The parser is plain data in, data out, so tests/test_play.js can check it in Node.
  */
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) {
@@ -85,7 +86,6 @@
 
     function start() {
       const flags = parseHash(window.location.hash);
-      const query = new URLSearchParams(window.location.search);
       for (let i = 1; i <= COUNT; i++) {
         sections[i] = $('scene' + i);
         const build = window.scenes && window.scenes['scene' + i];
@@ -93,8 +93,7 @@
       }
       if (window.StoryUI && flags.card) window.StoryUI.show(flags.card - 1);
       if (window.PlayUI && (flags.walk || flags.demo || flags.fast)) {
-        const seed = flags.seed !== null ? flags.seed : query.get('seed');
-        window.PlayUI.dev({ walk: flags.walk, demo: flags.demo, fast: flags.fast, seed: seed });
+        window.PlayUI.dev({ walk: flags.walk, demo: flags.demo, fast: flags.fast });
       }
 
       document.querySelectorAll('.pg').forEach((b) => b.addEventListener('click', () => go(+b.dataset.scene)));

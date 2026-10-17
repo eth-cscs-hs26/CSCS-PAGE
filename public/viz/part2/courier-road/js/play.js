@@ -11,11 +11,13 @@
  * This file needs only js/places.js. It copies the three rules of the numbering above
  * (child, leaf, depth) and tests/test_play.js checks them against js/road.js.
  *
- * Where the coins come from. hatCoins(i) below is the one function that says how many coins
- * the hat receives at place i. Everything else in scene 2 (the walk, the totals, the record,
- * the page) asks it, or reads what the walk stored from it. Today a place gives the fixed
- * amount written in js/places.js. A later version will add day-to-day luck, and that change
- * belongs inside hatCoins alone.
+ * Where the coins come from. hatCoins(i, rng, luck) below is the one function that says how
+ * many coins the hat receives at place i on one arrival. Everything else in scene 2 (the
+ * walk, the totals, the record, the page) asks it, or reads what the walk stored from it.
+ * A place pays its usual coins, the amount written in js/places.js, plus a little luck that
+ * changes from day to day. The usual coins are therefore the average pay of a place, and the
+ * average of a day on each of the eight roads is what it always was: 19, 18, 21, 18, 14, 19,
+ * 15 and 14 coins. A single day differs from its average by about 1.4 coins either way.
  */
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) {
@@ -32,10 +34,29 @@
   const depthOf = (i) => Math.floor(Math.log2(i + 1));
   const DEPTH = depthOf(N - 1);                       // roads in one day: three
 
-  // The coins the hat receives at place i.
-  // Day-to-day luck will enter here later; for now this is the fixed amount of the place.
-  function hatCoins(i) {
-    return Places.list[i].reward;
+  // The size of the luck, in coins: the one number to change. Every arrival at a place pays
+  // the usual coins of the place plus a luck term, a whole number from -LUCK to +LUCK, every
+  // value equally likely, drawn afresh and independently at every arrival. LUCK = 1 gives the
+  // terms -1, 0 and +1, each with chance 1/3 (a few passers-by drop a coin more or less in the
+  // hat than on a usual day). LUCK = 0 switches the luck off. The averages stay what they were
+  // for any LUCK up to 1, because nothing is ever cut at zero then (the poorest usual pay is
+  // 1); with a bigger LUCK the poorest places are cut at zero and pay a little more than
+  // their usual coins on average.
+  const LUCK = 1;
+
+  // The coins the hat receives at place i on one arrival: the usual coins plus the luck.
+  // Nobody arrives at the start, so Eagle Pass pays nothing and has no luck. Nothing ever pays
+  // a negative amount.
+  //   rng    a function giving numbers in [0, 1) for the luck; Math.random when left out. The
+  //          page passes its own generator, seeded under ?seed=, so a seeded run repeats.
+  //   luck   the size of the luck for this call; LUCK when left out, 0 for none
+  function hatCoins(i, rng, luck) {
+    const usual = Places.list[i].reward;
+    const size = Math.max(0, Math.floor(luck === undefined ? LUCK : luck));
+    if (i === 0 || size === 0) return usual;
+    const draw = rng || Math.random;
+    const term = Math.min(2 * size, Math.floor(draw() * (2 * size + 1))) - size;
+    return Math.max(0, usual + term);
   }
 
   // The places Mara can walk to from i: southwest first, then southeast. A leaf has none.
@@ -49,10 +70,14 @@
 
   // One game of a visit: the walk in progress and the days finished so far. Nothing is
   // saved anywhere; closing the page forgets the days.
-  //   opts.hat   optional function(place) giving the coins of a place, for tests. The
-  //              default is hatCoins.
+  //   opts.rng   the generator of the luck, a function giving numbers in [0, 1): the page
+  //              passes its own; the default is Math.random
+  //   opts.luck  the size of the luck, LUCK by default; 0 switches it off
+  //   opts.hat   optional function(place) giving the coins of a place, for tests; it takes
+  //              the place of hatCoins altogether
   function create(opts) {
-    const hat = (opts && opts.hat) || hatCoins;
+    const o = opts || {};
+    const hat = o.hat || ((i) => hatCoins(i, o.rng, o.luck));
     let days = [];             // finished days of this visit, oldest first
     let cleared = null;        // the days removed by the last clearDays, for undoClear
     let walk = freshWalk();
@@ -176,6 +201,7 @@
   return {
     N: N,
     DEPTH: DEPTH,
+    LUCK: LUCK,
     child: child,
     isLeaf: isLeaf,
     depthOf: depthOf,
