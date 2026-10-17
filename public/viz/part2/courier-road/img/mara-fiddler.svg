@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 64" width="48" height="64">
+  <defs>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#DE9140"/>
+      <stop offset="1" stop-color="#A6571C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ground shadow -->
+  <ellipse cx="22" cy="61" rx="16" ry="2.7" fill="#2B2A28" opacity="0.15"/>
+  <ellipse cx="22" cy="60.8" rx="10" ry="1.6" fill="#2B2A28" opacity="0.2"/>
+
+  <!-- far leg and boot -->
+  <path d="M19.5 42 L18.6 55.5" stroke="#25242A" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M14.6 55 L22.4 55 L23.4 58.4 C23.8 59.6 23.4 60.4 22.4 60.4 L15.2 60.4 C14 60.4 13.6 59.4 13.8 58 Z" fill="#3E2C24"/>
+
+  <!-- near leg and boot -->
+  <path d="M25.4 42 L26.6 55.5" stroke="#2F2E36" stroke-width="5.4" stroke-linecap="round" fill="none"/>
+  <path d="M22.6 55 L30.6 55 L31.4 57.4 C33 57.8 34 58.6 33.8 60 C33.6 60.5 33.2 60.5 32.6 60.5 L23.6 60.5 C22.2 60.5 21.8 59.4 22 58 Z" fill="#4A3326"/>
+  <path d="M22 59.2 L33.8 59.2 L33.8 60.5 L22 60.5 Z" fill="#2B1F1A"/>
+
+  <!-- long coat, lit side on the left, an orange sash -->
+  <path d="M17.4 23.4 C 16 30 14.6 38 11.2 46.4 L 33.2 46.4 C 31.6 38 30.6 30.4 28.6 23.6 C 25.6 21.4 20.4 21.2 17.4 23.4 Z" fill="#26456E"/>
+  <path d="M17.4 23.4 C 16 30 14.6 38 11.2 46.4 L 20 46.4 C 20.2 38 21 30 22.6 22.2 C 20.4 22 18.6 22.4 17.4 23.4 Z" fill="#3F6CA3"/>
+  <path d="M11.6 44.4 L 33 44.4 L 33.2 46.4 L 11.2 46.4 Z" fill="#1B3558"/>
+  <path d="M15.6 33.4 L 30.2 33.8" stroke="#E69F00" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+
+  <!-- far arm (left): upper arm and forearm, behind the fiddle -->
+  <path d="M23.4 24.6 L27.6 31 L35.6 20.4" stroke="#1F3D66" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- scarf with a tail in the breeze -->
+  <path d="M18.6 21.6 C 14.6 20.4 11.6 22.8 7.6 21.4 L 7 25.8 C 11.2 27.2 14.4 25.2 19 25.6 Z" fill="#E69F00"/>
+  <path d="M18.8 24 C 14.8 23.8 11.4 25.4 7.2 24.4 L 7 25.8 C 11.2 27.2 14.4 25.2 19 25.6 Z" fill="#C98200" opacity="0.7"/>
+  <ellipse cx="23.6" cy="22.2" rx="5.8" ry="2.6" fill="#C98200"/>
+  <ellipse cx="23.6" cy="21" rx="5.8" ry="2.6" fill="#E69F00"/>
+
+  <!-- head: a bun with an orange tie, hair, face -->
+  <circle cx="17.8" cy="10.8" r="2.9" fill="#3B2A22"/>
+  <circle cx="19.4" cy="12" r="1" fill="#E69F00"/>
+  <circle cx="23.4" cy="15" r="4.8" fill="#D9A57E"/>
+  <circle cx="27.9" cy="15.9" r="1.05" fill="#D9A57E"/>
+  <path d="M18.4 14.6 C 18.2 9.8 22 8.8 25.2 10 C 27 10.8 27.4 12.2 27 13 C 24.8 12 22.6 12.6 21.4 15 C 21 16.6 20.8 18.2 19.8 19.2 C 18.6 17.8 18.2 16.2 18.4 14.6 Z" fill="#3B2A22"/>
+  <path d="M24.8 14.5 q0.9 0.7 1.8 0" stroke="#4A3326" stroke-width="0.6" fill="none" stroke-linecap="round"/>
+  <circle cx="25.6" cy="17.1" r="1.2" fill="#E5967F" opacity="0.55"/>
+
+  <!-- the fiddle on her shoulder: body, neck and scroll, tilted up to the right -->
+  <g transform="translate(27.6 22.6) rotate(-27) scale(1.3)">
+    <path d="M-6.6 0 C -6.6 -3.7 -3.2 -4.4 -1.3 -2.5 C -0.5 -1.7 0.5 -1.7 1.3 -2.5 C 3.2 -4.2 6.6 -3.6 6.6 0 C 6.6 3.6 3.2 4.2 1.3 2.5 C 0.5 1.7 -0.5 1.7 -1.3 2.5 C -3.2 4.4 -6.6 3.7 -6.6 0 Z" fill="url(#wood)"/>
+    <path d="M-6.6 0 C -6.6 3.7 -3.2 4.4 -1.3 2.5 C -0.5 1.7 0.5 1.7 1.3 2.5 C 3.2 4.2 6.6 3.6 6.6 0 L 5.6 0 C 5.4 2.6 3 3.2 1.4 1.8 C 0.5 1 -0.5 1 -1.4 1.8 C -3 3.2 -5.4 2.6 -5.6 0 Z" fill="#8A4513" opacity="0.55"/>
+    <rect x="5.4" y="-0.9" width="8.6" height="1.8" rx="0.5" fill="#3B2A22"/>
+    <circle cx="14.7" cy="-0.5" r="1.5" fill="#8A4513"/>
+    <path d="M-2.3 -1.2 q0.6 1.2 0 2.4 M1.3 -1.2 q-0.6 1.2 0 2.4" stroke="#4A2208" stroke-width="0.5" fill="none" stroke-linecap="round"/>
+    <rect x="-6.5" y="-1.3" width="2.2" height="2.6" rx="0.8" fill="#3B2A22"/>
+  </g>
+
+  <!-- the hand of the far arm on the neck -->
+  <circle cx="36.4" cy="19.6" r="1.9" fill="#D9A57E"/>
+
+  <!-- near arm (right): upper arm, elbow, forearm to the bow hand -->
+  <path d="M19.8 24.8 L19.2 32.2 L26.4 29.6" stroke="#2D5287" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- the bow across the strings, and the hand that holds it -->
+  <path d="M20.8 31.6 L 45.6 22.6" stroke="#6E4F28" stroke-width="0.9" stroke-linecap="round" fill="none"/>
+  <path d="M22 31.4 L 44.4 23.2" stroke="#F0E6CC" stroke-width="0.7" stroke-linecap="round" fill="none"/>
+  <circle cx="27" cy="29" r="1.8" fill="#D9A57E"/>
+</svg>

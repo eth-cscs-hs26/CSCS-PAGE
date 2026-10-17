@@ -109,14 +109,18 @@ const SQUARE_ONE = viz(1, 'square-root-show');
 const NIM_KNOBS = viz(2, 'nim-knobs');
 
 /**
- * The courier's road game of the Day 3 lecture "Policy gradient methods" (10:00), from
- * `public/viz/part2/courier-road/`. Its source is `cscs-hs26/courier-road-game/`, written
- * on 2026-10-10 at Carlos's request as the second game after Nim, on the same principles:
- * Mara walks one day down a tree of fifteen illustrated places, taking the southwest or the
- * southeast road at each fork and collecting coins; the participant turns the knobs of her
- * habits and watches the exact average of a day. Only index.html, css, js and img are
- * copied here, the folders the page loads. It makes no network request and keeps only its
- * theme and the knob table in `localStorage`.
+ * Mara's road game of the Day 3 lecture "Policy gradient methods" (10:00), from
+ * `public/viz/part2/courier-road/` (the folder keeps its first name). Its source is
+ * `cscs-hs26/courier-road-game/`, written on 2026-10-10 at Carlos's request as the second
+ * game after Nim and rebuilt on 2026-10-17 as two scenes: the story of Mara, a busker who
+ * plays her fiddle in every place she reaches, and a scene where the participant walks her
+ * one day down a tree of fifteen illustrated places by hand, taking the southwest or the
+ * southeast road at each fork and seeing only the current place, the coins her hat received
+ * there and the total so far, for as many days as they like. The earlier page, where the
+ * participant turns the knobs of her habits, is kept as `knobs.html` in the same folder and
+ * is not linked. Only index.html, knobs.html, css, js and img are copied here, the files the
+ * pages load. They make no network request and keep only their theme (and, on knobs.html,
+ * the knob table) in `localStorage`.
  */
 const COURIER_ROAD = viz(2, 'courier-road');
 
@@ -348,7 +352,7 @@ export const parts: Part[] = [
             topic: 'Reinforcement Learning for LLMs',
             links: [
               { label: 'Nim knobs game', url: NIM_KNOBS },
-              { label: "Courier's road game", url: COURIER_ROAD },
+              { label: "Mara's road game", url: COURIER_ROAD },
             ],
           },
           coffee('11:00'),
@@ -410,7 +414,7 @@ export const parts: Part[] = [
         group: 'Visualizations',
       },
       {
-        label: "The courier's road: turn the habits of a courier walking down a mountain (Day 3, policy gradient methods)",
+        label: "Mara's road: walk a busker down a mountain and fill her hat (Day 3, policy gradient methods)",
         url: COURIER_ROAD,
         group: 'Visualizations',
       },

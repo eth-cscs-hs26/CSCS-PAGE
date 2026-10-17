@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 48" width="64" height="48">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F6BC3C"/>
+      <stop offset="1" stop-color="#D88A00"/>
+    </linearGradient>
+    <linearGradient id="felt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#B98A43"/>
+      <stop offset="0.5" stop-color="#C99A4F"/>
+      <stop offset="1" stop-color="#9C7231"/>
+    </linearGradient>
+  </defs>
+
+  <!-- the hat, upside down on the ground, with a heap of coins in it -->
+  <g transform="translate(-1 1.2) scale(0.5)">
+    <ellipse cx="66" cy="87" rx="48" ry="5.6" fill="#2B2A28" opacity="0.15"/>
+    <ellipse cx="66" cy="82" rx="35" ry="8" fill="#8E6A34"/>
+    <path d="M24 58 L31 82 A35 8 0 0 0 101 82 L108 58 Z" fill="url(#felt)"/>
+    <path d="M24 58 L31 82 A35 8 0 0 0 49 89 L44 60 Z" fill="#C99A4F" opacity="0.5"/>
+    <path d="M26.6 67 Q66 86 105.4 67 L103.4 74 Q66 94 28.7 74 Z" fill="#26456E"/>
+    <ellipse cx="66" cy="58" rx="52" ry="15" fill="#C99A4F"/>
+    <ellipse cx="66" cy="57" rx="40" ry="11" fill="#47301D"/>
+    <g fill="#B87400">
+      <circle cx="34.8" cy="63.4" r="5.4"/><circle cx="45.2" cy="62.8" r="5.4"/><circle cx="55.6" cy="63.2" r="5.4"/>
+      <circle cx="66" cy="63" r="5.4"/><circle cx="76.4" cy="63.4" r="5.4"/><circle cx="86.8" cy="62.8" r="5.4"/>
+      <circle cx="97.2" cy="63.2" r="5.4"/><circle cx="60.8" cy="54.8" r="5.4"/><circle cx="71.2" cy="55" r="5.4"/>
+    </g>
+    <g fill="#E69F00">
+      <circle cx="34.8" cy="63.4" r="4.3"/><circle cx="45.2" cy="62.8" r="4.3"/><circle cx="55.6" cy="63.2" r="4.3"/>
+      <circle cx="66" cy="63" r="4.3"/><circle cx="76.4" cy="63.4" r="4.3"/><circle cx="86.8" cy="62.8" r="4.3"/>
+      <circle cx="97.2" cy="63.2" r="4.3"/><circle cx="60.8" cy="54.8" r="4.3"/><circle cx="71.2" cy="55" r="4.3"/>
+    </g>
+    <g fill="#F7C95E">
+      <circle cx="66" cy="63" r="2.4"/><circle cx="86.8" cy="62.8" r="2.4"/><circle cx="45.2" cy="62.8" r="2.4"/>
+      <circle cx="71.2" cy="55" r="2.4"/>
+    </g>
+    <path d="M26 57 A40 11 0 0 0 106 57 L118 58 A52 15 0 0 1 14 58 Z" fill="#DCB26A"/>
+  </g>
+
+  <!-- two coins on their way down, with a little sparkle -->
+  <g>
+    <circle cx="23" cy="12" r="4.6" fill="#B87400"/>
+    <circle cx="23" cy="12" r="3.6" fill="url(#gold)"/>
+    <path d="M20.6 10.9 A2.8 2.8 0 0 1 23.2 9.4" stroke="#FFE9A8" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+    <circle cx="40" cy="7.4" r="4.6" fill="#B87400"/>
+    <circle cx="40" cy="7.4" r="3.6" fill="url(#gold)"/>
+    <path d="M37.6 6.3 A2.8 2.8 0 0 1 40.2 4.8" stroke="#FFE9A8" stroke-width="0.8" stroke-linecap="round" fill="none"/>
+    <path d="M23 3.6 L23 5.8 M40 0.8 L40 1.8" stroke="#E69F00" stroke-width="0.9" stroke-linecap="round" opacity="0.6" fill="none"/>
+    <path d="M32 19.4 l0.7 1.8 l1.8 0.7 l-1.8 0.7 l-0.7 1.8 l-0.7 -1.8 l-1.8 -0.7 l1.8 -0.7 Z" fill="#F7C95E"/>
+  </g>
+</svg>
