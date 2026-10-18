@@ -214,8 +214,9 @@ const CX_MARA_COLAB = colab('public/exercises/part2/cx_mara_student.ipynb');
  * Day 2 carries "The KV cache and PagedAttention" (18 frames, 69 pages), copied on
  * 2026-10-07 at Carlos's request from the built `kvcache-slides.pdf` of
  * `cscs-hs26`; it replaced the 177-page `inference-methods.pdf`, which he had
- * removed the same day (CLAUDE.md has the sources). The decks of Parts II and III
- * are not on the site yet.
+ * removed the same day (CLAUDE.md has the sources). The two decks of the Part II,
+ * Day 3 morning are SLIDES_PG below; the other decks of Parts II and III are not on
+ * the site yet.
  */
 const SLIDES = {
   introSlt: deck(1, 'intro-slt-pytorch.pdf'),
@@ -227,6 +228,19 @@ const SLIDES = {
   transformers: deck(1, 'attention-transformers.pdf'),
   sftLora: deck(1, 'sft-lora.pdf'),
   kvcache: deck(1, 'kv-cache-paged-attention.pdf'),
+};
+
+/**
+ * The two lecture decks of the Part II, Day 3 morning "Policy gradient methods", in `public/slides/part2/`: the OFFICIAL decks since
+ * 2026-10-19 (Carlos: "put those parts on the website because that's now the official"). They are the click-level PDFs of
+ * `cscs-hs26/part2-day1/pg-redo/official/`, copied unchanged like the Part I decks, so the page numbers run ahead of the slide number
+ * in the footer. Lecture 1 (47 slides, 140 pages) is gradient ascent, Mara's road and REINFORCE, with the algebra behind REINFORCE
+ * at the end. Lecture 2 (51 slides, 156 pages) is REINFORCE with a baseline, actor-critic, GAE and PPO, with the algebra behind
+ * the first, second and last at the end. Each is one constant, so a session's "Slides" chip and its Materials entry carry the same URL.
+ */
+const SLIDES_PG = {
+  first: deck(2, 'policy-gradient-methods-1.pdf'),
+  second: deck(2, 'policy-gradient-methods-2.pdf'),
 };
 
 export const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
@@ -413,6 +427,7 @@ export const parts: Part[] = [
             type: 'lecture',
             topic: 'Reinforcement Learning for LLMs',
             links: [
+              { label: 'Slides', url: SLIDES_PG.first },
               { label: 'Nim knobs game', url: NIM_KNOBS },
               { label: "Mara's road game", url: COURIER_ROAD },
               { label: 'Gradient ascent notebook (Colab)', url: CX_GRADIENT_ASCENT_COLAB },
@@ -420,7 +435,12 @@ export const parts: Part[] = [
             ],
           },
           coffee('11:00'),
-          { time: '11:15', title: 'Policy gradient methods', type: 'lecture' },
+          {
+            time: '11:15',
+            title: 'Policy gradient methods',
+            type: 'lecture',
+            links: [{ label: 'Slides', url: SLIDES_PG.second }],
+          },
           {
             time: '12:15',
             title: 'Coding exercise',
@@ -484,7 +504,8 @@ export const parts: Part[] = [
     ],
     resources: [
       ...beforeYouStart,
-      { label: 'Policy gradient methods', url: SOON, group: 'Lecture slides' },
+      { label: 'Policy gradient methods, lecture 1: from gradient ascent to REINFORCE', url: SLIDES_PG.first, group: 'Lecture slides' },
+      { label: 'Policy gradient methods, lecture 2: baselines, actor-critic, GAE and PPO', url: SLIDES_PG.second, group: 'Lecture slides' },
       { label: 'RLHF', url: SOON, group: 'Lecture slides' },
       { label: 'DPO & GRPO', url: SOON, group: 'Lecture slides' },
       { label: 'Multimodal AI', url: SOON, group: 'Lecture slides' },
