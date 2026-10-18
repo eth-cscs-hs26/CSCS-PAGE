@@ -125,6 +125,20 @@ const NIM_KNOBS = viz(2, 'nim-knobs');
 const COURIER_ROAD = viz(2, 'courier-road');
 
 /**
+ * The marble jar game of the Day 4 lecture "AI for science" (10:15), from
+ * `public/viz/part2/marble-jar/`. Its source is `cscs-hs26/marble-jar-game/`, written on
+ * 2026-10-18 at Carlos's request: a copy of the jar page of his BMAI repository
+ * (`w1-lecture-material/marble-jar`, itself a copy of the SML spring 2026 page) with its
+ * Mentimeter wording changed to a shared sheet. The room guesses how many marbles are in a
+ * jar, the lecturer pastes the guesses into the page, and the crowd's average meets the true
+ * count; it prepares the idea of an ensemble. Only index.html is copied here, the one file
+ * the page needs. It loads nothing and makes no network request. The answer sheet is a
+ * Google Sheet that anyone with the link can edit, so its address is on the lecture slide
+ * and is not published on this site.
+ */
+const MARBLE_JAR = viz(2, 'marble-jar');
+
+/**
  * The Part I coding exercises, one zip each in `public/exercises/part1/`, named
  * like the exercise's folder on the cluster
  * (`/capstor/scratch/cscs/course_00776/exercises/<exercise>/`, the copy line on
@@ -383,7 +397,12 @@ export const parts: Part[] = [
             topic: 'Advanced Topics in AI Systems and Applications',
           },
           coffee('10:00'),
-          { time: '10:15', title: 'AI for science', type: 'lecture' },
+          {
+            time: '10:15',
+            title: 'AI for science',
+            type: 'lecture',
+            links: [{ label: 'Marble jar game', url: MARBLE_JAR }],
+          },
           { time: '11:15', title: 'Coding exercise', type: 'exercise' },
           lunch('12:00'),
           {
@@ -416,6 +435,11 @@ export const parts: Part[] = [
       {
         label: "Mara's road: walk a busker down a mountain and fill her hat (Day 3, policy gradient methods)",
         url: COURIER_ROAD,
+        group: 'Visualizations',
+      },
+      {
+        label: 'Marble jar: guess how many marbles, then see what the crowd knows (Day 4, AI for science)',
+        url: MARBLE_JAR,
         group: 'Visualizations',
       },
       { label: 'Day 3 morning exercise', url: SOON, group: 'Coding exercises' },
