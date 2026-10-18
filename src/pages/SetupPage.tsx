@@ -30,9 +30,10 @@ const EXERCISES = [
   { when: 'Tuesday 6 October, second exercise (16:15)', title: 'CX Claude Code and GEPA', zip: 'cx2_claude_code_gepa.zip' },
   { when: 'Wednesday 7 October, first exercise (11:15)', title: 'CX LLM from scratch', zip: 'llm_from_scratch.zip' },
   { when: 'Wednesday 7 October, second exercise (15:15)', title: 'CX SFT and LoRA', zip: 'sft_lora.zip' },
+  { when: 'Tuesday 20 October, second exercise (16:15)', title: 'CX RLHF, DPO and GRPO', zip: 'rlhf_grpo.zip', part: 'part2' },
 ];
-const downloadLine = (zip: string) =>
-  `cd ~ && curl -LO ${SITE}/exercises/part1/${zip} && unzip ${zip}`;
+const downloadLine = (zip: string, part = 'part1') =>
+  `cd ~ && curl -LO ${SITE}/exercises/${part}/${zip} && unzip ${zip}`;
 
 const INSTALL_SNIPPET = `import importlib, subprocess, sys
 for module, package in (("torchvision", "torchvision"), ("sklearn", "scikit-learn")):
@@ -191,13 +192,13 @@ export function SetupPage() {
                 <strong>{ex.when}:</strong> {ex.title}
               </p>
               <pre>
-                <code>{downloadLine(ex.zip)}</code>
+                <code>{downloadLine(ex.zip, ex.part)}</code>
               </pre>
             </div>
           ))}
           <p>
             <strong>Or download the zip from this site.</strong> Each exercise is one download,
-            &ldquo;Exercise folder&rdquo;, on the Part I page. Unzip it on your laptop, then select
+            &ldquo;Exercise folder&rdquo;, on its part&rsquo;s page. Unzip it on your laptop, then select
             the files inside the unpacked folder and drag them together into the JupyterLab file
             browser, into one folder of their own: the file browser accepts dropped files, not a
             dropped folder. Or drag the zip itself in and unpack it in the terminal with{' '}

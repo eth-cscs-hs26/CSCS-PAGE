@@ -154,6 +154,15 @@ const CX_LLM_ZIP = exercise('part1', 'llm_from_scratch.zip');
 const CX_SFT_ZIP = exercise('part1', 'sft_lora.zip');
 
 /**
+ * The Part II coding exercises, one zip each in `public/exercises/part2/`, same
+ * layout as Part I. `rlhf_grpo.zip` (Day 3, 16:15): the student notebook of
+ * `cscs-hs26/w2-cx-rlhf-grpo/` with its helpers, `build_powerful_model.py` and
+ * `syntehic_datasets/`; the solutions notebook stays out. Its chatbot
+ * checkpoint is read from `course_00776`'s scratch, not shipped in the zip.
+ */
+const CX_RLHF_GRPO_ZIP = exercise('part2', 'rlhf_grpo.zip');
+
+/**
  * The Part I lecture decks, nine PDFs in `public/slides/part1/`: unchanged
  * copies of the decks as they are projected in the room, so every click is a
  * page of its own and the page numbers run ahead of the slide number in the
@@ -381,7 +390,12 @@ export const parts: Part[] = [
           },
           coffee('15:00'),
           { time: '15:15', title: 'DPO & GRPO', type: 'lecture' },
-          { time: '16:15', title: 'Coding exercise', type: 'exercise' },
+          {
+            time: '16:15',
+            title: 'Coding exercise',
+            type: 'exercise',
+            links: [{ label: 'Exercise folder', url: CX_RLHF_GRPO_ZIP }],
+          },
           endOfDay('17:30'),
         ],
       },
@@ -443,7 +457,7 @@ export const parts: Part[] = [
         group: 'Visualizations',
       },
       { label: 'Day 3 morning exercise', url: SOON, group: 'Coding exercises' },
-      { label: 'Day 3 afternoon exercise', url: SOON, group: 'Coding exercises' },
+      { label: 'CX RLHF, DPO and GRPO (Day 3 afternoon)', url: CX_RLHF_GRPO_ZIP, group: 'Coding exercises' },
       { label: 'Day 4 morning exercise', url: SOON, group: 'Coding exercises' },
       { label: 'Day 4 afternoon exercise', url: SOON, group: 'Coding exercises' },
     ],
