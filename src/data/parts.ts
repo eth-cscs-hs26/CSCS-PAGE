@@ -186,6 +186,22 @@ const CX_PPO_CARTPOLE_NOTEBOOK = exercise('part2', 'cx_ppo_cartpole_student.ipyn
 const CX_PPO_CARTPOLE_COLAB = colab('public/exercises/part2/cx_ppo_cartpole_student.ipynb');
 
 /**
+ * The two Colab notebooks of the opening of the Part II, Day 3, 10:00 lecture "Policy gradient
+ * methods", which Carlos redid on 2026-10-17 as a series of decks, each with a notebook:
+ * "Gradient ascent" (Part 1: the grasshopper climbs a hill; participants complete `grad` and
+ * `gradient_ascent`, five lines) and "Mara's road" (Part 2: the method of the lecture on a town of
+ * fifteen places, with softmax, play days, the measured gradient of a cell and the loop; eight
+ * lines to complete since 2026-10-19). One student notebook each in `public/exercises/part2/`,
+ * copied on 2026-10-19 at Carlos's request ("publish ... as Colab notebooks, not as Jupyter
+ * notebooks to run in the cluster") from `cscs-hs26/part2-day1/pg-redo/00-gradient-ascent/notebook/`
+ * (commit 8e7dc60) and `.../01-mara-table/notebook/` (commit e7f81b0), byte for byte; the solutions
+ * notebooks stay in that private repository. They need only numpy and matplotlib, install nothing
+ * and download nothing, so each has a Colab link and no download chip and no zip.
+ */
+const CX_GRADIENT_ASCENT_COLAB = colab('public/exercises/part2/cx_gradient_ascent_student.ipynb');
+const CX_MARA_COLAB = colab('public/exercises/part2/cx_mara_student.ipynb');
+
+/**
  * The Part I lecture decks, nine PDFs in `public/slides/part1/`: unchanged
  * copies of the decks as they are projected in the room, so every click is a
  * page of its own and the page numbers run ahead of the slide number in the
@@ -399,6 +415,8 @@ export const parts: Part[] = [
             links: [
               { label: 'Nim knobs game', url: NIM_KNOBS },
               { label: "Mara's road game", url: COURIER_ROAD },
+              { label: 'Gradient ascent notebook (Colab)', url: CX_GRADIENT_ASCENT_COLAB },
+              { label: "Mara's road notebook (Colab)", url: CX_MARA_COLAB },
             ],
           },
           coffee('11:00'),
@@ -487,6 +505,8 @@ export const parts: Part[] = [
         url: MARBLE_JAR,
         group: 'Visualizations',
       },
+      { label: 'CX Gradient ascent: the grasshopper (Day 3 morning, opens in Google Colab)', url: CX_GRADIENT_ASCENT_COLAB, group: 'Coding exercises' },
+      { label: "CX Mara's road: learn the best path by playing (Day 3 morning, opens in Google Colab)", url: CX_MARA_COLAB, group: 'Coding exercises' },
       { label: 'CX PPO on CartPole (Day 3 morning, opens in Google Colab)', url: CX_PPO_CARTPOLE_COLAB, group: 'Coding exercises' },
       { label: 'CX PPO on CartPole (Day 3 morning, the notebook file)', url: CX_PPO_CARTPOLE_NOTEBOOK, group: 'Coding exercises' },
       { label: 'CX RLHF, DPO and GRPO (Day 3 afternoon)', url: CX_RLHF_GRPO_ZIP, group: 'Coding exercises' },
