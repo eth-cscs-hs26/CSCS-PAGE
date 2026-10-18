@@ -70,6 +70,9 @@ export function PartPage() {
   const next = index < parts.length - 1 ? parts[index + 1] : undefined;
 
   const hasRealResources = part.resources.some((r) => r.url !== '#');
+  // A resource that opens in Google Colab runs in the browser, so the note below tells the
+  // participant how to use it next to the Santis instructions for the zip exercises.
+  const hasColab = part.resources.some((r) => r.url.startsWith('https://colab.research.google.com/'));
   const room = partRoom(part);
   const [a, b] = part.days;
 
@@ -128,7 +131,10 @@ export function PartPage() {
           <h2>Materials</h2>
           <p className="resources__note">
             {hasRealResources
-              ? 'Slides and exercises for this part. Open each exercise folder in JupyterLab on Santis: download its zip here, or fetch it with the one-line command on the Setup page. PyTorch with SLURM submits its batch jobs from a JupyterLab terminal after source cluster-env.sh; see Setup.'
+              ? 'Slides and exercises for this part. Open each exercise folder in JupyterLab on Santis: download its zip here, or fetch it with the one-line command on the Setup page. PyTorch with SLURM submits its batch jobs from a JupyterLab terminal after source cluster-env.sh; see Setup.' +
+                (hasColab
+                  ? ' An exercise that opens in Google Colab runs in your browser with a Google account: use its Colab link, or download the notebook and upload it to Colab.'
+                  : '')
               : 'Materials for this part will be linked here once they are uploaded.'}
           </p>
           {isGrouped ? (

@@ -47,6 +47,17 @@ export const exercise = (folder: string, file: string): string =>
   `${import.meta.env.BASE_URL}exercises/${folder}/${file}`;
 
 /**
+ * A notebook of THIS repository, opened in Google Colab. Colab reads a public GitHub
+ * repository directly, so it opens the file that `public/` serves as soon as that file is
+ * on `main`, and there is no second copy to keep in step. `path` runs from the repository
+ * root, for example `public/exercises/part2/<notebook>.ipynb`. The link leaves this site,
+ * so lib/links.ts gives it no download attribute. The sibling BMAI site has the same
+ * helper for the notebooks of its own public repositories.
+ */
+export const colab = (path: string): string =>
+  `https://colab.research.google.com/github/eth-cscs-hs26/CSCS-PAGE/blob/main/${path}`;
+
+/**
  * A participant-facing HOW-TO page hosted by this site, from `public/guides/`,
  * for guides written as standalone HTML. The Santis setup guide is a page of
  * the site itself (#/setup) rather than a file, so this is spare for now.
@@ -161,6 +172,18 @@ const CX_SFT_ZIP = exercise('part1', 'sft_lora.zip');
  * checkpoint is read from `course_00776`'s scratch, not shipped in the zip.
  */
 const CX_RLHF_GRPO_ZIP = exercise('part2', 'rlhf_grpo.zip');
+
+/**
+ * The Part II, Day 3 noon exercise (12:15), "PPO on CartPole": the small version of the
+ * Lunar Lander notebook of FDD Weekend 4, with the same four tasks and nine blanks on a
+ * game with four numbers of state and two actions, so that each training run takes a minute
+ * or two. One student notebook in `public/exercises/part2/`, copied on 2026-10-18 at
+ * Carlos's request from `cscs-hs26/part2-day1/ppo-cartpole-exercise/` (commit a457b78); the
+ * solutions notebook stays in that private repository. It runs in Google Colab on a CPU
+ * runtime and installs what it needs itself, so it has a Colab link and a download and no zip.
+ */
+const CX_PPO_CARTPOLE_NOTEBOOK = exercise('part2', 'cx_ppo_cartpole_student.ipynb');
+const CX_PPO_CARTPOLE_COLAB = colab('public/exercises/part2/cx_ppo_cartpole_student.ipynb');
 
 /**
  * The Part I lecture decks, nine PDFs in `public/slides/part1/`: unchanged
@@ -380,7 +403,15 @@ export const parts: Part[] = [
           },
           coffee('11:00'),
           { time: '11:15', title: 'Policy gradient methods', type: 'lecture' },
-          { time: '12:15', title: 'Coding exercise', type: 'exercise' },
+          {
+            time: '12:15',
+            title: 'Coding exercise',
+            type: 'exercise',
+            links: [
+              { label: 'Open in Colab', url: CX_PPO_CARTPOLE_COLAB },
+              { label: 'Notebook', url: CX_PPO_CARTPOLE_NOTEBOOK },
+            ],
+          },
           lunch('13:00'),
           {
             time: '14:00',
@@ -456,7 +487,8 @@ export const parts: Part[] = [
         url: MARBLE_JAR,
         group: 'Visualizations',
       },
-      { label: 'Day 3 morning exercise', url: SOON, group: 'Coding exercises' },
+      { label: 'CX PPO on CartPole (Day 3 morning, opens in Google Colab)', url: CX_PPO_CARTPOLE_COLAB, group: 'Coding exercises' },
+      { label: 'CX PPO on CartPole (Day 3 morning, the notebook file)', url: CX_PPO_CARTPOLE_NOTEBOOK, group: 'Coding exercises' },
       { label: 'CX RLHF, DPO and GRPO (Day 3 afternoon)', url: CX_RLHF_GRPO_ZIP, group: 'Coding exercises' },
       { label: 'Day 4 morning exercise', url: SOON, group: 'Coding exercises' },
       { label: 'Day 4 afternoon exercise', url: SOON, group: 'Coding exercises' },
