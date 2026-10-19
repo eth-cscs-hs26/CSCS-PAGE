@@ -258,7 +258,7 @@ const CX_REINFORCE_COLAB = colab('public/exercises/part2/cx_reinforce_student.ip
  * `cscs-hs26`; it replaced the 177-page `inference-methods.pdf`, which he had
  * removed the same day (CLAUDE.md has the sources). The two decks of the Part II,
  * Day 3 morning are SLIDES_PG below, the two of the Day 3 afternoon SLIDES_RL and the
- * Day 4 10:15 deck SLIDES_AI; the other decks of Parts II and III are not on the site yet.
+ * Day 4 10:15 decks SLIDES_AI and SLIDES_BO; the other decks of Parts II and III are not on the site yet.
  */
 const SLIDES = {
   introSlt: deck(1, 'intro-slt-pytorch.pdf'),
@@ -313,6 +313,20 @@ const SLIDES_RL = {
  */
 const SLIDES_AI = {
   deck: deck(2, 'ai-for-science.pdf'),
+};
+
+/**
+ * The second deck of the Part II, Day 4, 10:15 hour "AI for science", `public/slides/part2/gaussians-to-bayesian-optimisation.pdf`: "From
+ * Gaussians to Bayesian optimisation", made on 2026-10-19 at Carlos's request ("merge the gaussian slides here. Package this into one slide
+ * deck and put it on the website in the section of ai for science") from his lecture on Gaussian distributions and Gaussian processes (five
+ * stages, 27 slides, ported from his FDD Weekend 1 deck) followed by the four slides "Bayesian optimisation in four slides" as Stage 6.
+ * 38 slides in 117 pages. Unlike the AI for science deck it has the click-level pages, since the Gaussian slides show their captions one at a
+ * time and a page per slide would lose them, so the number in the footer is the slide number and runs behind the page number. DRAFT.
+ * Copied unchanged on 2026-10-19 from `cscs-hs26/part2-day2/gaussian-to-bo-slides/gaussian-to-bo-slides.pdf` (md5 95df28b84c41f8359518addd32e54d23).
+ * The emoji of three slides are OpenMoji (CC BY-SA 4.0) and credited in the footers of those slides.
+ */
+const SLIDES_BO = {
+  deck: deck(2, 'gaussians-to-bayesian-optimisation.pdf'),
 };
 
 /**
@@ -593,7 +607,8 @@ export const parts: Part[] = [
             title: 'AI for science',
             type: 'lecture',
             links: [
-              { label: 'Slides', url: SLIDES_AI.deck },
+              { label: 'AI for science slides', url: SLIDES_AI.deck },
+              { label: 'Gaussians to Bayesian optimisation slides', url: SLIDES_BO.deck },
               { label: 'Marble jar game', url: MARBLE_JAR },
             ],
           },
@@ -624,6 +639,7 @@ export const parts: Part[] = [
       { label: 'DPO & GRPO', url: SLIDES_RL.dpoGrpo, group: 'Lecture slides' },
       { label: 'Multimodal AI', url: SOON, group: 'Lecture slides' },
       { label: 'AI for science', url: SLIDES_AI.deck, group: 'Lecture slides' },
+      { label: 'Gaussians to Bayesian optimisation', url: SLIDES_BO.deck, group: 'Lecture slides' },
       { label: 'Agentic workflows & what is next', url: SOON, group: 'Lecture slides' },
       {
         label: 'Intuition for diffusion in nature and in generative modelling (Day 4, multimodal AI)',
