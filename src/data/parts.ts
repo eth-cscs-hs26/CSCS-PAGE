@@ -244,8 +244,8 @@ const CX_REINFORCE_COLAB = colab('public/exercises/part2/cx_reinforce_student.ip
  * 2026-10-07 at Carlos's request from the built `kvcache-slides.pdf` of
  * `cscs-hs26`; it replaced the 177-page `inference-methods.pdf`, which he had
  * removed the same day (CLAUDE.md has the sources). The two decks of the Part II,
- * Day 3 morning are SLIDES_PG below; the other decks of Parts II and III are not on
- * the site yet.
+ * Day 3 morning are SLIDES_PG below, the two of the Day 3 afternoon SLIDES_RL and the
+ * Day 4 10:15 deck SLIDES_AI; the other decks of Parts II and III are not on the site yet.
  */
 const SLIDES = {
   introSlt: deck(1, 'intro-slt-pytorch.pdf'),
@@ -284,6 +284,19 @@ const SLIDES_PG = {
 const SLIDES_RL = {
   rlhf: deck(2, 'rlhf.pdf'),
   dpoGrpo: deck(2, 'dpo-grpo.pdf'),
+};
+
+/**
+ * The Part II, Day 4, 10:15 lecture "AI for science", `public/slides/part2/ai-for-science.pdf`: the OFFICIAL deck since 2026-10-19 (Carlos, after his
+ * eighth round of cuts: "Then publish because these are the official slides"). Seven papers (GraphCast, GenCast, Aurora, GAOT, AlphaFold 2, FunSearch,
+ * AlphaEvolve), each behind a divider, after a title page: 72 slides, one page each. Unlike the Part I decks it has no click-level pages ("make these
+ * slides only a handout only. I don't want the transitions"), so page n is slide n and the number in the footer is the page number (a divider shows none).
+ * Copied unchanged on 2026-10-19 from `cscs-hs26/part2-day2/ai-for-science-slides/ai-for-science-slides.pdf` (md5 bd8a711e5aa0cfa8db36e0f5d63bc085). The
+ * figures are credited on their slides: the papers' own figures of GenCast and GAOT (CC BY 4.0), two public-domain images of NASA and NOAA for GraphCast,
+ * and three crops of the figures of Aurora's Nature paper (CC BY-NC-ND 4.0).
+ */
+const SLIDES_AI = {
+  deck: deck(2, 'ai-for-science.pdf'),
 };
 
 /**
@@ -561,7 +574,10 @@ export const parts: Part[] = [
             time: '10:15',
             title: 'AI for science',
             type: 'lecture',
-            links: [{ label: 'Marble jar game', url: MARBLE_JAR }],
+            links: [
+              { label: 'Slides', url: SLIDES_AI.deck },
+              { label: 'Marble jar game', url: MARBLE_JAR },
+            ],
           },
           { time: '11:15', title: 'Coding exercise', type: 'exercise' },
           lunch('12:00'),
@@ -589,7 +605,7 @@ export const parts: Part[] = [
       { label: 'RLHF', url: SLIDES_RL.rlhf, group: 'Lecture slides' },
       { label: 'DPO & GRPO', url: SLIDES_RL.dpoGrpo, group: 'Lecture slides' },
       { label: 'Multimodal AI', url: SOON, group: 'Lecture slides' },
-      { label: 'AI for science', url: SOON, group: 'Lecture slides' },
+      { label: 'AI for science', url: SLIDES_AI.deck, group: 'Lecture slides' },
       { label: 'Agentic workflows & what is next', url: SOON, group: 'Lecture slides' },
       {
         label: 'Intuition for diffusion in nature and in generative modelling (Day 4, multimodal AI)',
