@@ -174,16 +174,28 @@ const CX_SFT_ZIP = exercise('part1', 'sft_lora.zip');
 const CX_RLHF_GRPO_ZIP = exercise('part2', 'rlhf_grpo.zip');
 
 /**
- * The Part II, Day 3 noon exercise (12:15), "Policy gradients: teaching a lander to land":
- * REINFORCE, a baseline, actor-critic, GAE and PPO on LunarLander-v3, in the lecture's order.
- * The student notebook of `cscs-hs26/cx-rl/` on its branch `cx-rl` (commit c9aae0c), copied on
- * 2026-10-19 at Ivan's request, with one change: its import cell downloads `util.py`, its helper
- * module, from this site when the file is not next to it, as on Colab. `util.py` itself is served
- * from `public/exercises/part2/` and is not linked. The solutions notebook stays in that private
- * repository. It replaces the CartPole PPO notebook on this row (Ivan, 2026-10-19), whose file
- * stays in `public/exercises/part2/` unlinked.
+ * The Part II, Day 3 noon exercise (12:15), "PPO on CartPole": the small version of the
+ * Lunar Lander notebook of FDD Weekend 4, with the same four tasks and nine blanks on a
+ * game with four numbers of state and two actions, so that each training run takes a minute
+ * or two. One student notebook in `public/exercises/part2/`, copied on 2026-10-18 at
+ * Carlos's request from `cscs-hs26/part2-day1/ppo-cartpole-exercise/` (commit a457b78); the
+ * solutions notebook stays in that private repository. It runs in Google Colab on a CPU
+ * runtime and installs what it needs itself, so it has a Colab link and a download and no zip.
  */
-const CX_RL_COLAB = colab('public/exercises/part2/rl_policy_gradients_student.ipynb');
+const CX_PPO_CARTPOLE_NOTEBOOK = exercise('part2', 'cx_ppo_cartpole_student.ipynb');
+const CX_PPO_CARTPOLE_COLAB = colab('public/exercises/part2/cx_ppo_cartpole_student.ipynb');
+
+/**
+ * The second exercise of the Part II, Day 3 noon slot (12:15), "Policy gradients: teaching a
+ * lander to land": REINFORCE, a baseline, actor-critic, GAE and PPO on LunarLander-v3, in the
+ * lecture's order. The student notebook and its helper module `util.py` (the notebook does
+ * `import util`, so the two must sit in the same folder), copied on 2026-10-19 at Ivan's request
+ * from `cscs-hs26/cx-rl/` on its branch `cx-rl` (commit c9aae0c), byte for byte; the solutions
+ * notebook stays in that private repository. Loose files, not a zip, as Ivan asked. Its first
+ * code cell installs what it needs (`gymnasium[box2d]` among them) with `%pip`.
+ */
+const CX_RL_NOTEBOOK = exercise('part2', 'rl_policy_gradients_student.ipynb');
+const CX_RL_UTIL = exercise('part2', 'util.py');
 
 /**
  * The two Colab notebooks of the opening of the Part II, Day 3, 10:00 lecture "Policy gradient
@@ -446,7 +458,10 @@ export const parts: Part[] = [
             title: 'Coding exercise',
             type: 'exercise',
             links: [
-              { label: 'Open in Colab', url: CX_RL_COLAB },
+              { label: 'Open in Colab', url: CX_PPO_CARTPOLE_COLAB },
+              { label: 'Notebook', url: CX_PPO_CARTPOLE_NOTEBOOK },
+              { label: 'Lunar Lander notebook', url: CX_RL_NOTEBOOK },
+              { label: 'util.py (next to the notebook)', url: CX_RL_UTIL },
             ],
           },
           lunch('13:00'),
@@ -527,7 +542,10 @@ export const parts: Part[] = [
       },
       { label: 'CX Gradient ascent: the grasshopper (Day 3 morning, opens in Google Colab)', url: CX_GRADIENT_ASCENT_COLAB, group: 'Coding exercises' },
       { label: "CX Mara's road: learn the best path by playing (Day 3 morning, opens in Google Colab)", url: CX_MARA_COLAB, group: 'Coding exercises' },
-      { label: 'CX Policy gradients on Lunar Lander (Day 3 morning, opens in Google Colab)', url: CX_RL_COLAB, group: 'Coding exercises' },
+      { label: 'CX PPO on CartPole (Day 3 morning, opens in Google Colab)', url: CX_PPO_CARTPOLE_COLAB, group: 'Coding exercises' },
+      { label: 'CX PPO on CartPole (Day 3 morning, the notebook file)', url: CX_PPO_CARTPOLE_NOTEBOOK, group: 'Coding exercises' },
+      { label: 'CX Policy gradients on Lunar Lander (Day 3 morning, the notebook file)', url: CX_RL_NOTEBOOK, group: 'Coding exercises' },
+      { label: 'CX Policy gradients on Lunar Lander: util.py, put it next to the notebook', url: CX_RL_UTIL, group: 'Coding exercises' },
       { label: 'CX RLHF, DPO and GRPO (Day 3 afternoon)', url: CX_RLHF_GRPO_ZIP, group: 'Coding exercises' },
       { label: 'Day 4 morning exercise', url: SOON, group: 'Coding exercises' },
       { label: 'Day 4 afternoon exercise', url: SOON, group: 'Coding exercises' },

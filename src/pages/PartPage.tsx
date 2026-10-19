@@ -37,7 +37,9 @@ function ResourceLink({ resource }: { resource: Resource }) {
               ? 'Notebook ↓'
               : kind === 'archive'
                 ? 'ZIP ↓'
-                : internal
+                : kind === 'script'
+                  ? 'Python ↓'
+                  : internal
                   ? '→'
                   : '↗'}
         </span>
