@@ -231,16 +231,30 @@ const SLIDES = {
 };
 
 /**
- * The two lecture decks of the Part II, Day 3 morning "Policy gradient methods", in `public/slides/part2/`: the OFFICIAL decks since
- * 2026-10-19 (Carlos: "put those parts on the website because that's now the official"). They are the click-level PDFs of
- * `cscs-hs26/part2-day1/pg-redo/official/`, copied unchanged like the Part I decks, so the page numbers run ahead of the slide number
- * in the footer. Lecture 1 (56 slides, 197 pages) is gradient ascent, Mara's road, policy gradient methods and REINFORCE, with the algebra behind REINFORCE
- * at the end. Lecture 2 (51 slides, 156 pages) is REINFORCE with a baseline, actor-critic, GAE and PPO, with the algebra behind
- * the first, second and last at the end. Each is one constant, so a session's "Slides" chip and its Materials entry carry the same URL.
+ * The two lecture decks of the Part II, Day 3 morning "Policy gradient methods", in `public/slides/part2/`, with their handouts: the OFFICIAL
+ * decks since 2026-10-19 (Carlos: "put those parts on the website because that's now the official"; on the evening of the same day: "publish the
+ * handouts on the website. They are official"). The decks are the click-level PDFs of `cscs-hs26/part2-day1/pg-redo/official/`, copied unchanged
+ * like the Part I decks, so the page numbers run ahead of the slide number in the footer; a handout is the same slides with one page each (the last
+ * click of every slide), so page n is slide n. Lecture 1 (53 slides, 185 pages) is gradient ascent, Mara's road, policy gradient methods and
+ * REINFORCE. Lecture 2 (37 slides, 104 pages) is REINFORCE with a baseline, actor-critic, TD learning, GAE and PPO. Neither has appendices any
+ * more (Carlos, 2026-10-19 evening: "Drop the appendices, keep them only for the posterity here"): they stay in the private repository. Each
+ * file is one constant, so a session's chip and its Materials entry carry the same URL.
  */
 const SLIDES_PG = {
   first: deck(2, 'policy-gradient-methods-1.pdf'),
   second: deck(2, 'policy-gradient-methods-2.pdf'),
+  firstHandout: deck(2, 'policy-gradient-methods-1-handout.pdf'),
+  secondHandout: deck(2, 'policy-gradient-methods-2-handout.pdf'),
+};
+
+/**
+ * The two decks of the Part II, Day 3 hour "RLHF, DPO and GRPO" (15:15), in `public/slides/part2/`: `rlhf.pdf` (27 slides, 114 pages) and `dpo-grpo.pdf`
+ * (52 frames, 176 pages), the click-level PDFs of `cscs-hs26/part2-day1/rlhf-dpo-grpo-slides/` as built on 2026-10-18 after Carlos's cuts and the
+ * restoration of the slides that the 16:15 notebook needs, copied unchanged on 2026-10-19 at his request ("put the slides there"). DRAFT.
+ */
+const SLIDES_RL = {
+  rlhf: deck(2, 'rlhf.pdf'),
+  dpoGrpo: deck(2, 'dpo-grpo.pdf'),
 };
 
 export const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
@@ -409,11 +423,11 @@ export const parts: Part[] = [
     id: 'part2',
     number: 2,
     title: 'Reinforcement Learning for LLMs and Advanced Topics',
-    theme: 'Policy gradients, RLHF, DPO and GRPO, then multimodal AI, AI for science and agents',
+    theme: 'Policy gradients, Monte Carlo tree search, RLHF, DPO and GRPO, then multimodal AI, AI for science and agents',
     dates: '20–21 October 2026',
     summary:
       'The first day is reinforcement learning as it is used to align language models, from the ' +
-      'policy gradient to RLHF, DPO and GRPO. The second day widens the view: multimodal models, ' +
+      'policy gradient and tree search to RLHF, DPO and GRPO. The second day widens the view: multimodal models, ' +
       'AI in the sciences, and agentic workflows.',
     days: [
       {
@@ -428,18 +442,28 @@ export const parts: Part[] = [
             topic: 'Reinforcement Learning for LLMs',
             links: [
               { label: 'Slides', url: SLIDES_PG.first },
+              { label: 'Handout', url: SLIDES_PG.firstHandout },
               { label: 'Nim knobs game', url: NIM_KNOBS },
               { label: "Mara's road game", url: COURIER_ROAD },
               { label: 'Gradient ascent notebook (Colab)', url: CX_GRADIENT_ASCENT_COLAB },
-              { label: "Mara's road notebook (Colab)", url: CX_MARA_COLAB },
             ],
           },
           coffee('11:00'),
+          // 2026-10-19 evening, Carlos: after the break a 30 minute coding exercise on the first lecture (the Mara and REINFORCE notebooks), then 30 minutes of the second.
           {
             time: '11:15',
-            title: 'Policy gradient methods',
+            title: 'Coding exercise',
+            type: 'exercise',
+            links: [{ label: "Mara's road notebook (Colab)", url: CX_MARA_COLAB }],
+          },
+          {
+            time: '11:45',
+            title: 'Policy gradient methods (continued)',
             type: 'lecture',
-            links: [{ label: 'Slides', url: SLIDES_PG.second }],
+            links: [
+              { label: 'Slides', url: SLIDES_PG.second },
+              { label: 'Handout', url: SLIDES_PG.secondHandout },
+            ],
           },
           {
             time: '12:15',
@@ -451,14 +475,23 @@ export const parts: Part[] = [
             ],
           },
           lunch('13:00'),
+          // 2026-10-19 evening, Carlos: the 14:00 lecture becomes Monte Carlo tree search, and RLHF, DPO and GRPO are one hour at 15:15.
           {
             time: '14:00',
-            title: 'RLHF',
+            title: 'Monte Carlo tree search',
             type: 'lecture',
             topic: 'Reinforcement Learning for LLMs (continued)',
           },
           coffee('15:00'),
-          { time: '15:15', title: 'DPO & GRPO', type: 'lecture' },
+          {
+            time: '15:15',
+            title: 'RLHF, DPO & GRPO',
+            type: 'lecture',
+            links: [
+              { label: 'RLHF slides', url: SLIDES_RL.rlhf },
+              { label: 'DPO & GRPO slides', url: SLIDES_RL.dpoGrpo },
+            ],
+          },
           {
             time: '16:15',
             title: 'Coding exercise',
@@ -505,9 +538,12 @@ export const parts: Part[] = [
     resources: [
       ...beforeYouStart,
       { label: 'Policy gradient methods, lecture 1: from gradient ascent to REINFORCE', url: SLIDES_PG.first, group: 'Lecture slides' },
-      { label: 'Policy gradient methods, lecture 2: baselines, actor-critic, GAE and PPO', url: SLIDES_PG.second, group: 'Lecture slides' },
-      { label: 'RLHF', url: SOON, group: 'Lecture slides' },
-      { label: 'DPO & GRPO', url: SOON, group: 'Lecture slides' },
+      { label: 'Policy gradient methods, lecture 1: handout, one page per slide', url: SLIDES_PG.firstHandout, group: 'Lecture slides' },
+      { label: 'Policy gradient methods, lecture 2: baselines, actor-critic, TD, GAE and PPO', url: SLIDES_PG.second, group: 'Lecture slides' },
+      { label: 'Policy gradient methods, lecture 2: handout, one page per slide', url: SLIDES_PG.secondHandout, group: 'Lecture slides' },
+      { label: 'Monte Carlo tree search', url: SOON, group: 'Lecture slides' },
+      { label: 'RLHF', url: SLIDES_RL.rlhf, group: 'Lecture slides' },
+      { label: 'DPO & GRPO', url: SLIDES_RL.dpoGrpo, group: 'Lecture slides' },
       { label: 'Multimodal AI', url: SOON, group: 'Lecture slides' },
       { label: 'AI for science', url: SOON, group: 'Lecture slides' },
       { label: 'Agentic workflows & what is next', url: SOON, group: 'Lecture slides' },
