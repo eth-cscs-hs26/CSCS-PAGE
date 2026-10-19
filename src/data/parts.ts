@@ -258,7 +258,7 @@ const CX_REINFORCE_COLAB = colab('public/exercises/part2/cx_reinforce_student.ip
  * `cscs-hs26`; it replaced the 177-page `inference-methods.pdf`, which he had
  * removed the same day (CLAUDE.md has the sources). The two decks of the Part II,
  * Day 3 morning are SLIDES_PG below, the two of the Day 3 afternoon SLIDES_RL and the
- * Day 4 10:15 decks SLIDES_AI and SLIDES_BO; the other decks of Parts II and III are not on the site yet.
+ * Day 4 10:15 decks SLIDES_AI and SLIDES_BO, the Day 3 14:00 lecture SLIDES_MCTS; the other decks of Parts II and III are not on the site yet.
  */
 const SLIDES = {
   introSlt: deck(1, 'intro-slt-pytorch.pdf'),
@@ -300,6 +300,23 @@ const SLIDES_PG = {
 const SLIDES_RL = {
   rlhf: deck(2, 'rlhf.pdf'),
   dpoGrpo: deck(2, 'dpo-grpo.pdf'),
+};
+
+/**
+ * The Part II, Day 3, 14:00 lecture "Planning with Monte Carlo tree search", `public/slides/part2/monte-carlo-tree-search.pdf` and its handout
+ * `monte-carlo-tree-search-handout.pdf`: FINAL since the night of 2026-10-19 (Carlos: "make this final and commit push and publish"). 61 slides: a title
+ * page, a cold open of two slides (Theseus and Ariadne), eight sections each behind a divider that shows the road of the lecture (the labyrinth story, the
+ * setting, the first version of the search, a bonus for the barely tried, growing the tree, planning again, a guess to start from, where it is used:
+ * AlphaGo and LATS) and an appendix of seven extras behind its own divider (slides 55 to 61). The deck is the click-level build, 180 pages, like the other
+ * Part II decks, so the number in the footer is the slide number and runs behind the page number; the handout is the same 61 slides with one page each (the
+ * last click of every slide), so page n is slide n. Copied unchanged on 2026-10-19 from `cscs-hs26/part2-day1/mcts-slides/` at its commit 3f63ce4 (md5
+ * b615815a07bf3c68fde14b8fe6170f76 for the deck and 7e183789b64a7e4fbd444b157f9a426d for the handout). The pictures are drawn for the deck, except the two plates of the cold open, both public domain
+ * (Virginia Frances Sterrett's plate for Hawthorne's Tanglewood Tales, 1921, and a nineteenth century drawing by Geremia Discanno of a Pompeii wall painting),
+ * credited on their slides.
+ */
+const SLIDES_MCTS = {
+  deck: deck(2, 'monte-carlo-tree-search.pdf'),
+  handout: deck(2, 'monte-carlo-tree-search-handout.pdf'),
 };
 
 /**
@@ -566,6 +583,10 @@ export const parts: Part[] = [
             title: 'Monte Carlo tree search',
             type: 'lecture',
             topic: 'Reinforcement Learning for LLMs (continued)',
+            links: [
+              { label: 'Slides', url: SLIDES_MCTS.deck },
+              { label: 'Handout', url: SLIDES_MCTS.handout },
+            ],
           },
           coffee('15:00'),
           {
@@ -634,7 +655,8 @@ export const parts: Part[] = [
       { label: 'Policy gradient methods, lecture 1: handout, one page per slide', url: SLIDES_PG.firstHandout, group: 'Lecture slides' },
       { label: 'Policy gradient methods, lecture 2: baselines, actor-critic, TD, GAE and PPO', url: SLIDES_PG.second, group: 'Lecture slides' },
       { label: 'Policy gradient methods, lecture 2: handout, one page per slide', url: SLIDES_PG.secondHandout, group: 'Lecture slides' },
-      { label: 'Monte Carlo tree search', url: SOON, group: 'Lecture slides' },
+      { label: 'Monte Carlo tree search', url: SLIDES_MCTS.deck, group: 'Lecture slides' },
+      { label: 'Monte Carlo tree search: handout, one page per slide', url: SLIDES_MCTS.handout, group: 'Lecture slides' },
       { label: 'RLHF', url: SLIDES_RL.rlhf, group: 'Lecture slides' },
       { label: 'DPO & GRPO', url: SLIDES_RL.dpoGrpo, group: 'Lecture slides' },
       { label: 'Multimodal AI', url: SOON, group: 'Lecture slides' },
