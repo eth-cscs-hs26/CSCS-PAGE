@@ -205,6 +205,18 @@ const CX_PPO_CARTPOLE_NOTEBOOK = exercise('part2', 'cx_ppo_cartpole_student.ipyn
 const CX_PPO_CARTPOLE_COLAB = colab('public/exercises/part2/cx_ppo_cartpole_student.ipynb');
 
 /**
+ * The second exercise of the Part II, Day 3 noon slot (12:15), Ivan's "Policy gradients: teaching a lander to land": REINFORCE, a baseline,
+ * actor-critic, GAE and PPO on LunarLander-v3, in the lecture's order. The student notebook and its helper module `util.py` (the notebook does
+ * `import util`) in `public/exercises/part2/`, copied from `cscs-hs26/cx-rl/` (commit c9aae0c): `util.py` byte for byte, the notebook with one
+ * change, the three lines of its import cell that download `util.py` from this site when it is missing, so that it opens in Colab. The solutions
+ * notebook stays in the private repository. Ivan first published it on 2026-10-19 (and took CartPole off the page), then reverted that; it is back
+ * beside CartPole at Carlos's word the same evening ("Ivan's lunar lander should also be there").
+ */
+const CX_RL_NOTEBOOK = exercise('part2', 'rl_policy_gradients_student.ipynb');
+const CX_RL_UTIL = exercise('part2', 'util.py');
+const CX_RL_COLAB = colab('public/exercises/part2/rl_policy_gradients_student.ipynb');
+
+/**
  * The two Colab notebooks of the opening of the Part II, Day 3, 10:00 lecture "Policy gradient
  * methods", which Carlos redid on 2026-10-17 as a series of decks, each with a notebook:
  * "Gradient ascent" (Part 1: the grasshopper climbs a hill; participants complete `grad` and
@@ -264,9 +276,11 @@ const SLIDES = {
  * decks since 2026-10-19 (Carlos: "put those parts on the website because that's now the official"; on the evening of the same day: "publish the
  * handouts on the website. They are official"). The decks are the click-level PDFs of `cscs-hs26/part2-day1/pg-redo/official/`, copied unchanged
  * like the Part I decks, so the page numbers run ahead of the slide number in the footer; a handout is the same slides with one page each (the last
- * click of every slide), so page n is slide n. Lecture 1 (53 slides, 185 pages) is gradient ascent, Mara's road, policy gradient methods and
- * REINFORCE. Lecture 2 (37 slides, 104 pages) is REINFORCE with a baseline, actor-critic, TD learning, GAE and PPO. Neither has appendices any
- * more (Carlos, 2026-10-19 evening: "Drop the appendices, keep them only for the posterity here"): they stay in the private repository. Each
+ * click of every slide), so page n is slide n. Lecture 1 (51 slides, 176 pages) is gradient ascent, Mara's road, policy gradient methods and
+ * REINFORCE, with an appendix "REINFORCE in PyTorch" (slides 46 to 51: Carlos, late on 2026-10-19, "make slide 49 till the end like an appendix and give
+ * it a title"). Lecture 2 (40 slides, 113 pages) is REINFORCE with a baseline, actor-critic, TD learning, GAE and PPO, whose PPO part ends on the complete
+ * loss with the clip (slides 38 to 40, brought back at his word the same night). Apart from lecture 1's appendix they have none (Carlos, 2026-10-19
+ * evening: "Drop the appendices, keep them only for the posterity here"): the others stay in the private repository. Each
  * file is one constant, so a session's chip and its Materials entry carry the same URL.
  */
 const SLIDES_PG = {
@@ -523,8 +537,11 @@ export const parts: Part[] = [
             title: 'Coding exercise',
             type: 'exercise',
             links: [
-              { label: 'Open in Colab', url: CX_PPO_CARTPOLE_COLAB },
-              { label: 'Notebook', url: CX_PPO_CARTPOLE_NOTEBOOK },
+              { label: 'PPO on CartPole: open in Colab', url: CX_PPO_CARTPOLE_COLAB },
+              { label: 'PPO on CartPole: notebook', url: CX_PPO_CARTPOLE_NOTEBOOK },
+              { label: 'Lunar Lander: open in Colab', url: CX_RL_COLAB },
+              { label: 'Lunar Lander: notebook', url: CX_RL_NOTEBOOK },
+              { label: 'Lunar Lander: util.py', url: CX_RL_UTIL },
             ],
           },
           lunch('13:00'),
@@ -637,6 +654,9 @@ export const parts: Part[] = [
       { label: 'CX REINFORCE: the update as the libraries write it (Day 3 morning, opens in Google Colab)', url: CX_REINFORCE_COLAB, group: 'Coding exercises' },
       { label: 'CX PPO on CartPole (Day 3 morning, opens in Google Colab)', url: CX_PPO_CARTPOLE_COLAB, group: 'Coding exercises' },
       { label: 'CX PPO on CartPole (Day 3 morning, the notebook file)', url: CX_PPO_CARTPOLE_NOTEBOOK, group: 'Coding exercises' },
+      { label: 'CX Policy gradients on Lunar Lander (Day 3 morning, opens in Google Colab)', url: CX_RL_COLAB, group: 'Coding exercises' },
+      { label: 'CX Policy gradients on Lunar Lander (Day 3 morning, the notebook file)', url: CX_RL_NOTEBOOK, group: 'Coding exercises' },
+      { label: 'CX Policy gradients on Lunar Lander: util.py (goes next to the notebook file)', url: CX_RL_UTIL, group: 'Coding exercises' },
       { label: 'CX RLHF, DPO and GRPO (Day 3 afternoon)', url: CX_RLHF_GRPO_ZIP, group: 'Coding exercises' },
       { label: 'Day 4 morning exercise', url: SOON, group: 'Coding exercises' },
       { label: 'Day 4 afternoon exercise', url: SOON, group: 'Coding exercises' },
