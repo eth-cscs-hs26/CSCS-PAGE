@@ -276,6 +276,14 @@ const SLIDES_RL = {
   dpoGrpo: deck(2, 'dpo-grpo.pdf'),
 };
 
+/**
+ * The lecture notes "Intuition for Diffusion in Nature and in Generative Modelling" (Carlos Cotrini, 9 pages, compiled with pdfTeX on
+ * 2026-03-06) for the Part II, Day 4, 09:00 lecture "Multimodal AI". One PDF in `public/notes/part2/`, copied on 2026-10-19 at Carlos's
+ * request ("Let's reuse the pdf, just put it on the website") byte for byte from `cscs-hs26/part2-day2/diffusion-notes/diffusion-notes.pdf`,
+ * whose CLAUDE.md records where it came from. Its LaTeX source was searched for and never found, so the PDF is used as it is. DRAFT.
+ */
+const NOTES_DIFFUSION = notes(2, 'diffusion-notes.pdf');
+
 export const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 
 /** "Part I", "Part II", … */
@@ -533,6 +541,7 @@ export const parts: Part[] = [
             title: 'Multimodal AI',
             type: 'lecture',
             topic: 'Advanced Topics in AI Systems and Applications',
+            links: [{ label: 'Lecture notes', url: NOTES_DIFFUSION }],
           },
           coffee('10:00'),
           {
@@ -569,6 +578,11 @@ export const parts: Part[] = [
       { label: 'Multimodal AI', url: SOON, group: 'Lecture slides' },
       { label: 'AI for science', url: SOON, group: 'Lecture slides' },
       { label: 'Agentic workflows & what is next', url: SOON, group: 'Lecture slides' },
+      {
+        label: 'Intuition for diffusion in nature and in generative modelling (Day 4, multimodal AI)',
+        url: NOTES_DIFFUSION,
+        group: 'Lecture notes',
+      },
       {
         label: 'Nim knobs: turn the knobs of a Nim player (Day 3, policy gradient methods)',
         url: NIM_KNOBS,

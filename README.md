@@ -51,6 +51,9 @@ private. Drop the file into `public/` and link it:
 - slides go to `public/slides/part<n>/`, linked with `deck(n, file)`. Put the link on the lecture
   session's `links` list as a "Slides" chip, and again in the part's `resources` under "Lecture
   slides", from one shared constant so the two cannot drift apart;
+- lecture notes (a PDF to read at home, such as `diffusion-notes.pdf`) go to `public/notes/part<n>/`,
+  linked with `notes(n, file)`. Put the link on the lecture session's `links` list as a "Lecture
+  notes" chip, and again in the part's `resources` under "Lecture notes", from one shared constant;
 - exercises go to `public/exercises/part<n>/<exercise>.zip`, one zip per exercise holding its
   folder (notebook plus helper), named like the folder on the cluster and linked with
   `exercise('part<n>', '<exercise>.zip')`, so a participant downloads once. The zip is

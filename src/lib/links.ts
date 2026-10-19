@@ -1,6 +1,6 @@
 /**
  * Material this site SERVES rather than displays: the lecture and project PDFs
- * under `public/slides/`, and the notebooks under `public/exercises/` that
+ * under `public/slides/` and `public/notes/`, and the notebooks under `public/exercises/` that
  * Colab cannot carry. Clicking one should put the file on the participant's
  * laptop, not open a browser viewer they then have to save out of.
  *
