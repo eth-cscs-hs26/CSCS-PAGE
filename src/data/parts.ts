@@ -277,9 +277,10 @@ const SLIDES = {
  * decks since 2026-10-19 (Carlos: "put those parts on the website because that's now the official"; on the evening of the same day: "publish the
  * handouts on the website. They are official"). The decks are the click-level PDFs of `cscs-hs26/part2-day1/pg-redo/official/`, copied unchanged
  * like the Part I decks, so the page numbers run ahead of the slide number in the footer; a handout is the same slides with one page each (the last
- * click of every slide), so page n is slide n. Lecture 1 (51 slides, 176 pages) is gradient ascent, Mara's road, policy gradient methods and
- * REINFORCE, with an appendix "REINFORCE in PyTorch" (slides 46 to 51: Carlos, late on 2026-10-19, "make slide 49 till the end like an appendix and give
- * it a title"). Lecture 2 (40 slides, 113 pages) is REINFORCE with a baseline, actor-critic, TD learning, GAE and PPO, whose PPO part ends on the complete
+ * click of every slide), so page n is slide n. Lecture 1 (56 slides, 188 pages) opens with the cold intro (five slides on Aristotle's Nicomachean
+ * Ethics, slides 2 to 6: Carlos, late on 2026-10-19, "I really like this cold intro, put it on the policy gradient part 1"), then is gradient ascent,
+ * Mara's road, policy gradient methods and REINFORCE, with an appendix "REINFORCE in PyTorch" (slides 51 to 56: Carlos, the same night, "make slide 49
+ * till the end like an appendix and give it a title"). Lecture 2 (40 slides, 113 pages) is REINFORCE with a baseline, actor-critic, TD learning, GAE and PPO, whose PPO part ends on the complete
  * loss with the clip (slides 38 to 40, brought back at his word the same night). Apart from lecture 1's appendix they have none (Carlos, 2026-10-19
  * evening: "Drop the appendices, keep them only for the posterity here"): the others stay in the private repository. Each
  * file is one constant, so a session's chip and its Materials entry carry the same URL.
