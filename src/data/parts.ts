@@ -37,6 +37,15 @@ export const deck = (n: number, file: string): string =>
   `${import.meta.env.BASE_URL}slides/part${n}/${file}`;
 
 /**
+ * A lecture NOTES file hosted by THIS site, from `public/notes/part<n>/`: a text to read at
+ * home, where a deck is projected in the room. Same reasoning as deck(): the course
+ * repository is private, so the PDF is served from here, and lib/links.ts gives its chip the
+ * download attribute like a deck's.
+ */
+export const notes = (n: number, file: string): string =>
+  `${import.meta.env.BASE_URL}notes/part${n}/${file}`;
+
+/**
  * An exercise file hosted by THIS site, from `public/exercises/<folder>/`: a
  * notebook, its helper `.py`, or a self-contained HTML page. The folder is
  * `part<n>` for an exercise of that part and `setup` for the trial notebook.
@@ -200,6 +209,16 @@ const CX_PPO_CARTPOLE_COLAB = colab('public/exercises/part2/cx_ppo_cartpole_stud
  */
 const CX_GRADIENT_ASCENT_COLAB = colab('public/exercises/part2/cx_gradient_ascent_student.ipynb');
 const CX_MARA_COLAB = colab('public/exercises/part2/cx_mara_student.ipynb');
+
+/**
+ * The REINFORCE notebook, "Mara's road: REINFORCE, as the libraries write it", the second notebook of the 11:15 coding exercise of Day 3 (the first is
+ * Mara's road). One student notebook in `public/exercises/part2/`, copied on the evening of 2026-10-19 at Carlos's request ("a coding exercise that
+ * includes the Mara and the REINFORCE notebook") from `cscs-hs26/part2-day1/pg-redo/02-reinforce/notebook/` (commit 04ff868), byte for byte; the solutions
+ * notebook stays in that private repository. It needs PyTorch (preinstalled in Colab), numpy and matplotlib, installs nothing and downloads nothing, so it has a
+ * Colab link and no download chip and no zip. The same commit replaced the Mara notebook above: both now keep the table of knobs with a row for each road and a
+ * column for each place, as in the slides (Carlos: "change the Mara and reinforce notebooks to one row per action").
+ */
+const CX_REINFORCE_COLAB = colab('public/exercises/part2/cx_reinforce_student.ipynb');
 
 /**
  * The Part I lecture decks, nine PDFs in `public/slides/part1/`: unchanged
@@ -454,7 +473,10 @@ export const parts: Part[] = [
             time: '11:15',
             title: 'Coding exercise',
             type: 'exercise',
-            links: [{ label: "Mara's road notebook (Colab)", url: CX_MARA_COLAB }],
+            links: [
+              { label: "Mara's road notebook (Colab)", url: CX_MARA_COLAB },
+              { label: 'REINFORCE notebook (Colab)', url: CX_REINFORCE_COLAB },
+            ],
           },
           {
             time: '11:45',
@@ -564,6 +586,7 @@ export const parts: Part[] = [
       },
       { label: 'CX Gradient ascent: the grasshopper (Day 3 morning, opens in Google Colab)', url: CX_GRADIENT_ASCENT_COLAB, group: 'Coding exercises' },
       { label: "CX Mara's road: learn the best path by playing (Day 3 morning, opens in Google Colab)", url: CX_MARA_COLAB, group: 'Coding exercises' },
+      { label: 'CX REINFORCE: the update as the libraries write it (Day 3 morning, opens in Google Colab)', url: CX_REINFORCE_COLAB, group: 'Coding exercises' },
       { label: 'CX PPO on CartPole (Day 3 morning, opens in Google Colab)', url: CX_PPO_CARTPOLE_COLAB, group: 'Coding exercises' },
       { label: 'CX PPO on CartPole (Day 3 morning, the notebook file)', url: CX_PPO_CARTPOLE_NOTEBOOK, group: 'Coding exercises' },
       { label: 'CX RLHF, DPO and GRPO (Day 3 afternoon)', url: CX_RLHF_GRPO_ZIP, group: 'Coding exercises' },
