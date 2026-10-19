@@ -29,7 +29,14 @@ function ResourceLink({ resource }: { resource: Resource }) {
         {...(internal ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
         {...(kind ? { download: '' } : {})}
       >
-        {resource.label}
+        <span className="reslink__text">
+          {resource.step !== undefined && (
+            <span className="stepno" title={`Number ${resource.step} of the exercises of its session`}>
+              {resource.step}
+            </span>
+          )}
+          {resource.label}
+        </span>
         <span className="reslink__arrow">
           {kind === 'pdf'
             ? 'PDF ↓'

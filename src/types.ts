@@ -27,6 +27,12 @@ export interface Resource {
    * first-seen order. Resources without a group render as a single flat list.
    */
   group?: string;
+  /**
+   * Optional position in a series of exercises meant to be done in order (1 for the first notebook of
+   * a coding exercise, 2 for the second, ...). Rendered as a small numbered badge before the label, on a
+   * session's chip and in the Materials list, so that participants see which one comes first.
+   */
+  step?: number;
 }
 
 export interface Day {

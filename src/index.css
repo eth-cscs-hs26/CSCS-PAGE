@@ -811,6 +811,26 @@ a.srow__title--link:hover {
   color: var(--eth-blue);
   font-weight: 400;
 }
+.reslink__text {
+  display: inline-flex;
+  align-items: center;
+}
+/* The order of a series of exercises: a numbered badge before the label of a chip or a Materials entry. */
+.stepno {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--eth-blue);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+}
 .reslink--placeholder {
   color: var(--ink-faint);
   font-weight: 400;

@@ -69,6 +69,11 @@ export function ScheduleTable({ day }: { day: Day }) {
                             rel="noopener noreferrer"
                             {...(isLinkFile ? { download: '' } : {})}
                           >
+                            {l.step !== undefined && (
+                              <span className="stepno" title={`Number ${l.step} of the exercises of this session`}>
+                                {l.step}
+                              </span>
+                            )}
                             {l.label}
                             <span className="srow__ext" aria-hidden="true">
                               {isLinkFile ? '↓' : '↗'}

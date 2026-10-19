@@ -218,7 +218,7 @@ const CX_RL_COLAB = colab('public/exercises/part2/rl_policy_gradients_student.ip
 
 /**
  * The two Colab notebooks of the opening of the Part II, Day 3, 10:00 lecture "Policy gradient
- * methods", which Carlos redid on 2026-10-17 as a series of decks, each with a notebook:
+ * methods" (the first two notebooks of the 11:15 coding exercise, numbers 1 and 2; the third is REINFORCE's), which Carlos redid on 2026-10-17 as a series of decks, each with a notebook:
  * "Gradient ascent" (Part 1: the grasshopper climbs a hill; participants complete `grad` and
  * `gradient_ascent`, five lines) and "Mara's road" (Part 2: the method of the lecture on a town of
  * fifteen places, with softmax, play days, the measured gradient of a cell and the loop; eight
@@ -227,14 +227,15 @@ const CX_RL_COLAB = colab('public/exercises/part2/rl_policy_gradients_student.ip
  * notebooks to run in the cluster") from `cscs-hs26/part2-day1/pg-redo/00-gradient-ascent/notebook/`
  * (commit 8e7dc60) and `.../01-mara-table/notebook/` (commit e7f81b0), byte for byte; the solutions
  * notebooks stay in that private repository. They need only numpy and matplotlib, install nothing
- * and download nothing, so each has a Colab link and no download chip and no zip.
+ * and download nothing, so each has a Colab link and no download chip and no zip. Until the night of 2026-10-19 the gradient ascent chip stood on
+ * the 10:00 lecture row; Carlos then asked for every Colab notebook to be in a coding exercise, numbered in the order to do them (`step` on the link).
  */
 const CX_GRADIENT_ASCENT_COLAB = colab('public/exercises/part2/cx_gradient_ascent_student.ipynb');
 const CX_MARA_COLAB = colab('public/exercises/part2/cx_mara_student.ipynb');
 
 /**
- * The REINFORCE notebook, "Mara's road: REINFORCE, as the libraries write it", the second notebook of the 11:15 coding exercise of Day 3 (the first is
- * Mara's road). One student notebook in `public/exercises/part2/`, copied on the evening of 2026-10-19 at Carlos's request ("a coding exercise that
+ * The REINFORCE notebook, "Mara's road: REINFORCE, as the libraries write it", the third notebook of the 11:15 coding exercise of Day 3 (after gradient
+ * ascent and Mara's road). One student notebook in `public/exercises/part2/`, copied on the evening of 2026-10-19 at Carlos's request ("a coding exercise that
  * includes the Mara and the REINFORCE notebook") from `cscs-hs26/part2-day1/pg-redo/02-reinforce/notebook/` (commit 04ff868), byte for byte; the solutions
  * notebook stays in that private repository. It needs PyTorch (preinstalled in Colab), numpy and matplotlib, installs nothing and downloads nothing, so it has a
  * Colab link and no download chip and no zip. The same commit replaced the Mara notebook above: both now keep the table of knobs with a row for each road and a
@@ -509,18 +510,20 @@ export const parts: Part[] = [
               { label: 'Handout', url: SLIDES_PG.firstHandout },
               { label: 'Nim knobs game', url: NIM_KNOBS },
               { label: "Mara's road game", url: COURIER_ROAD },
-              { label: 'Gradient ascent notebook (Colab)', url: CX_GRADIENT_ASCENT_COLAB },
             ],
           },
           coffee('11:00'),
           // 2026-10-19 evening, Carlos: after the break a 30 minute coding exercise on the first lecture (the Mara and REINFORCE notebooks), then 30 minutes of the second.
+          // Later that night, Carlos: every Colab notebook goes in a coding exercise, numbered in the order to do them; the gradient ascent notebook, which stood on the
+          // 10:00 row, is the first of these three.
           {
             time: '11:15',
             title: 'Coding exercise',
             type: 'exercise',
             links: [
-              { label: "Mara's road notebook (Colab)", url: CX_MARA_COLAB },
-              { label: 'REINFORCE notebook (Colab)', url: CX_REINFORCE_COLAB },
+              { label: 'Gradient ascent notebook (Colab)', url: CX_GRADIENT_ASCENT_COLAB, step: 1 },
+              { label: "Mara's road notebook (Colab)", url: CX_MARA_COLAB, step: 2 },
+              { label: 'REINFORCE notebook (Colab)', url: CX_REINFORCE_COLAB, step: 3 },
             ],
           },
           {
@@ -537,11 +540,8 @@ export const parts: Part[] = [
             title: 'Coding exercise',
             type: 'exercise',
             links: [
-              { label: 'PPO on CartPole: open in Colab', url: CX_PPO_CARTPOLE_COLAB },
-              { label: 'PPO on CartPole: notebook', url: CX_PPO_CARTPOLE_NOTEBOOK },
-              { label: 'Lunar Lander: open in Colab', url: CX_RL_COLAB },
-              { label: 'Lunar Lander: notebook', url: CX_RL_NOTEBOOK },
-              { label: 'Lunar Lander: util.py', url: CX_RL_UTIL },
+              { label: 'PPO on CartPole notebook (Colab)', url: CX_PPO_CARTPOLE_COLAB, step: 1 },
+              { label: 'Lunar Lander notebook (Colab)', url: CX_RL_COLAB, step: 2 },
             ],
           },
           lunch('13:00'),
@@ -649,14 +649,14 @@ export const parts: Part[] = [
         url: YOGURT_CUPS,
         group: 'Visualizations',
       },
-      { label: 'CX Gradient ascent: the grasshopper (Day 3 morning, opens in Google Colab)', url: CX_GRADIENT_ASCENT_COLAB, group: 'Coding exercises' },
-      { label: "CX Mara's road: learn the best path by playing (Day 3 morning, opens in Google Colab)", url: CX_MARA_COLAB, group: 'Coding exercises' },
-      { label: 'CX REINFORCE: the update as the libraries write it (Day 3 morning, opens in Google Colab)', url: CX_REINFORCE_COLAB, group: 'Coding exercises' },
-      { label: 'CX PPO on CartPole (Day 3 morning, opens in Google Colab)', url: CX_PPO_CARTPOLE_COLAB, group: 'Coding exercises' },
-      { label: 'CX PPO on CartPole (Day 3 morning, the notebook file)', url: CX_PPO_CARTPOLE_NOTEBOOK, group: 'Coding exercises' },
-      { label: 'CX Policy gradients on Lunar Lander (Day 3 morning, opens in Google Colab)', url: CX_RL_COLAB, group: 'Coding exercises' },
-      { label: 'CX Policy gradients on Lunar Lander (Day 3 morning, the notebook file)', url: CX_RL_NOTEBOOK, group: 'Coding exercises' },
-      { label: 'CX Policy gradients on Lunar Lander: util.py (goes next to the notebook file)', url: CX_RL_UTIL, group: 'Coding exercises' },
+      { label: 'CX Gradient ascent: the grasshopper (Day 3, 11:15 coding exercise, opens in Google Colab)', url: CX_GRADIENT_ASCENT_COLAB, group: 'Coding exercises', step: 1 },
+      { label: "CX Mara's road: learn the best path by playing (Day 3, 11:15 coding exercise, opens in Google Colab)", url: CX_MARA_COLAB, group: 'Coding exercises', step: 2 },
+      { label: 'CX REINFORCE: the update as the libraries write it (Day 3, 11:15 coding exercise, opens in Google Colab)', url: CX_REINFORCE_COLAB, group: 'Coding exercises', step: 3 },
+      { label: 'CX PPO on CartPole (Day 3, 12:15 coding exercise, opens in Google Colab)', url: CX_PPO_CARTPOLE_COLAB, group: 'Coding exercises', step: 1 },
+      { label: 'CX PPO on CartPole (Day 3, 12:15 coding exercise, the notebook file)', url: CX_PPO_CARTPOLE_NOTEBOOK, group: 'Coding exercises', step: 1 },
+      { label: 'CX Policy gradients on Lunar Lander (Day 3, 12:15 coding exercise, opens in Google Colab)', url: CX_RL_COLAB, group: 'Coding exercises', step: 2 },
+      { label: 'CX Policy gradients on Lunar Lander (Day 3, 12:15 coding exercise, the notebook file)', url: CX_RL_NOTEBOOK, group: 'Coding exercises', step: 2 },
+      { label: 'CX Policy gradients on Lunar Lander: util.py (goes next to the notebook file)', url: CX_RL_UTIL, group: 'Coding exercises', step: 2 },
       { label: 'CX RLHF, DPO and GRPO (Day 3 afternoon)', url: CX_RLHF_GRPO_ZIP, group: 'Coding exercises' },
       { label: 'Day 4 morning exercise', url: SOON, group: 'Coding exercises' },
       { label: 'Day 4 afternoon exercise', url: SOON, group: 'Coding exercises' },
