@@ -234,7 +234,7 @@ const SLIDES = {
  * The two lecture decks of the Part II, Day 3 morning "Policy gradient methods", in `public/slides/part2/`: the OFFICIAL decks since
  * 2026-10-19 (Carlos: "put those parts on the website because that's now the official"). They are the click-level PDFs of
  * `cscs-hs26/part2-day1/pg-redo/official/`, copied unchanged like the Part I decks, so the page numbers run ahead of the slide number
- * in the footer. Lecture 1 (47 slides, 140 pages) is gradient ascent, Mara's road and REINFORCE, with the algebra behind REINFORCE
+ * in the footer. Lecture 1 (49 slides, 146 pages) is gradient ascent, Mara's road and REINFORCE, with the algebra behind REINFORCE
  * at the end. Lecture 2 (51 slides, 156 pages) is REINFORCE with a baseline, actor-critic, GAE and PPO, with the algebra behind
  * the first, second and last at the end. Each is one constant, so a session's "Slides" chip and its Materials entry carry the same URL.
  */
