@@ -525,7 +525,7 @@ export const parts: Part[] = [
     summary:
       'The first day is reinforcement learning as it is used to align language models, from the ' +
       'policy gradient and tree search to RLHF, DPO and GRPO. The second day widens the view: multimodal models, ' +
-      'AI in the sciences, and agentic workflows.',
+      'AI in the sciences, language agent tree search and agentic workflows.',
     days: [
       {
         number: 3,
@@ -635,15 +635,16 @@ export const parts: Part[] = [
           },
           { time: '11:15', title: 'Coding exercise', type: 'exercise' },
           lunch('12:00'),
+          // 2026-10-19, Carlos: "move agentic workflows and what is next to the block of 2:15 p.m. in the afternoon, and instead at
+          // 1 p.m. you put the topic on LATS" (language agent tree search). The grid had left 14:15 blank. No LATS slides yet: SOON.
           {
             time: '13:00',
-            title: 'Agentic workflows & what is next',
+            title: 'LATS: Language Agent Tree Search',
             type: 'lecture',
             topic: 'Advanced Topics (continued)',
           },
           coffee('14:00'),
-          // The syllabus grid leaves this slot blank. OPEN until Carlos says what fills it.
-          { time: '14:15', title: '', type: 'tba' },
+          { time: '14:15', title: 'Agentic workflows & what is next', type: 'lecture' },
           { time: '15:15', title: 'Coding exercise', type: 'exercise' },
           endOfDay('16:30'),
         ],
@@ -662,6 +663,7 @@ export const parts: Part[] = [
       { label: 'Multimodal AI', url: SOON, group: 'Lecture slides' },
       { label: 'AI for science', url: SLIDES_AI.deck, group: 'Lecture slides' },
       { label: 'Gaussians to Bayesian optimisation', url: SLIDES_BO.deck, group: 'Lecture slides' },
+      { label: 'LATS: Language Agent Tree Search', url: SOON, group: 'Lecture slides' },
       { label: 'Agentic workflows & what is next', url: SOON, group: 'Lecture slides' },
       {
         label: 'Intuition for diffusion in nature and in generative modelling (Day 4, multimodal AI)',
