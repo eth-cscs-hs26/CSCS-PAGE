@@ -186,9 +186,9 @@ const CX_SFT_ZIP = exercise('part1', 'sft_lora.zip');
 /**
  * The Part II coding exercises, one zip each in `public/exercises/part2/`, same
  * layout as Part I. `rlhf_grpo.zip` (Day 3, 16:15): the student notebook of
- * `cscs-hs26/w2-cx-rlhf-grpo/` with its helpers, `build_powerful_model.py` and
- * `syntehic_datasets/`; the solutions notebook stays out. Its chatbot
- * checkpoint is read from `course_00776`'s scratch, not shipped in the zip.
+ * `cscs-hs26/w2-cx-rlhf-grpo/` with its helpers and `build_powerful_model.py`;
+ * the solutions notebook stays out. Its preference data and chatbot checkpoint
+ * are read from `course_00776`'s scratch, not shipped in the zip.
  */
 const CX_RLHF_GRPO_ZIP = exercise('part2', 'rlhf_grpo.zip');
 
