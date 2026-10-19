@@ -335,12 +335,13 @@ const SLIDES_AI = {
 /**
  * The second deck of the Part II, Day 4, 10:15 hour "AI for science", `public/slides/part2/gaussians-to-bayesian-optimisation.pdf`: "From
  * Gaussians to Bayesian optimisation", made on 2026-10-19 at Carlos's request ("merge the gaussian slides here. Package this into one slide
- * deck and put it on the website in the section of ai for science") from his lecture on Gaussian distributions and Gaussian processes (five
- * stages, 27 slides, ported from his FDD Weekend 1 deck) followed by the four slides "Bayesian optimisation in four slides" as Stage 6.
- * 38 slides in 117 pages. Unlike the AI for science deck it has the click-level pages, since the Gaussian slides show their captions one at a
- * time and a page per slide would lose them, so the number in the footer is the slide number and runs behind the page number. DRAFT.
- * Copied unchanged on 2026-10-19 from `cscs-hs26/part2-day2/gaussian-to-bo-slides/gaussian-to-bo-slides.pdf` (md5 95df28b84c41f8359518addd32e54d23).
- * The emoji of three slides are OpenMoji (CC BY-SA 4.0) and credited in the footers of those slides.
+ * deck and put it on the website in the section of ai for science") from his lecture on Gaussian distributions and Gaussian processes (four
+ * stages, 20 slides, ported from his FDD Weekend 1 deck; its fifth stage, a Gaussian process over anything, was dropped the same evening at his
+ * word "Drop stage 5") followed by the four slides "Bayesian optimisation in four slides" as Stage 5. 30 slides in 86 pages. Unlike the AI for
+ * science deck it has the click-level pages, since the Gaussian slides show their captions one at a time and a page per slide would lose them,
+ * so the number in the footer is the slide number and runs behind the page number. DRAFT. Copied unchanged on 2026-10-19 from
+ * `cscs-hs26/part2-day2/gaussian-to-bo-slides/gaussian-to-bo-slides.pdf` (md5 0f5dc6a3050b76b8075095543a6aa6bf). The 38-slide version with
+ * Stage 5 is in that folder's `full_version/`, not here.
  */
 const SLIDES_BO = {
   deck: deck(2, 'gaussians-to-bayesian-optimisation.pdf'),
