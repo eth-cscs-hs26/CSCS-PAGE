@@ -321,7 +321,7 @@ const SLIDES_RL = {
  * 5365f45 (md5 b30c3784a16bda081f627c7adf1b1364 for the deck and d93015c51fd28c07f2bd5a25c5952b5a for the handout), replacing the 60-slide build of the same
  * morning (commit 5bc0c49, md5 ba391512a6e41a8e822acbef6a6006d8 and 482ea82c0029c1504a1799447ca7c454) and, before it, the 61-slide build of 2026-10-19 (commit
  * 3f63ce4). What went since the 60-slide build: the cold open on Theseus, the Minotaur and Ariadne (with its two public domain plates, so no plate is in the
- * PDF any more), sections on replanning, on a guess to start from and on where the method is used (AlphaGo and LATS), the appendix, and eleven single slides.
+ * PDF any more), sections on replanning, on a guess to start from and on where the method is used (AlphaGo and LATS), the appendix, and twelve single slides.
  * The pictures are drawn for the deck.
  */
 const SLIDES_MCTS = {
