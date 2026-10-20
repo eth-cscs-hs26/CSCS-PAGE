@@ -234,6 +234,18 @@ const CX_MARA_COLAB = colab('public/exercises/part2/cx_mara_student.ipynb');
 const CX_REINFORCE_COLAB = colab('public/exercises/part2/cx_reinforce_student.ipynb');
 
 /**
+ * The OPTIONAL coding exercise of the Part II, Day 3 afternoon (16:15), beside the RLHF, DPO and GRPO notebook of Luca and Vassili: "Monte Carlo tree search, with no
+ * opponent". Theseus in a 6 by 6 labyrinth with two Medusas on fixed rounds; the participants build the search of the 14:00 lecture (five gaps, eight lines to write) and
+ * point it at an agent. Adapted on 2026-10-19 from the labyrinth notebook of FDD Weekend 6 and cut to the essentials the same day. One student notebook in
+ * `public/exercises/part2/`, copied on 2026-10-20 at Carlos's request ("Put the notebook in the coding exercises of the afternoon (but mark it as optional)") from
+ * `cscs-hs26/part2-day1/mcts-labyrinth-exercise/labyrinth_mcts_exercises.ipynb` (commit 91ed527, md5 0ebc8ef5b42a25da0ea4166b52482d2b), byte for byte; the solutions notebook
+ * stays in that private repository. It needs the Python standard library only (and IPython's HTML for the animation), installs nothing, downloads nothing and runs in about
+ * 15 seconds, so it has a Colab link and a download and no zip. The chip and the Materials entries carry `optional: true`, which draws the "optional" tag. DRAFT.
+ */
+const CX_MCTS_LABYRINTH_NOTEBOOK = exercise('part2', 'cx_mcts_labyrinth_student.ipynb');
+const CX_MCTS_LABYRINTH_COLAB = colab('public/exercises/part2/cx_mcts_labyrinth_student.ipynb');
+
+/**
  * The Part I lecture decks, nine PDFs in `public/slides/part1/`: unchanged
  * copies of the decks as they are projected in the room, so every click is a
  * page of its own and the page numbers run ahead of the slide number in the
@@ -285,11 +297,16 @@ const SLIDES_PG = {
 /**
  * The two decks of the Part II, Day 3 hour "RLHF, DPO and GRPO" (15:15), in `public/slides/part2/`: `rlhf.pdf` (27 slides, 114 pages) and `dpo-grpo.pdf`
  * (52 frames, 176 pages), the click-level PDFs of `cscs-hs26/part2-day1/rlhf-dpo-grpo-slides/` as built on 2026-10-18 after Carlos's cuts and the
- * restoration of the slides that the 16:15 notebook needs, copied unchanged on 2026-10-19 at his request ("put the slides there"). DRAFT.
+ * restoration of the slides that the 16:15 notebook needs, copied unchanged on 2026-10-19 at his request ("put the slides there"). DRAFT. Their handouts,
+ * `rlhf-handout.pdf` (27 pages) and `dpo-grpo-handout.pdf` (52 pages), are the same slides with one page each (the last click of every slide, so page n is
+ * slide n); added on 2026-10-20 at his request ("deliver the handout for RLHF GRPO and DPO"), copied unchanged from the handout builds of the same commit
+ * (46fdb54) as the two decks (`rlhf-slides-handout.pdf`, md5 a2966a5ccee4856d97f76e40806b5252, and `dpo-grpo-slides-handout.pdf`, md5 555925d8fa408c128911f2a901d1c01c).
  */
 const SLIDES_RL = {
   rlhf: deck(2, 'rlhf.pdf'),
   dpoGrpo: deck(2, 'dpo-grpo.pdf'),
+  rlhfHandout: deck(2, 'rlhf-handout.pdf'),
+  dpoGrpoHandout: deck(2, 'dpo-grpo-handout.pdf'),
 };
 
 /**
@@ -585,14 +602,20 @@ export const parts: Part[] = [
             type: 'lecture',
             links: [
               { label: 'RLHF slides', url: SLIDES_RL.rlhf },
+              { label: 'RLHF handout', url: SLIDES_RL.rlhfHandout },
               { label: 'DPO & GRPO slides', url: SLIDES_RL.dpoGrpo },
+              { label: 'DPO & GRPO handout', url: SLIDES_RL.dpoGrpoHandout },
             ],
           },
+          // 2026-10-20, Carlos: the labyrinth notebook of the Monte Carlo tree search lecture goes in the coding exercises of the afternoon, marked optional.
           {
             time: '16:15',
             title: 'Coding exercise',
             type: 'exercise',
-            links: [{ label: 'Exercise folder', url: CX_RLHF_GRPO_ZIP }],
+            links: [
+              { label: 'Exercise folder', url: CX_RLHF_GRPO_ZIP },
+              { label: 'Labyrinth notebook (Colab)', url: CX_MCTS_LABYRINTH_COLAB, optional: true },
+            ],
           },
           endOfDay('17:30'),
         ],
@@ -649,7 +672,9 @@ export const parts: Part[] = [
       { label: 'Monte Carlo tree search', url: SLIDES_MCTS.deck, group: 'Lecture slides' },
       { label: 'Monte Carlo tree search: handout, one page per slide', url: SLIDES_MCTS.handout, group: 'Lecture slides' },
       { label: 'RLHF', url: SLIDES_RL.rlhf, group: 'Lecture slides' },
+      { label: 'RLHF: handout, one page per slide', url: SLIDES_RL.rlhfHandout, group: 'Lecture slides' },
       { label: 'DPO & GRPO', url: SLIDES_RL.dpoGrpo, group: 'Lecture slides' },
+      { label: 'DPO & GRPO: handout, one page per slide', url: SLIDES_RL.dpoGrpoHandout, group: 'Lecture slides' },
       { label: 'Multimodal AI', url: SOON, group: 'Lecture slides' },
       { label: 'AI for science', url: SLIDES_AI.deck, group: 'Lecture slides' },
       { label: 'Gaussians to Bayesian optimisation', url: SLIDES_BO.deck, group: 'Lecture slides' },
@@ -684,6 +709,8 @@ export const parts: Part[] = [
       { label: 'CX Policy gradients on Lunar Lander (Day 3, 12:15 coding exercise, the notebook file)', url: CX_RL_NOTEBOOK, group: 'Coding exercises', step: 2 },
       { label: 'CX Policy gradients on Lunar Lander: util.py (goes next to the notebook file)', url: CX_RL_UTIL, group: 'Coding exercises', step: 2 },
       { label: 'CX RLHF, DPO and GRPO (Day 3 afternoon)', url: CX_RLHF_GRPO_ZIP, group: 'Coding exercises' },
+      { label: 'CX Monte Carlo tree search on a labyrinth (Day 3 afternoon, opens in Google Colab)', url: CX_MCTS_LABYRINTH_COLAB, group: 'Coding exercises', optional: true },
+      { label: 'CX Monte Carlo tree search on a labyrinth (Day 3 afternoon, the notebook file)', url: CX_MCTS_LABYRINTH_NOTEBOOK, group: 'Coding exercises', optional: true },
       { label: 'Day 4 morning exercise', url: SOON, group: 'Coding exercises' },
       { label: 'Day 4 afternoon exercise', url: SOON, group: 'Coding exercises' },
     ],

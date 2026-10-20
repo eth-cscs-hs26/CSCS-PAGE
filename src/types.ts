@@ -33,6 +33,11 @@ export interface Resource {
    * session's chip and in the Materials list, so that participants see which one comes first.
    */
   step?: number;
+  /**
+   * Marks an exercise that nobody has to do: a small "optional" tag after the label, on a session's chip and in the
+   * Materials list.
+   */
+  optional?: boolean;
 }
 
 export interface Day {

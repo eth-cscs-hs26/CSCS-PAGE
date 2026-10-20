@@ -36,6 +36,11 @@ function ResourceLink({ resource }: { resource: Resource }) {
             </span>
           )}
           {resource.label}
+          {resource.optional && (
+            <span className="optag" title="An optional exercise">
+              optional
+            </span>
+          )}
         </span>
         <span className="reslink__arrow">
           {kind === 'pdf'

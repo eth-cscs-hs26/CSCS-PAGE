@@ -831,6 +831,20 @@ a.srow__title--link:hover {
   font-weight: 700;
   line-height: 1;
 }
+/* An exercise nobody has to do: a small outlined "optional" tag after the label of a chip or a Materials entry. */
+.optag {
+  display: inline-block;
+  flex: none;
+  margin-left: 8px;
+  padding: 0 5px;
+  border: 1px solid currentColor;
+  color: var(--ink-faint);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.55;
+  text-transform: uppercase;
+}
 .reslink--placeholder {
   color: var(--ink-faint);
   font-weight: 400;

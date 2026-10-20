@@ -75,6 +75,11 @@ export function ScheduleTable({ day }: { day: Day }) {
                               </span>
                             )}
                             {l.label}
+                            {l.optional && (
+                              <span className="optag" title="An optional exercise">
+                                optional
+                              </span>
+                            )}
                             <span className="srow__ext" aria-hidden="true">
                               {isLinkFile ? '↓' : '↗'}
                             </span>
