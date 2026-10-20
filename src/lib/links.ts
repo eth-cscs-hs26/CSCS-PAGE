@@ -21,7 +21,9 @@ export function downloadKind(url: string): DownloadKind | null {
   // enough to go on: check the origin first, or every Colab chip claims to be
   // a download.
   if (/^[a-z][a-z0-9+.-]*:/i.test(url) || url.startsWith('//')) return null;
-  const u = url.toLowerCase();
+  // The extension is that of the path: a version tag (`deck.pdf?v=ab12cd34`, see
+  // versioned() in data/parts.ts) or a fragment follows it and must not hide it.
+  const u = url.split(/[?#]/)[0].toLowerCase();
   if (u.endsWith('.pdf')) return 'pdf';
   if (u.endsWith('.ipynb')) return 'notebook';
   if (u.endsWith('.zip')) return 'archive';

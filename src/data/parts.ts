@@ -37,6 +37,17 @@ export const deck = (n: number, file: string): string =>
   `${import.meta.env.BASE_URL}slides/part${n}/${file}`;
 
 /**
+ * A deck URL with a version tag, for a deck that is refreshed. GitHub Pages sends
+ * `cache-control: max-age=600`, so a browser that fetched a PDF in the last ten minutes keeps
+ * showing that file, and a chip that downloads it right after a refresh can hand over the
+ * previous build. The tag is part of the address the browser caches by and no part of the file
+ * name the server looks up, so a refreshed deck gets a new address and the same file path.
+ * Pass the file's md5; the first eight characters are the tag. lib/links.ts ignores the query
+ * when it decides that a link is a PDF, so the chip keeps its download attribute and its arrow.
+ */
+export const versioned = (url: string, md5: string): string => `${url}?v=${md5.slice(0, 8)}`;
+
+/**
  * A lecture NOTES file hosted by THIS site, from `public/notes/part<n>/`: a text to read at
  * home, where a deck is projected in the room. Same reasoning as deck(): the course
  * repository is private, so the PDF is served from here, and lib/links.ts gives its chip the
@@ -294,20 +305,22 @@ const SLIDES_PG = {
 
 /**
  * The two decks of the Part II, Day 3 hour "RLHF, DPO and GRPO" (15:15), in `public/slides/part2/`: `rlhf.pdf` (25 slides, 108 pages) and `dpo-grpo.pdf`
- * (46 frames, 150 pages), the click-level PDFs of `cscs-hs26/part2-day1/rlhf-dpo-grpo-slides/`. They were published on 2026-10-19 at Carlos's request ("put the
+ * (33 frames, 99 pages), the click-level PDFs of `cscs-hs26/part2-day1/rlhf-dpo-grpo-slides/`. They were published on 2026-10-19 at Carlos's request ("put the
  * slides there") as the builds of 2026-10-18 (27 slides and 52 frames) and copied again on 2026-10-20 at his request ("Publish them on the website") after his
  * cuts of that day: the RLHF deck lost its section "Results and limits" (cscs-hs26 e896cc9, md5 6d5d56e88770d8281996b22680f9f266); in the DPO & GRPO deck the
- * second half of the GRPO section is an optional section, the DeepSeek-R1 and comparison sections are gone, and so are its slides 10 and 30 (cscs-hs26 de4ee74,
- * md5 ffa5acb393cd6c00e637c51a12ae8fcb). DRAFT. Their handouts, `rlhf-handout.pdf` (25 pages) and `dpo-grpo-handout.pdf` (46 pages), are the same slides with
- * one page each (the last click of every slide, so page n is slide n); added on 2026-10-20 at his request ("deliver the handout for RLHF GRPO and DPO") and
- * copied again with the decks, from `rlhf-slides-handout.pdf` (md5 d86b99eda58a48020161a9a112fff4f9) and `dpo-grpo-slides-handout.pdf` (md5
- * 36a9ad25e3dc22da40c3076b1da38e0e) of the same two commits.
+ * second half of the GRPO section is an optional section, the DeepSeek-R1 and comparison sections are gone, and so are its slides 10 and 30 and its appendix on
+ * deriving the DPO loss (cscs-hs26 77a3af0, md5 c25b7ed71dd07897ea206edb15f448a0). DRAFT. Their handouts, `rlhf-handout.pdf` (25 pages) and `dpo-grpo-handout.pdf`
+ * (33 pages), are the same slides with one page each (the last click of every slide, so page n is slide n); added on 2026-10-20 at his request ("deliver the
+ * handout for RLHF GRPO and DPO") and copied again with the decks, from `rlhf-slides-handout.pdf` (md5 d86b99eda58a48020161a9a112fff4f9) and
+ * `dpo-grpo-slides-handout.pdf` (md5 a9c5f97869a7f2ff6d3537c1c3b8619e) of the same two commits. The four addresses carry a version tag, `versioned()` above, so
+ * that the chips and the Materials entries, which share these constants, hand over the latest build even to a browser that cached the previous one (Carlos,
+ * 2026-10-20: "I just want the latest version to appear in the website, both in the resource section and in the chips"). After a refresh, put the new md5 here.
  */
 const SLIDES_RL = {
-  rlhf: deck(2, 'rlhf.pdf'),
-  dpoGrpo: deck(2, 'dpo-grpo.pdf'),
-  rlhfHandout: deck(2, 'rlhf-handout.pdf'),
-  dpoGrpoHandout: deck(2, 'dpo-grpo-handout.pdf'),
+  rlhf: versioned(deck(2, 'rlhf.pdf'), '6d5d56e88770d8281996b22680f9f266'),
+  dpoGrpo: versioned(deck(2, 'dpo-grpo.pdf'), 'c25b7ed71dd07897ea206edb15f448a0'),
+  rlhfHandout: versioned(deck(2, 'rlhf-handout.pdf'), 'd86b99eda58a48020161a9a112fff4f9'),
+  dpoGrpoHandout: versioned(deck(2, 'dpo-grpo-handout.pdf'), 'a9c5f97869a7f2ff6d3537c1c3b8619e'),
 };
 
 /**
