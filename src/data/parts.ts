@@ -255,7 +255,7 @@ const CX_MCTS_LABYRINTH_COLAB = colab('public/exercises/part2/cx_mcts_labyrinth_
  * `cscs-hs26`; it replaced the 177-page `inference-methods.pdf`, which he had
  * removed the same day (CLAUDE.md has the sources). The two decks of the Part II,
  * Day 3 morning are SLIDES_PG below, the two of the Day 3 afternoon SLIDES_RL and the
- * Day 4 10:15 decks SLIDES_AI and SLIDES_BO, the Day 3 14:00 lecture SLIDES_MCTS, the Day 4 14:15 lecture's own deck SLIDES_AGENTIC and its survey deck SLIDES_SURVEY; the other decks of Parts II and III are not on the site yet.
+ * Day 4 10:15 decks SLIDES_AI and SLIDES_BO, the Day 3 14:00 lecture SLIDES_MCTS, the Day 4 14:15 lecture's own deck SLIDES_AGENTIC and its survey deck SLIDES_SURVEY, the Day 4 09:00 diffusion deck SLIDES_DIFFUSION; the other decks of Parts II and III are not on the site yet.
  */
 const SLIDES = {
   introSlt: deck(1, 'intro-slt-pytorch.pdf'),
@@ -405,6 +405,23 @@ const SLIDES_AGENTIC = {
  * whose CLAUDE.md records where it came from. Its LaTeX source was searched for and never found, so the PDF is used as it is. DRAFT.
  */
 const NOTES_DIFFUSION = notes(2, 'diffusion-notes.pdf');
+
+/**
+ * The diffusion part of the Part II, Day 4, 09:00 lecture "Multimodal AI", `public/slides/part2/diffusion-models.pdf` and its handout
+ * `diffusion-models-handout.pdf`: "Diffusion models", Carlos's three sketches (the forward and backward process, the training of a diffusion model and
+ * the conditional diffusion models with the prompt "cat") in the CSCS format, with a three-sentence explanation in front, a drawing of the model itself and
+ * the caption of the conditional training. Seven slides after a title slide counted as slide 1: 22 pages with the builds by clicks (so the footer number
+ * runs behind the page number, as in the Part I decks) and a handout of one page per slide, 7 pages. DRAFT. Published on 2026-10-20 at Carlos's request
+ * ("put a title slide and then publish this in the section on multimodal AI"), copied unchanged from `cscs-hs26/part2-day2/diffusion-sketches-slides/` at
+ * its commit 6c22a0e (md5 664f0ac603a51d16d0d7674f8b439772 for the deck and 9c4de937dac90f0730cb7c678e7f2630 for the handout). The pictures, a dog and a
+ * cat and their noise, are drawn for the deck, so there is no image to credit. This is the diffusion part only: the lecture's own slides (autoencoders,
+ * UNets, cross-attention) are not on the site yet, so the Materials list keeps its "Multimodal AI" placeholder. The addresses carry `versioned()`, so a
+ * refresh needs only the new md5.
+ */
+const SLIDES_DIFFUSION = {
+  deck: versioned(deck(2, 'diffusion-models.pdf'), '664f0ac603a51d16d0d7674f8b439772'),
+  handout: versioned(deck(2, 'diffusion-models-handout.pdf'), '9c4de937dac90f0730cb7c678e7f2630'),
+};
 
 export const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 
@@ -675,6 +692,8 @@ export const parts: Part[] = [
             type: 'lecture',
             topic: 'Advanced Topics in AI Systems and Applications',
             links: [
+              { label: 'Diffusion models slides', url: SLIDES_DIFFUSION.deck },
+              { label: 'Diffusion models handout', url: SLIDES_DIFFUSION.handout },
               { label: 'Yogurt cup game', url: YOGURT_CUPS },
               { label: 'Lecture notes', url: NOTES_DIFFUSION },
             ],
@@ -738,6 +757,8 @@ export const parts: Part[] = [
       { label: 'DPO & GRPO', url: SLIDES_RL.dpoGrpo, group: 'Lecture slides' },
       { label: 'DPO & GRPO: handout, one page per slide', url: SLIDES_RL.dpoGrpoHandout, group: 'Lecture slides' },
       { label: 'Multimodal AI', url: SOON, group: 'Lecture slides' },
+      { label: 'Multimodal AI: diffusion models', url: SLIDES_DIFFUSION.deck, group: 'Lecture slides' },
+      { label: 'Multimodal AI: diffusion models: handout, one page per slide', url: SLIDES_DIFFUSION.handout, group: 'Lecture slides' },
       { label: 'AI for science', url: SLIDES_AI.deck, group: 'Lecture slides' },
       { label: 'Gaussians to Bayesian optimisation', url: SLIDES_BO.deck, group: 'Lecture slides' },
       { label: 'LATS: Language Agent Tree Search', url: SLIDES_LATS.deck, group: 'Lecture slides' },
