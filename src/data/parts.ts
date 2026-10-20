@@ -372,6 +372,9 @@ const SLIDES_BO = {
   deck: deck(2, 'gaussians-to-bayesian-optimisation.pdf'),
 };
 
+const AI4SCI_EXERCISE = colab(
+  'public/exercises/part2/ai4sci_student.ipynb'
+);
 /**
  * The deck "1,580 AI Authors" for the Part II, Day 4, 14:15 lecture "Agentic workflows & what is next", `public/slides/part2/ai-researchers-survey.pdf`: what
  * AI researchers said in December 2024 about when human-level AI arrives, how good or bad they expect it to be and what they fear, from the report "Advanced AI
@@ -678,7 +681,14 @@ export const parts: Part[] = [
               { label: 'Marble jar game', url: MARBLE_JAR },
             ],
           },
-          { time: '11:15', title: 'Coding exercise', type: 'exercise' },
+          { 
+            time: '11:15', 
+            title: 'Coding exercise', 
+            type: 'exercise',   
+            links: [
+              { label: 'AI for Science notebook (Google Colab)',url: AI4SCI_EXERCISE,},
+            ], 
+          },
           lunch('12:00'),
           // 2026-10-19, Carlos: "move agentic workflows and what is next to the block of 2:15 p.m. in the afternoon, and instead at
           // 1 p.m. you put the topic on LATS" (language agent tree search). The grid had left 14:15 blank. No LATS slides yet: SOON.
