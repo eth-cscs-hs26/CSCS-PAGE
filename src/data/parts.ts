@@ -330,6 +330,17 @@ const SLIDES_MCTS = {
 };
 
 /**
+ * The Part II, Day 4, 13:00 lecture "LATS: Language Agent Tree Search", `public/slides/part2/language-agent-tree-search.pdf` and its handout
+ * `language-agent-tree-search-handout.pdf`: the FDD Weekend 6 lecture on LATS in the CSCS format, DRAFT. Copied unchanged on 2026-10-20 from
+ * `cscs-hs26/part2-day2/lats-slides/` at its commit 3166e62 (md5 9984867ca4c5b10e901ead1b216d849e for the deck, 34 pages with the builds by clicks;
+ * md5 0cf58768baecba9030602309d3fc9545 for the handout, one page per frame, eight frames). The addresses carry `versioned()`, so a refresh needs only the new md5.
+ */
+const SLIDES_LATS = {
+  deck: versioned(deck(2, 'language-agent-tree-search.pdf'), '9984867ca4c5b10e901ead1b216d849e'),
+  handout: versioned(deck(2, 'language-agent-tree-search-handout.pdf'), '0cf58768baecba9030602309d3fc9545'),
+};
+
+/**
  * The Part II, Day 4, 10:15 lecture "AI for science", `public/slides/part2/ai-for-science.pdf`: the OFFICIAL deck since 2026-10-19 (Carlos, after his
  * eighth round of cuts: "Then publish because these are the official slides"). Seven papers (GraphCast, GenCast, Aurora, GAOT, AlphaFold 2, FunSearch,
  * AlphaEvolve), each behind a divider, after a title page: 72 slides, one page each. Unlike the Part I decks it has no click-level pages ("make these
@@ -675,12 +686,16 @@ export const parts: Part[] = [
           },
           lunch('12:00'),
           // 2026-10-19, Carlos: "move agentic workflows and what is next to the block of 2:15 p.m. in the afternoon, and instead at
-          // 1 p.m. you put the topic on LATS" (language agent tree search). The grid had left 14:15 blank. No LATS slides yet: SOON.
+          // 1 p.m. you put the topic on LATS" (language agent tree search). The grid had left 14:15 blank. The slides went up on 2026-10-20 (SLIDES_LATS).
           {
             time: '13:00',
             title: 'LATS: Language Agent Tree Search',
             type: 'lecture',
             topic: 'Advanced Topics (continued)',
+            links: [
+              { label: 'Slides', url: SLIDES_LATS.deck },
+              { label: 'Handout', url: SLIDES_LATS.handout },
+            ],
           },
           coffee('14:00'),
           {
@@ -709,7 +724,8 @@ export const parts: Part[] = [
       { label: 'Multimodal AI', url: SOON, group: 'Lecture slides' },
       { label: 'AI for science', url: SLIDES_AI.deck, group: 'Lecture slides' },
       { label: 'Gaussians to Bayesian optimisation', url: SLIDES_BO.deck, group: 'Lecture slides' },
-      { label: 'LATS: Language Agent Tree Search', url: SOON, group: 'Lecture slides' },
+      { label: 'LATS: Language Agent Tree Search', url: SLIDES_LATS.deck, group: 'Lecture slides' },
+      { label: 'LATS: Language Agent Tree Search: handout, one page per slide', url: SLIDES_LATS.handout, group: 'Lecture slides' },
       { label: 'Agentic workflows & what is next', url: SOON, group: 'Lecture slides' },
       { label: 'AI researchers on the future of AI: the 2024 survey of 1,580 researchers', url: SLIDES_SURVEY.deck, group: 'Lecture slides' },
       {
