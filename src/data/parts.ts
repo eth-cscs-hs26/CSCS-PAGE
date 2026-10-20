@@ -373,7 +373,7 @@ const SLIDES_BO = {
 };
 
 const AI4SCI_EXERCISE = colab(
-  'public/exercises/part2/ai4sci_student.ipynb'
+  'public/exercises/part2/cx_ai4sci_student.ipynb'
 );
 /**
  * The deck "1,580 AI Authors" for the Part II, Day 4, 14:15 lecture "Agentic workflows & what is next", `public/slides/part2/ai-researchers-survey.pdf`: what
