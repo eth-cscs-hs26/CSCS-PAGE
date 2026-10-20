@@ -30,7 +30,8 @@ const EXERCISES = [
   { when: 'Tuesday 6 October, second exercise (16:15)', title: 'CX Claude Code and GEPA', zip: 'cx2_claude_code_gepa.zip' },
   { when: 'Wednesday 7 October, first exercise (11:15)', title: 'CX LLM from scratch', zip: 'llm_from_scratch.zip' },
   { when: 'Wednesday 7 October, second exercise (15:15)', title: 'CX SFT and LoRA', zip: 'sft_lora.zip' },
-  { when: 'Tuesday 20 October, second exercise (16:15)', title: 'CX RLHF, DPO and GRPO', zip: 'rlhf_grpo.zip', part: 'part2' },
+  { when: 'Tuesday 20 October, 12:15 exercise, notebook 2', title: 'CX Policy gradients on Lunar Lander', zip: 'rl_policy_gradients.zip', part: 'part2' },
+  { when: 'Tuesday 20 October, 16:15 exercise', title: 'CX RLHF, DPO and GRPO', zip: 'rlhf_grpo.zip', part: 'part2' },
 ];
 const downloadLine = (zip: string, part = 'part1') =>
   `cd ~ && curl -LO ${SITE}/exercises/${part}/${zip} && unzip ${zip}`;
