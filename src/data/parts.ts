@@ -197,14 +197,12 @@ const CX_PPO_CARTPOLE_COLAB = colab('public/exercises/part2/cx_ppo_cartpole_stud
 /**
  * The second exercise of the Part II, Day 3 noon slot (12:15), Ivan's "Policy gradients: teaching a lander to land": REINFORCE, a baseline,
  * actor-critic, GAE and PPO on LunarLander-v3, in the lecture's order. The student notebook and its helper module `util.py` (the notebook does
- * `import util`) in `public/exercises/part2/`, copied from `cscs-hs26/cx-rl/` (commit c9aae0c): `util.py` byte for byte, the notebook with one
- * change, the three lines of its import cell that download `util.py` from this site when it is missing, so that it opens in Colab. The solutions
+ * `import util`), copied from `cscs-hs26/cx-rl/` (commit c9aae0c), served as one zip and no longer in Colab (Ivan, 2026-10-20). The solutions
  * notebook stays in the private repository. Ivan first published it on 2026-10-19 (and took CartPole off the page), then reverted that; it is back
  * beside CartPole at Carlos's word the same evening ("Ivan's lunar lander should also be there").
  */
-const CX_RL_NOTEBOOK = exercise('part2', 'rl_policy_gradients_student.ipynb');
-const CX_RL_UTIL = exercise('part2', 'util.py');
-const CX_RL_COLAB = colab('public/exercises/part2/rl_policy_gradients_student.ipynb');
+// The folder `rl_policy_gradients/` as the zip's top-level entry.
+const CX_RL_ZIP = exercise('part2', 'rl_policy_gradients.zip');
 
 /**
  * The two Colab notebooks of the opening of the Part II, Day 3, 10:00 lecture "Policy gradient
@@ -580,7 +578,7 @@ export const parts: Part[] = [
             type: 'exercise',
             links: [
               { label: 'PPO on CartPole notebook (Colab)', url: CX_PPO_CARTPOLE_COLAB, step: 1 },
-              { label: 'Lunar Lander notebook (Colab)', url: CX_RL_COLAB, step: 2 },
+              { label: 'Lunar Lander exercise folder', url: CX_RL_ZIP, step: 2 },
             ],
           },
           lunch('13:00'),
@@ -705,9 +703,7 @@ export const parts: Part[] = [
       { label: 'CX REINFORCE: the update as the libraries write it (Day 3, 11:15 coding exercise, opens in Google Colab)', url: CX_REINFORCE_COLAB, group: 'Coding exercises', step: 3 },
       { label: 'CX PPO on CartPole (Day 3, 12:15 coding exercise, opens in Google Colab)', url: CX_PPO_CARTPOLE_COLAB, group: 'Coding exercises', step: 1 },
       { label: 'CX PPO on CartPole (Day 3, 12:15 coding exercise, the notebook file)', url: CX_PPO_CARTPOLE_NOTEBOOK, group: 'Coding exercises', step: 1 },
-      { label: 'CX Policy gradients on Lunar Lander (Day 3, 12:15 coding exercise, opens in Google Colab)', url: CX_RL_COLAB, group: 'Coding exercises', step: 2 },
-      { label: 'CX Policy gradients on Lunar Lander (Day 3, 12:15 coding exercise, the notebook file)', url: CX_RL_NOTEBOOK, group: 'Coding exercises', step: 2 },
-      { label: 'CX Policy gradients on Lunar Lander: util.py (goes next to the notebook file)', url: CX_RL_UTIL, group: 'Coding exercises', step: 2 },
+      { label: 'CX Policy gradients on Lunar Lander (Day 3, 12:15 coding exercise, the notebook and util.py in one folder)', url: CX_RL_ZIP, group: 'Coding exercises', step: 2 },
       { label: 'CX RLHF, DPO and GRPO (Day 3 afternoon)', url: CX_RLHF_GRPO_ZIP, group: 'Coding exercises' },
       { label: 'CX Monte Carlo tree search on a labyrinth (Day 3 afternoon, opens in Google Colab)', url: CX_MCTS_LABYRINTH_COLAB, group: 'Coding exercises', optional: true },
       { label: 'CX Monte Carlo tree search on a labyrinth (Day 3 afternoon, the notebook file)', url: CX_MCTS_LABYRINTH_NOTEBOOK, group: 'Coding exercises', optional: true },
