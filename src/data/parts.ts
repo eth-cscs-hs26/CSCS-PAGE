@@ -293,12 +293,15 @@ const SLIDES_PG = {
 };
 
 /**
- * The two decks of the Part II, Day 3 hour "RLHF, DPO and GRPO" (15:15), in `public/slides/part2/`: `rlhf.pdf` (27 slides, 114 pages) and `dpo-grpo.pdf`
- * (52 frames, 176 pages), the click-level PDFs of `cscs-hs26/part2-day1/rlhf-dpo-grpo-slides/` as built on 2026-10-18 after Carlos's cuts and the
- * restoration of the slides that the 16:15 notebook needs, copied unchanged on 2026-10-19 at his request ("put the slides there"). DRAFT. Their handouts,
- * `rlhf-handout.pdf` (27 pages) and `dpo-grpo-handout.pdf` (52 pages), are the same slides with one page each (the last click of every slide, so page n is
- * slide n); added on 2026-10-20 at his request ("deliver the handout for RLHF GRPO and DPO"), copied unchanged from the handout builds of the same commit
- * (46fdb54) as the two decks (`rlhf-slides-handout.pdf`, md5 a2966a5ccee4856d97f76e40806b5252, and `dpo-grpo-slides-handout.pdf`, md5 555925d8fa408c128911f2a901d1c01c).
+ * The two decks of the Part II, Day 3 hour "RLHF, DPO and GRPO" (15:15), in `public/slides/part2/`: `rlhf.pdf` (25 slides, 108 pages) and `dpo-grpo.pdf`
+ * (46 frames, 150 pages), the click-level PDFs of `cscs-hs26/part2-day1/rlhf-dpo-grpo-slides/`. They were published on 2026-10-19 at Carlos's request ("put the
+ * slides there") as the builds of 2026-10-18 (27 slides and 52 frames) and copied again on 2026-10-20 at his request ("Publish them on the website") after his
+ * cuts of that day: the RLHF deck lost its section "Results and limits" (cscs-hs26 e896cc9, md5 6d5d56e88770d8281996b22680f9f266); in the DPO & GRPO deck the
+ * second half of the GRPO section is an optional section, the DeepSeek-R1 and comparison sections are gone, and so are its slides 10 and 30 (cscs-hs26 de4ee74,
+ * md5 ffa5acb393cd6c00e637c51a12ae8fcb). DRAFT. Their handouts, `rlhf-handout.pdf` (25 pages) and `dpo-grpo-handout.pdf` (46 pages), are the same slides with
+ * one page each (the last click of every slide, so page n is slide n); added on 2026-10-20 at his request ("deliver the handout for RLHF GRPO and DPO") and
+ * copied again with the decks, from `rlhf-slides-handout.pdf` (md5 d86b99eda58a48020161a9a112fff4f9) and `dpo-grpo-slides-handout.pdf` (md5
+ * 36a9ad25e3dc22da40c3076b1da38e0e) of the same two commits.
  */
 const SLIDES_RL = {
   rlhf: deck(2, 'rlhf.pdf'),
