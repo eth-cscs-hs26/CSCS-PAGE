@@ -269,7 +269,7 @@ const CX_MCTS_LABYRINTH_COLAB = colab('public/exercises/part2/cx_mcts_labyrinth_
  * `cscs-hs26`; it replaced the 177-page `inference-methods.pdf`, which he had
  * removed the same day (CLAUDE.md has the sources). The two decks of the Part II,
  * Day 3 morning are SLIDES_PG below, the two of the Day 3 afternoon SLIDES_RL and the
- * Day 4 10:15 decks SLIDES_AI and SLIDES_BO, the Day 3 14:00 lecture SLIDES_MCTS; the other decks of Parts II and III are not on the site yet.
+ * Day 4 10:15 decks SLIDES_AI and SLIDES_BO, the Day 3 14:00 lecture SLIDES_MCTS, the Day 4 14:15 survey deck SLIDES_SURVEY; the other decks of Parts II and III are not on the site yet.
  */
 const SLIDES = {
   introSlt: deck(1, 'intro-slt-pytorch.pdf'),
@@ -370,6 +370,20 @@ const SLIDES_AI = {
  */
 const SLIDES_BO = {
   deck: deck(2, 'gaussians-to-bayesian-optimisation.pdf'),
+};
+
+/**
+ * The deck "1,580 AI Authors" for the Part II, Day 4, 14:15 lecture "Agentic workflows & what is next", `public/slides/part2/ai-researchers-survey.pdf`: what
+ * AI researchers said in December 2024 about when human-level AI arrives, how good or bad they expect it to be and what they fear, from the report "Advanced AI
+ * according to 1,580 researchers: uncertain, unsafe, and sooner than we thought" (Grace et al., AI Impacts, September 2026). Published on 2026-10-20 at Carlos's
+ * request ("Publish it on the website at 14:15"). 41 pages, one page per slide (no clicks): a title page, 29 slides in four moments with a divider before each and
+ * a closing, and six pages of appendix (the quotations with their report pages, where each date and chart comes from, the two papers). Every chart is drawn from
+ * numbers the report prints; none of the report's figures is reproduced, and the report is cited on slide 2. DRAFT: Carlos had not reviewed the deck when he asked for
+ * it to be published, and the report's PDF states no licence. Copied unchanged from `cscs-hs26/ai-researchers-survey-slides/ai-researchers-survey-2024.pdf` (commit
+ * 451cbd7, md5 c90f6aae3e8d5db813e001b4c4e2a9fa); the version tag is the first eight characters of that md5, to change when the deck is copied again.
+ */
+const SLIDES_SURVEY = {
+  deck: versioned(deck(2, 'ai-researchers-survey.pdf'), 'c90f6aae3e8d5db813e001b4c4e2a9fa'),
 };
 
 /**
@@ -675,7 +689,12 @@ export const parts: Part[] = [
             topic: 'Advanced Topics (continued)',
           },
           coffee('14:00'),
-          { time: '14:15', title: 'Agentic workflows & what is next', type: 'lecture' },
+          {
+            time: '14:15',
+            title: 'Agentic workflows & what is next',
+            type: 'lecture',
+            links: [{ label: 'AI researchers survey slides', url: SLIDES_SURVEY.deck }],
+          },
           { time: '15:15', title: 'Coding exercise', type: 'exercise' },
           endOfDay('16:30'),
         ],
@@ -698,6 +717,7 @@ export const parts: Part[] = [
       { label: 'Gaussians to Bayesian optimisation', url: SLIDES_BO.deck, group: 'Lecture slides' },
       { label: 'LATS: Language Agent Tree Search', url: SOON, group: 'Lecture slides' },
       { label: 'Agentic workflows & what is next', url: SOON, group: 'Lecture slides' },
+      { label: 'AI researchers on the future of AI: the 2024 survey of 1,580 researchers', url: SLIDES_SURVEY.deck, group: 'Lecture slides' },
       {
         label: 'Intuition for diffusion in nature and in generative modelling (Day 4, multimodal AI)',
         url: NOTES_DIFFUSION,
