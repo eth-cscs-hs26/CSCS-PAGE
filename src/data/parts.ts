@@ -686,7 +686,7 @@ export const parts: Part[] = [
             title: 'Coding exercise', 
             type: 'exercise',   
             links: [
-              { label: 'AI for Science notebook (Google Colab)',url: AI4SCI_EXERCISE,},
+              { label: 'AI for Science notebook (Colab)',url: AI4SCI_EXERCISE,},
             ], 
           },
           lunch('12:00'),
