@@ -118,21 +118,11 @@ const WUGGISH_GAME = `${viz(1, 'wuggish')}?dev=0`;
 const SQUARE_ONE = viz(1, 'square-root-show');
 
 /**
- * The Nim knobs game of the Day 3 lecture "Policy gradient methods" (10:00), from
- * `public/viz/part2/nim-knobs/`. Its source is `cscs-hs26/nim-knobs-game/`, written on
- * 2026-10-10 at Carlos's request: a table of knobs that the participant turns, its
- * column-wise softmax, the exact chance of beating a perfect Nim player, and sample
- * games whose good and bad states guide the next turn. Only index.html, css and js
- * are copied here, the folders the page loads. It makes no network request and keeps
- * only its theme and the knob table in `localStorage`.
- */
-const NIM_KNOBS = viz(2, 'nim-knobs');
-
-/**
  * Mara's road game of the Day 3 lecture "Policy gradient methods" (10:00), from
  * `public/viz/part2/courier-road/` (the folder keeps its first name). Its source is
  * `cscs-hs26/courier-road-game/`, written on 2026-10-10 at Carlos's request as the second
- * game after Nim and rebuilt on 2026-10-17 as two scenes: the story of Mara, a busker who
+ * game, after a Nim knobs game that left this site on 2026-10-20, and rebuilt on
+ * 2026-10-17 as two scenes: the story of Mara, a busker who
  * plays her fiddle in every place she reaches, and a scene where the participant walks her
  * one day down a tree of fifteen illustrated places by hand, taking the southwest or the
  * southeast road at each fork and seeing only the current place, the coins her hat received
@@ -541,7 +531,6 @@ export const parts: Part[] = [
             links: [
               { label: 'Slides', url: SLIDES_PG.first },
               { label: 'Handout', url: SLIDES_PG.firstHandout },
-              { label: 'Nim knobs game', url: NIM_KNOBS },
               { label: "Mara's road game", url: COURIER_ROAD },
             ],
           },
@@ -670,11 +659,6 @@ export const parts: Part[] = [
         label: 'Intuition for diffusion in nature and in generative modelling (Day 4, multimodal AI)',
         url: NOTES_DIFFUSION,
         group: 'Lecture notes',
-      },
-      {
-        label: 'Nim knobs: turn the knobs of a Nim player (Day 3, policy gradient methods)',
-        url: NIM_KNOBS,
-        group: 'Visualizations',
       },
       {
         label: "Mara's road: walk a busker down a mountain and fill her hat (Day 3, policy gradient methods)",
