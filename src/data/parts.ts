@@ -309,15 +309,19 @@ const SLIDES_RL = {
 
 /**
  * The Part II, Day 3, 14:00 lecture "Planning with Monte Carlo tree search", `public/slides/part2/monte-carlo-tree-search.pdf` and its handout
- * `monte-carlo-tree-search-handout.pdf`: FINAL since the night of 2026-10-19 (Carlos: "make this final and commit push and publish"). 61 slides: a title
- * page, a cold open of two slides (Theseus and Ariadne), eight sections each behind a divider that shows the road of the lecture (the labyrinth story, the
- * setting, the first version of the search, a bonus for the barely tried, growing the tree, planning again, a guess to start from, where it is used:
- * AlphaGo and LATS) and an appendix of seven extras behind its own divider (slides 55 to 61). The deck is the click-level build, 180 pages, like the other
- * Part II decks, so the number in the footer is the slide number and runs behind the page number; the handout is the same 61 slides with one page each (the
- * last click of every slide), so page n is slide n. Copied unchanged on 2026-10-19 from `cscs-hs26/part2-day1/mcts-slides/` at its commit 3f63ce4 (md5
- * b615815a07bf3c68fde14b8fe6170f76 for the deck and 7e183789b64a7e4fbd444b157f9a426d for the handout). The pictures are drawn for the deck, except the two plates of the cold open, both public domain
- * (Virginia Frances Sterrett's plate for Hawthorne's Tanglewood Tales, 1921, and a nineteenth century drawing by Geremia Discanno of a Pompeii wall painting),
- * credited on their slides.
+ * `monte-carlo-tree-search-handout.pdf`: FINAL since the night of 2026-10-19 (Carlos: "make this final and commit push and publish"), changed on the morning
+ * of 2026-10-20 at his request and copied again that day at his word ("Yes, copy the new MCTS deck and handout to the course website"). 60 slides: a title
+ * page, two slides on LATS (slides 2 and 3: what Language Agent Tree Search is, and an excerpt of its results on three tasks, as a motivation of the search; Zhou
+ * et al., ICML 2024, Tables 3, 4 and 6), a cold open of two slides (Theseus and Ariadne), eight sections each behind a divider that shows the road of the lecture
+ * (the labyrinth story, the setting, the first version of the search, a bonus for the barely tried, growing the tree, planning again, a guess to start from,
+ * where it is used: AlphaGo and LATS) and an appendix of seven extras behind its own divider (slides 54 to 60). The deck is the click-level build, 177 pages,
+ * like the other Part II decks, so the number in the footer is the slide number and runs behind the page number; the handout is the same 60 slides with one
+ * page each (the last click of every slide), so page n is slide n. Copied unchanged on 2026-10-20 from `cscs-hs26/part2-day1/mcts-slides/` at its commit
+ * 5bc0c49 (md5 ba391512a6e41a8e822acbef6a6006d8 for the deck and 482ea82c0029c1504a1799447ca7c454 for the handout), replacing the build of 2026-10-19 (61
+ * slides, commit 3f63ce4, md5 b615815a07bf3c68fde14b8fe6170f76 and 7e183789b64a7e4fbd444b157f9a426d). What changed since that build: the two LATS slides at
+ * the front; the slides "Three worlds, one loop" and "What the method needs" and the slide "How many passes" are gone; "Six passes on the toy" shows each pass
+ * as it starts. The pictures are drawn for the deck, except the two plates of the cold open, both public domain (Virginia Frances Sterrett's plate for Hawthorne's
+ * Tanglewood Tales, 1921, and a nineteenth century drawing by Geremia Discanno of a Pompeii wall painting), credited on their slides.
  */
 const SLIDES_MCTS = {
   deck: deck(2, 'monte-carlo-tree-search.pdf'),
