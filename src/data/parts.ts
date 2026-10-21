@@ -168,6 +168,12 @@ const CX_SFT_ZIP = exercise('part1', 'sft_lora.zip');
  * are read from `course_00776`'s scratch, not shipped in the zip.
  */
 const CX_RLHF_GRPO_ZIP = exercise('part2', 'rlhf_grpo.zip');
+/**
+ * `cx-agents.zip` (Day 4, 15:15, since 2026-10-21, Ghali): the folder `cx-agents/` with the student notebook of
+ * `cscs-hs26/cx-agents/` (Vasileios), `lats_intranet/` and `requirements.txt`; the solutions notebook stays out.
+ * Its model, Qwen2.5-3B-Instruct, is read from one shared copy in `course_00770`'s scratch, not shipped in the zip.
+ */
+const CX_AGENTS_ZIP = exercise('part2', 'cx-agents.zip');
 
 /**
  * The Part II, Day 3 noon exercise (12:15), "PPO on CartPole": the small version of the
@@ -753,7 +759,12 @@ export const parts: Part[] = [
               { label: 'AI researchers survey slides', url: SLIDES_SURVEY.deck },
             ],
           },
-          { time: '15:15', title: 'Coding exercise', type: 'exercise' },
+          {
+            time: '15:15',
+            title: 'Coding exercise',
+            type: 'exercise',
+            links: [{ label: 'Exercise folder', url: CX_AGENTS_ZIP }],
+          },
           endOfDay('16:30'),
         ],
       },
@@ -800,7 +811,7 @@ export const parts: Part[] = [
       { label: 'CX Monte Carlo tree search on a labyrinth (Day 3 afternoon, opens in Google Colab)', url: CX_MCTS_LABYRINTH_COLAB, group: 'Coding exercises', optional: true },
       { label: 'CX Monte Carlo tree search on a labyrinth (Day 3 afternoon, the notebook file)', url: CX_MCTS_LABYRINTH_NOTEBOOK, group: 'Coding exercises', optional: true },
       { label: 'Day 4 morning exercise', url: SOON, group: 'Coding exercises' },
-      { label: 'Day 4 afternoon exercise', url: SOON, group: 'Coding exercises' },
+      { label: 'CX Agentic workflows (Day 4 afternoon)', url: CX_AGENTS_ZIP, group: 'Coding exercises' },
     ],
   },
   {
