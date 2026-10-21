@@ -267,6 +267,12 @@ const SLIDES = {
   transformers: deck(1, 'attention-transformers.pdf'),
   sftLora: deck(1, 'sft-lora.pdf'),
   kvcache: deck(1, 'kv-cache-paged-attention.pdf'),
+  // Handouts, one page per slide (the last build step of each), added on 2026-10-21 at Carlos's request ("Make handouts also available on
+  // the website") from the handout builds of `cscs-hs26`: `gepa-slides-handout.pdf` (24 pages, md5 393fc0c90d590f649f5a6465d42a95bc, all its pages
+  // pixel-equal to pages of the published deck) and `kvcache-slides-handout.pdf` (18 pages, md5 0cc1ca6725104d1aab1883b82ae683df, cut from the
+  // same build and passed through Ghostscript, so a few pixels of a page differ). The other seven Part I decks have no handout build.
+  gepaHandout: versioned(deck(1, 'prompt-optimization-gepa-handout.pdf'), '393fc0c90d590f649f5a6465d42a95bc'),
+  kvcacheHandout: versioned(deck(1, 'kv-cache-paged-attention-handout.pdf'), '0cc1ca6725104d1aab1883b82ae683df'),
 };
 
 /**
@@ -365,10 +371,15 @@ const SLIDES_AI = {
  * science deck it has the click-level pages, since the Gaussian slides show their captions one at a time and a page per slide would lose them,
  * so the number in the footer is the slide number and runs behind the page number. DRAFT. Copied unchanged on 2026-10-19 from
  * `cscs-hs26/part2-day2/gaussian-to-bo-slides/gaussian-to-bo-slides.pdf` (md5 0f5dc6a3050b76b8075095543a6aa6bf). The 38-slide version with
- * Stage 5 is in that folder's `full_version/`, not here.
+ * Stage 5 is in that folder's `full_version/`, not here. Its handout, `gaussians-to-bayesian-optimisation-handout.pdf` (30 pages, one for each slide, the last
+ * build step; copied on 2026-10-21 from `gaussian-to-bo-slides-handout.pdf`, md5 7cc2c1d0ba583cc117e9895e033a75cf, every page pixel-equal to a page of the deck), was
+ * added at Carlos's request ("Make handouts also available on the website"). Three Gaussian slides whose captions replace one another at each click ("Fit a
+ * Gaussian process: the forecast", "So what is a Gaussian process?", "The same idea, over a map") show only the last caption there, and the second of them
+ * only the last of its three pictures.
  */
 const SLIDES_BO = {
   deck: deck(2, 'gaussians-to-bayesian-optimisation.pdf'),
+  handout: versioned(deck(2, 'gaussians-to-bayesian-optimisation-handout.pdf'), '7cc2c1d0ba583cc117e9895e033a75cf'),
 };
 
 const AI4SCI_EXERCISE = colab(
@@ -499,6 +510,7 @@ export const parts: Part[] = [
             links: [
               { label: 'OPRO slides', url: SLIDES.opro },
               { label: 'GEPA slides', url: SLIDES.gepa },
+              { label: 'GEPA handout', url: SLIDES.gepaHandout },
             ],
           },
           {
@@ -551,7 +563,10 @@ export const parts: Part[] = [
             time: '14:15',
             title: 'Inference methods',
             type: 'lecture',
-            links: [{ label: 'Slides', url: SLIDES.kvcache }],
+            links: [
+              { label: 'Slides', url: SLIDES.kvcache },
+              { label: 'Handout', url: SLIDES.kvcacheHandout },
+            ],
           },
           {
             time: '15:15',
@@ -570,10 +585,12 @@ export const parts: Part[] = [
       { label: 'Claude Code I', url: SLIDES.claudeCode, group: 'Lecture slides' },
       { label: 'Claude Code II / Prompt optimization: OPRO', url: SLIDES.opro, group: 'Lecture slides' },
       { label: 'Claude Code II / Prompt optimization: GEPA', url: SLIDES.gepa, group: 'Lecture slides' },
+      { label: 'Claude Code II / Prompt optimization: GEPA: handout, one page per slide', url: SLIDES.gepaHandout, group: 'Lecture slides' },
       { label: 'Datasets & tokenisation', url: SLIDES.tokenisation, group: 'Lecture slides' },
       { label: 'Attention and transformers', url: SLIDES.transformers, group: 'Lecture slides' },
       { label: 'SFT and LoRA', url: SLIDES.sftLora, group: 'Lecture slides' },
       { label: 'Inference methods: the KV cache and PagedAttention', url: SLIDES.kvcache, group: 'Lecture slides' },
+      { label: 'Inference methods: the KV cache and PagedAttention: handout, one page per slide', url: SLIDES.kvcacheHandout, group: 'Lecture slides' },
       {
         label: 'Square One: guess the side of a square (Day 1, intro to SLT and PyTorch)',
         url: SQUARE_ONE,
@@ -711,6 +728,7 @@ export const parts: Part[] = [
             links: [
               { label: 'AI for science slides', url: SLIDES_AI.deck },
               { label: 'Gaussians to Bayesian optimisation slides', url: SLIDES_BO.deck },
+              { label: 'Gaussians to Bayesian optimisation handout', url: SLIDES_BO.handout },
             ],
           },
           { 
@@ -766,6 +784,7 @@ export const parts: Part[] = [
       { label: 'Multimodal AI: diffusion models: handout, one page per slide', url: SLIDES_DIFFUSION.handout, group: 'Lecture slides' },
       { label: 'AI for science', url: SLIDES_AI.deck, group: 'Lecture slides' },
       { label: 'Gaussians to Bayesian optimisation', url: SLIDES_BO.deck, group: 'Lecture slides' },
+      { label: 'Gaussians to Bayesian optimisation: handout, one page per slide', url: SLIDES_BO.handout, group: 'Lecture slides' },
       { label: 'LATS: Language Agent Tree Search', url: SLIDES_LATS.deck, group: 'Lecture slides' },
       { label: 'LATS: Language Agent Tree Search: handout, one page per slide', url: SLIDES_LATS.handout, group: 'Lecture slides' },
       { label: 'Agentic workflows & what is next', url: SLIDES_AGENTIC.deck, group: 'Lecture slides' },
