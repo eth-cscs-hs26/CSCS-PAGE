@@ -342,15 +342,18 @@ const SLIDES_LATS = {
 
 /**
  * The Part II, Day 4, 10:15 lecture "AI for science", `public/slides/part2/ai-for-science.pdf`: the OFFICIAL deck since 2026-10-19 (Carlos, after his
- * eighth round of cuts: "Then publish because these are the official slides"). Seven papers (GraphCast, GenCast, Aurora, GAOT, AlphaFold 2, FunSearch,
- * AlphaEvolve), each behind a divider, after a title page: 72 slides, one page each. Unlike the Part I decks it has no click-level pages ("make these
- * slides only a handout only. I don't want the transitions"), so page n is slide n and the number in the footer is the page number (a divider shows none).
- * Copied unchanged on 2026-10-19 from `cscs-hs26/part2-day2/ai-for-science-slides/ai-for-science-slides.pdf` (md5 bd8a711e5aa0cfa8db36e0f5d63bc085). The
- * figures are credited on their slides: the papers' own figures of GenCast and GAOT (CC BY 4.0), two public-domain images of NASA and NOAA for GraphCast,
- * and three crops of the figures of Aurora's Nature paper (CC BY-NC-ND 4.0).
+ * eighth round of cuts: "Then publish because these are the official slides"), SHORTENED on 2026-10-20 by his ninth round ("We archive this. We're keeping a
+ * shorter version ...") and republished on 2026-10-21 ("Publish it with the handout"). Six papers (GraphCast 6 frames, GenCast 5, GAOT 4, AlphaFold 2 5, FunSearch 4,
+ * AlphaEvolve 8; Aurora is out), each behind a divider, after a title page: 39 slides, one page each. Unlike the Part I decks it has no click-level pages ("make these
+ * slides only a handout only. I don't want the transitions"), so page n is slide n and the number in the footer is the page number (a divider shows none); this one
+ * PDF is both the slides and the handout. Copied unchanged on 2026-10-21 from `cscs-hs26/part2-day2/ai-for-science-slides/ai-for-science-slides.pdf` at its commit
+ * 925f833 (md5 656490bcd2a0f79bb042db30cb71a7ed). The 72-slide deck it replaces (md5 bd8a711e5aa0cfa8db36e0f5d63bc085) is `full_version/ai-for-science-slides-v2-72slides.pdf` in that folder. The
+ * figures that remain are credited on their slides: the papers' own figures of GenCast and GAOT (CC BY 4.0) and two public-domain images of NASA and NOAA for
+ * GraphCast; the three crops of the figures of Aurora's Nature paper (CC BY-NC-ND 4.0) left with Aurora. The address carries `versioned()`, so a refresh needs
+ * only the new md5.
  */
 const SLIDES_AI = {
-  deck: deck(2, 'ai-for-science.pdf'),
+  deck: versioned(deck(2, 'ai-for-science.pdf'), '656490bcd2a0f79bb042db30cb71a7ed'),
 };
 
 /**
