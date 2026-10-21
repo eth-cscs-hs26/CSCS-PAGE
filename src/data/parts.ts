@@ -146,16 +146,6 @@ const SQUARE_ONE = viz(1, 'square-root-show');
 const COURIER_ROAD = viz(2, 'courier-road');
 
 /**
- * The yogurt cup game of the Day 4 lecture "Multimodal AI" (09:00), from `public/viz/part2/yogurt-cups/`. Its source is
- * `cscs-hs26/yogurt-cups-game/`, the two-laptop page of the game that Carlos's BMAI and FDD courses play before anyone says
- * the word autoencoder: the sender sees five pictures and describes them in words, the receiver finds them in a catalogue
- * and the receiver's clock is the score. Copied on 2026-10-19 at his request with one change: the flags are laid out in a
- * fresh random order for each player, so a position on the screen tells the partner nothing. Only index.html, game.css,
- * images.js and order.js are copied here, the files the page loads. It makes no network request and stores nothing. DRAFT.
- */
-const YOGURT_CUPS = viz(2, 'yogurt-cups');
-
-/**
  * The Part I coding exercises, one zip each in `public/exercises/part1/`, named
  * like the exercise's folder on the cluster
  * (`/capstor/scratch/cscs/course_00776/exercises/<exercise>/`, the copy line on
@@ -716,7 +706,6 @@ export const parts: Part[] = [
             links: [
               { label: 'Diffusion models slides', url: SLIDES_DIFFUSION.deck },
               { label: 'Diffusion models handout', url: SLIDES_DIFFUSION.handout },
-              { label: 'Yogurt cup game', url: YOGURT_CUPS },
               { label: 'Lecture notes', url: NOTES_DIFFUSION },
             ],
           },
@@ -797,11 +786,6 @@ export const parts: Part[] = [
       {
         label: "Mara's road: walk a busker down a mountain and fill her hat (Day 3, policy gradient methods)",
         url: COURIER_ROAD,
-        group: 'Visualizations',
-      },
-      {
-        label: 'Yogurt cups: invent a code with a partner, on two laptops (Day 4, multimodal AI)',
-        url: YOGURT_CUPS,
         group: 'Visualizations',
       },
       { label: 'CX Gradient ascent: the grasshopper (Day 3, 11:15 coding exercise, opens in Google Colab)', url: CX_GRADIENT_ASCENT_COLAB, group: 'Coding exercises', step: 1 },
