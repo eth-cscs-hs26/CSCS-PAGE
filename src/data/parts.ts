@@ -377,16 +377,18 @@ const AI4SCI_EXERCISE = colab(
 );
 /**
  * The deck "1,580 AI Authors" for the Part II, Day 4, 14:15 lecture "Agentic workflows & what is next", `public/slides/part2/ai-researchers-survey.pdf`: what
- * AI researchers said in December 2024 about when human-level AI arrives, how good or bad they expect it to be and what they fear, from the report "Advanced AI
- * according to 1,580 researchers: uncertain, unsafe, and sooner than we thought" (Grace et al., AI Impacts, September 2026). Published on 2026-10-20 at Carlos's
- * request ("Publish it on the website at 14:15"). 41 pages, one page per slide (no clicks): a title page, 29 slides in four moments with a divider before each and
- * a closing, and six pages of appendix (the quotations with their report pages, where each date and chart comes from, the two papers). Every chart is drawn from
- * numbers the report prints; none of the report's figures is reproduced, and the report is cited on slide 2. DRAFT: Carlos had not reviewed the deck when he asked for
- * it to be published, and the report's PDF states no licence. Copied unchanged from `cscs-hs26/ai-researchers-survey-slides/ai-researchers-survey-2024.pdf` (commit
- * 451cbd7, md5 c90f6aae3e8d5db813e001b4c4e2a9fa); the version tag is the first eight characters of that md5, to change when the deck is copied again.
+ * AI researchers said in December 2024 about when human-level AI arrives, how good or bad they expect it to be and what concerns them, from the report "Advanced AI
+ * according to 1,580 researchers" (Grace et al., AI Impacts, September 2026). Published on 2026-10-20 at Carlos's request ("Publish it on the website at 14:15") as a
+ * 41-page deck and copied again on 2026-10-21 at his word ("Yes, copy the 27-page survey deck to the course website"), after his cuts and his formal titles ("something
+ * formal, no poetry, no drama"). 27 pages, one page per slide (no clicks): a title page, an outline, four sections (automation of labor, forecast of milestones, expected
+ * outcomes and risk, concerns and safety research) with a divider before each, 17 slides in all, and five pages of appendix (the quotations with their report pages, where
+ * each date and chart comes from, the two papers). Every chart is drawn from numbers the report prints; none of the report's figures is reproduced, and the report is cited
+ * on slide 2. DRAFT: Carlos has not seen it on a projector, and the report's PDF states no licence. Copied unchanged from
+ * `cscs-hs26/ai-researchers-survey-slides/ai-researchers-survey-2024.pdf` (commit 548b8c5, md5 eb9ed43e09dc2a57db67adfb970e84fc); the version tag is the first eight
+ * characters of that md5, to change when the deck is copied again.
  */
 const SLIDES_SURVEY = {
-  deck: versioned(deck(2, 'ai-researchers-survey.pdf'), 'c90f6aae3e8d5db813e001b4c4e2a9fa'),
+  deck: versioned(deck(2, 'ai-researchers-survey.pdf'), 'eb9ed43e09dc2a57db67adfb970e84fc'),
 };
 
 /**
