@@ -413,17 +413,19 @@ const NOTES_DIFFUSION = notes(2, 'diffusion-notes.pdf');
  * The diffusion part of the Part II, Day 4, 09:00 lecture "Multimodal AI", `public/slides/part2/diffusion-models.pdf` and its handout
  * `diffusion-models-handout.pdf`: "Diffusion models", Carlos's three sketches (the forward and backward process, the training of a diffusion model and
  * the conditional diffusion models with the prompt "cat") in the CSCS format, with a three-sentence explanation in front, a drawing of the model itself and
- * the caption of the conditional training. Seven slides after a title slide counted as slide 1: 22 pages with the builds by clicks (so the footer number
- * runs behind the page number, as in the Part I decks) and a handout of one page per slide, 7 pages. DRAFT. Published on 2026-10-20 at Carlos's request
- * ("put a title slide and then publish this in the section on multimodal AI"), copied unchanged from `cscs-hs26/part2-day2/diffusion-sketches-slides/` at
- * its commit 6c22a0e (md5 664f0ac603a51d16d0d7674f8b439772 for the deck and 9c4de937dac90f0730cb7c678e7f2630 for the handout). The pictures, a dog and a
- * cat and their noise, are drawn for the deck, so there is no image to credit. This is the diffusion part only: the lecture's own slides (autoencoders,
- * UNets, cross-attention) are not on the site yet, so the Materials list keeps its "Multimodal AI" placeholder. The addresses carry `versioned()`, so a
- * refresh needs only the new md5.
+ * the caption of the conditional training. A title slide and, as slide 2, Carlos's dog slide of the BMAI diffusion deck, "Which are real? Which are fake?"
+ * (a mosaic of golden retrievers, his picture unchanged and uncredited in his deck, the source unverified), then seven slides: 23 pages with the builds by clicks
+ * (so the footer number runs behind the page number, as in the Part I decks) and a handout of one page per slide, 8 pages. DRAFT. First published on 2026-10-20 at
+ * Carlos's request ("put a title slide and then publish this in the section on multimodal AI"; 22 pages, cscs-hs26 commit 6c22a0e) and refreshed on 2026-10-21 at his
+ * request ("Bring the slide about the dogs and put it as motivation slide for the deck then publish the slides"), copied unchanged from
+ * `cscs-hs26/part2-day2/diffusion-sketches-slides/` at its commit ca3a6dd (md5 5adf4784c9f772c1ba7ce68208c9b5cb for the deck and
+ * ac782e6545d4ef6025dff64264f530d2 for the handout). The dog and cat and their noise are drawn for the deck, so there is no image to credit there; the
+ * mosaic is the one picture with no known licence. This is the diffusion part only: the lecture's own slides (autoencoders, UNets, cross-attention) are not on
+ * the site yet, so the Materials list keeps its "Multimodal AI" placeholder. The addresses carry `versioned()`, so a refresh needs only the new md5.
  */
 const SLIDES_DIFFUSION = {
-  deck: versioned(deck(2, 'diffusion-models.pdf'), '664f0ac603a51d16d0d7674f8b439772'),
-  handout: versioned(deck(2, 'diffusion-models-handout.pdf'), '9c4de937dac90f0730cb7c678e7f2630'),
+  deck: versioned(deck(2, 'diffusion-models.pdf'), '5adf4784c9f772c1ba7ce68208c9b5cb'),
+  handout: versioned(deck(2, 'diffusion-models-handout.pdf'), 'ac782e6545d4ef6025dff64264f530d2'),
 };
 
 export const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
