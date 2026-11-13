@@ -5,6 +5,7 @@ import { HomePage } from './pages/HomePage';
 import { PartPage } from './pages/PartPage';
 import { CalendarPage } from './pages/CalendarPage';
 import { SetupPage } from './pages/SetupPage';
+import { OnYourOwnPage } from './pages/OnYourOwnPage';
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/part/:id" element={<PartPage />} />
           <Route path="/setup" element={<SetupPage />} />
+          <Route path="/on-your-own" element={<OnYourOwnPage />} />
           <Route path="/calendar" element={<CalendarPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

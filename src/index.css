@@ -1280,3 +1280,36 @@ a.srow__title--link:hover {
 .guide .notice .btn {
   margin-top: 14px;
 }
+/* The exercise list of the "On your own" page: a smaller heading per part, one block per exercise. */
+.guide h2.guide__part {
+  font-size: 1.1rem;
+  margin-top: 36px;
+}
+.guide__ex {
+  margin: 26px 0 0;
+}
+.guide__when {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--eth-blue-dark);
+  margin: 0;
+}
+.guide h3 {
+  font-size: 1.05rem;
+  margin: 4px 0 8px;
+}
+.guide__tag {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 1px 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  vertical-align: middle;
+  color: var(--eth-petrol);
+  border: 1px solid var(--eth-petrol);
+}
+.guide__links {
+  font-size: 0.9rem;
+}

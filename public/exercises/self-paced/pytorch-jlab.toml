@@ -1,0 +1,26 @@
+image = "/capstor/store/cscs/cscs/jupyter/pytorch/pt-26.05-py3-jlab.sqsh"
+
+mounts = [
+    "/capstor",
+    "/iopsstor",
+    "/users/${USER}",
+    "/etc/slurm",
+    "/usr/lib64/libslurm-uenv-mount.so",
+    "/etc/container_engine_pyxis.conf",
+    "/usr/lib64/libjson-c.so.5.2.0:/usr/lib64/libjson-c.so.5",
+    "/usr/lib64/libjson-c.so.5.2.0:/usr/lib/aarch64-linux-gnu/libjson-c.so.5"
+]
+
+workdir = "/users/${USER}"
+
+writable = true
+
+[annotations]
+com.hooks.aws_ofi_nccl.enabled = "true"
+com.hooks.aws_ofi_nccl.variant = "cuda12"
+
+[env]
+CUDA_CACHE_DISABLE = "1"
+TORCH_NCCL_ASYNC_ERROR_HANDLING = "1"
+MPICH_GPU_SUPPORT_ENABLED = "0"
+HF_HOME = "/capstor/scratch/cscs/${USER}/hf_cache"

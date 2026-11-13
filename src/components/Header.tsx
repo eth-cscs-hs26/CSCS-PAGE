@@ -17,6 +17,9 @@ export function Header() {
           <NavLink to="/setup" className="site-nav__link">
             Setup
           </NavLink>
+          <NavLink to="/on-your-own" className="site-nav__link">
+            On your own
+          </NavLink>
           <NavLink to="/calendar" className="site-nav__link">
             Calendar
           </NavLink>
